@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cf413mpfewd2c" path="res://assets/BG_space.png" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://brb5evee7ce8x" path="res://player.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dy7wlhvqjbkfh" path="res://ennemy.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://projectile.tscn" id="4_aqk2v"]
 
 [node name="World" type="Node2D" unique_id=2114406119]
@@ -12,3 +13,27 @@ texture = ExtResource("1_fj7yv")
 [node name="Player" parent="." unique_id=1839239569 instance=ExtResource("2_tlwt5")]
 
 [node name="Projectile" parent="." unique_id=154329058 instance=ExtResource("4_aqk2v")]
+
+[node name="Ennemy" parent="." unique_id=1476115989 instance=ExtResource("4_036b0")]
+position = Vector2(294, 6)
+
+[node name="Ennemy2" parent="." unique_id=14625256 instance=ExtResource("4_036b0")]
+position = Vector2(218, 157)
+
+[node name="Ennemy3" parent="." unique_id=174920418 instance=ExtResource("4_036b0")]
+position = Vector2(289, 176)
+
+[node name="Ennemy4" parent="." unique_id=1882735152 instance=ExtResource("4_036b0")]
+position = Vector2(-237, 47)
+
+[node name="Ennemy5" parent="." unique_id=1629830837 instance=ExtResource("4_036b0")]
+position = Vector2(-228, -63)
+
+[node name="Ennemy6" parent="." unique_id=326649991 instance=ExtResource("4_036b0")]
+position = Vector2(-108, 165)
+
+[node name="Ennemy7" parent="." unique_id=563286701 instance=ExtResource("4_036b0")]
+position = Vector2(164, -100)
+
+[node name="Ennemy8" parent="." unique_id=1560476121 instance=ExtResource("4_036b0")]
+position = Vector2(164, -100)

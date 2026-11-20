@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="2_f3frg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 17.029387
+radius = 9.055386
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
-radius = 26.0
-height = 74.0
+radius = 16.0
+height = 40.0
 
 [node name="Ennemy" type="CharacterBody2D" unique_id=1476115989 node_paths=PackedStringArray("hitbox")]
 collision_layer = 4
@@ -17,7 +17,7 @@ script = ExtResource("1_8dqw5")
 hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617232152]
-scale = Vector2(0.37419352, 0.35)
+scale = Vector2(0.2, 0.187)
 texture = ExtResource("2_f3frg")
 
 [node name="PhysicCollision" type="CollisionShape2D" parent="." unique_id=1599400034]
