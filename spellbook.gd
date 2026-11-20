@@ -4,7 +4,22 @@ class_name SpellBook
 @export var spell_list : Array[Spell]
 var current_spell_index : int = 0
 
+func _ready() -> void:
+	start_match()
+
+func start_match():
+	self.current_spell_index = 0
+	for spell in spell_list:
+		spell.start_match()
+	spell_list[0].switch_on()
+
+func end_match():
+	for spell in spell_list:
+		spell.end_match()
+
+
 func go_to_page(index : int):
+	print("went to " + str(index))
 	spell_list[current_spell_index].switch_off()
 	self.current_spell_index = index
 	spell_list[current_spell_index].switch_on()

@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://biparjwv3me4v" path="res://world.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="2_feb5d"]
 [ext_resource type="Shader" uid="uid://8r8ivqwga4sn" path="res://sfsdf.gdshader" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
+[ext_resource type="Script" uid="uid://bi0pbjqop367v" path="res://spells/Spell1.gd" id="5_eow3j"]
+[ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/Spell2.gd" id="6_j5wjh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -28,3 +31,18 @@ texture = ExtResource("2_feb5d")
 material = SubResource("ShaderMaterial_fj7yv")
 position = Vector2(1236, 528)
 texture = SubResource("ViewportTexture_tlwt5")
+
+[node name="SpellBook" parent="." unique_id=945037119 node_paths=PackedStringArray("spell_list") instance=ExtResource("4_ryrav")]
+spell_list = [NodePath("Node2D"), NodePath("Node2D2")]
+
+[node name="Node2D" type="Node2D" parent="SpellBook" unique_id=627465396 node_paths=PackedStringArray("timer")]
+script = ExtResource("5_eow3j")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="SpellBook/Node2D" unique_id=1840030722]
+
+[node name="Node2D2" type="Node2D" parent="SpellBook" unique_id=1761752727 node_paths=PackedStringArray("timer")]
+script = ExtResource("6_j5wjh")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="SpellBook/Node2D2" unique_id=1760428060]
