@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var player : CharacterBody2D
+var player : Player
 var projectile_spawner : ProjectileSpawner
 
 func _ready() -> void:
