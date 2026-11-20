@@ -24,9 +24,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			var tween := create_tween()
 			$boughtSticker.scale = Vector2(0.6,0.6)
 			$boughtSticker.self_modulate.a = 0
+			$StompAudioPlayer.play()
 			tween.tween_property($boughtSticker, "self_modulate", Color.WHITE, 0.1)
 			tween.parallel().tween_property($boughtSticker, "scale", Vector2(0.15, 0.15), 0.2)
-			$AudioStreamPlayer2D.play()
+			tween.tween_callback($CoinTossAudioPlayer.play)
 			MainSingleton.coinLetter -= price
 			bought = true
 		else:
