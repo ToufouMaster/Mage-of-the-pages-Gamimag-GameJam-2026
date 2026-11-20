@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cveiqbhphtikj"]
+
+[ext_resource type="PackedScene" uid="uid://biparjwv3me4v" path="res://world.tscn" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="2_feb5d"]
+[ext_resource type="Shader" uid="uid://8r8ivqwga4sn" path="res://sfsdf.gdshader" id="3_feb5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
+shader = ExtResource("3_feb5d")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tlwt5"]
+viewport_path = NodePath("WorldViewport")
+
+[node name="Node2D" type="Node2D" unique_id=1987371302]
+
+[node name="WorldViewport" type="SubViewport" parent="." unique_id=484838408]
+transparent_bg = true
+size = Vector2i(1000, 800)
+
+[node name="World" parent="WorldViewport" unique_id=2114406119 instance=ExtResource("1_e2o6t")]
+position = Vector2(0, -6)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1967891419]
+position = Vector2(954.1699, 542)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_feb5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052677504]
+material = SubResource("ShaderMaterial_fj7yv")
+position = Vector2(1236, 528)
+texture = SubResource("ViewportTexture_tlwt5")

@@ -1,0 +1,52 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cvhixolikhyot"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_63flq"]
+output_port_for_preview = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_p0yrp"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDistance" id="VisualShaderNodeVectorDistance_0a7nb"]
+output_port_for_preview = 0
+default_input_values = [0, Vector2(0.5, 0.5), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_a6vwq"]
+output_port_for_preview = 0
+function = 31
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_dcnoy"]
+default_input_values = [0, 0.0, 1, 2.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_41rid"]
+output_port_for_preview = 0
+default_input_values = [0, 0.0, 1, 0.9]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_5l4dy"]
+output_port_for_preview = 0
+default_input_values = [0, 0.0, 1, 0.9]
+operator = 1
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_p0yrp")
+nodes/fragment/2/position = Vector2(-1220, 560)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorDistance_0a7nb")
+nodes/fragment/3/position = Vector2(-380, 500)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatFunc_a6vwq")
+nodes/fragment/4/position = Vector2(40, 440)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_dcnoy")
+nodes/fragment/5/position = Vector2(-180, 480)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatOp_41rid")
+nodes/fragment/7/position = Vector2(-360, 900)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_5l4dy")
+nodes/fragment/8/position = Vector2(-360, 1220)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatOp_63flq")
+nodes/fragment/10/position = Vector2(-60, 1280)
+nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 5, 0, 4, 0, 2, 0, 3, 1, 2, 1, 7, 0, 2, 2, 8, 0, 7, 0, 10, 0, 8, 0, 10, 1, 10, 0, 0, 1)
