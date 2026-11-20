@@ -26,7 +26,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1764725954]
 collision_layer = 8
-collision_mask = 10
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022231935]
 shape = SubResource("CapsuleShape2D_g4v7s")

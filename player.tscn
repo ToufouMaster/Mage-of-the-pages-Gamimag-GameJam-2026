@@ -7,8 +7,11 @@
 radius = 5.0
 height = 20.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1839239569]
+[node name="Player" type="CharacterBody2D" unique_id=1839239569 node_paths=PackedStringArray("health_bar")]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_onrkg")
+health_bar = NodePath("HealthBar")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=787673499]
 scale = Vector2(0.05, 0.05)
@@ -23,3 +26,12 @@ limit_enabled = false
 position = Vector2(0, 3)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_uvynu")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1758083671]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -16.0
+offset_top = -15.0
+offset_right = 16.0
+offset_bottom = -11.0
+value = 100.0
+show_percentage = false
