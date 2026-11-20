@@ -30,7 +30,7 @@ func switch_on():
 	#will simply not cast spell and keep spell_passively_ready true
 	if spell_passively_ready:
 		_on_cooldown_end()
-	#if is still selected after the one second, we restart the timer
+	#if is still selected after the one second, we resume the timer
 	if is_selected:
 		timer.paused = false
 	
