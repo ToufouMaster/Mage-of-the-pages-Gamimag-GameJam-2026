@@ -7,6 +7,12 @@ var current_spell_index : int = 0
 func _ready() -> void:
 	start_match()
 
+func _input(event: InputEvent) -> void:
+	if (event.is_action_pressed("switch up")):
+		self.turn_page_up()
+	if (event.is_action_pressed("switch down")):
+		self.turn_page_down()
+
 func start_match():
 	self.current_spell_index = 0
 	for spell in spell_list:
@@ -16,7 +22,6 @@ func start_match():
 func end_match():
 	for spell in spell_list:
 		spell.end_match()
-
 
 func go_to_page(index : int):
 	print("went to " + str(index))
