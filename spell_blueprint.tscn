@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://6i76ix0ten8u"]
+
+[ext_resource type="Script" uid="uid://de3e4tcryxrl" path="res://spell_blueprint.gd" id="1_1pihy"]
+
+[node name="SpellBlueprint" type="Node2D" unique_id=234391276]
+script = ExtResource("1_1pihy")
+
+[node name="Timer" type="Timer" parent="." unique_id=1798117413]
