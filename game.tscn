@@ -5,7 +5,13 @@
 [ext_resource type="Shader" uid="uid://8r8ivqwga4sn" path="res://sfsdf.gdshader" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
 [ext_resource type="Script" uid="uid://bi0pbjqop367v" path="res://spells/Spell1.gd" id="5_eow3j"]
+[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="6_iotsf"]
 [ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/Spell2.gd" id="6_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://clm0hp1ue8e1l" path="res://assets/notepad.png" id="7_eow3j"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="8_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://cxopc8nkuidbx" path="res://assets/page.png" id="9_hve3p"]
+[ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://8e86m8hdcafn" path="res://spell_page.tscn" id="11_215e1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -17,7 +23,7 @@ viewport_path = NodePath("WorldViewport")
 
 [node name="WorldViewport" type="SubViewport" parent="." unique_id=484838408]
 transparent_bg = true
-size = Vector2i(1000, 800)
+size = Vector2i(1300, 1000)
 
 [node name="World" parent="WorldViewport" unique_id=2114406119 instance=ExtResource("1_e2o6t")]
 position = Vector2(0, -6)
@@ -29,7 +35,7 @@ texture = ExtResource("2_feb5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052677504]
 material = SubResource("ShaderMaterial_fj7yv")
-position = Vector2(1236, 528)
+position = Vector2(1186, 546)
 texture = SubResource("ViewportTexture_tlwt5")
 
 [node name="SpellBook" parent="." unique_id=945037119 node_paths=PackedStringArray("spell_list") instance=ExtResource("4_ryrav")]
@@ -38,11 +44,50 @@ spell_list = [NodePath("Node2D"), NodePath("Node2D2")]
 [node name="Node2D" type="Node2D" parent="SpellBook" unique_id=627465396 node_paths=PackedStringArray("timer")]
 script = ExtResource("5_eow3j")
 timer = NodePath("Timer")
+icon = ExtResource("6_iotsf")
 
 [node name="Timer" type="Timer" parent="SpellBook/Node2D" unique_id=1840030722]
 
 [node name="Node2D2" type="Node2D" parent="SpellBook" unique_id=1761752727 node_paths=PackedStringArray("timer")]
 script = ExtResource("6_j5wjh")
 timer = NodePath("Timer")
+icon = ExtResource("8_lc2xo")
 
 [node name="Timer" type="Timer" parent="SpellBook/Node2D2" unique_id=1760428060]
+
+[node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
+
+[node name="Background" type="Node2D" parent="SpellBook/NotePad" unique_id=1555901878]
+
+[node name="NotepadSprite" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=1414882333]
+position = Vector2(200, 550)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_eow3j")
+
+[node name="P1" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=2138634502]
+position = Vector2(205, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_hve3p")
+
+[node name="P2" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=2107570064]
+position = Vector2(205, 760)
+scale = Vector2(0.5, -0.55)
+texture = ExtResource("9_hve3p")
+
+[node name="SpellPage" parent="SpellBook/NotePad/Background" unique_id=1119320805 instance=ExtResource("11_215e1")]
+position = Vector2(32, 550)
+
+[node name="Page" type="Sprite2D" parent="SpellBook/NotePad" unique_id=489201515]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(205, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_hve3p")
+
+[node name="SpellPage" parent="SpellBook/NotePad/Page" unique_id=1840461013 instance=ExtResource("11_215e1")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-346, 380)
+scale = Vector2(2, -2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpellBook/NotePad" unique_id=791094180]
+libraries/ = ExtResource("9_vef74")
+speed_scale = 5.0

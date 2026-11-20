@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8e86m8hdcafn"]
+
+[ext_resource type="Script" uid="uid://c360qw64yv3n" path="res://spell_page.gd" id="1_kh30g"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="1_m3v6u"]
+
+[node name="SpellPage" type="Node2D" unique_id=1119320805]
+script = ExtResource("1_kh30g")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1385985796]
+position = Vector2(173, 100)
+texture = ExtResource("1_m3v6u")

@@ -6,6 +6,7 @@ class_name Spell
 @export var cooldown : float = 10
 @export var dmg : int
 @export var duration : float
+@export var icon : CompressedTexture2D
 
 var is_selected : bool = false
 var spell_ready : bool = false
