@@ -3,13 +3,16 @@ class_name Ennemy
 
 @export var hitbox : Area2D
 
-@export var letter : String = "a"
+@export var letter : int = 0
 
 var pv : int
 var speed : float = 50
 
+func set_up_letter(letter : int):
+	self.letter = letter
+
 func _ready() -> void:
-	pv = FuncSingleton.get_pascal_triangle(FuncSingleton.get_letter_order(letter))
+	pv = FuncSingleton.get_pascal_triangle(letter)
 
 func take_damage(amount : int):
 	self.pv -= amount
