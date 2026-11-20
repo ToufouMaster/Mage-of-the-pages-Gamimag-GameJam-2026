@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://brb5evee7ce8x" path="res://player.tscn" id="2_tlwt5"]
 [ext_resource type="Script" uid="uid://dctwga1rkaq0o" path="res://ennemy_spawner.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://projectile.tscn" id="4_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="5_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="7_ioo17"]
 
 [node name="World" type="Node2D" unique_id=2114406119]
 
@@ -16,6 +18,7 @@ texture = ExtResource("1_fj7yv")
 
 [node name="EnnemySpawner" type="Node2D" parent="." unique_id=439457019 node_paths=PackedStringArray("spawn_timer")]
 script = ExtResource("4_036b0")
+letter_sprites = Array[Texture]([ExtResource("5_pkg7o"), ExtResource("7_ioo17")])
 spawn_timer = NodePath("SpawnCooldown")
 
 [node name="SpawnCooldown" type="Timer" parent="EnnemySpawner" unique_id=1746727573]

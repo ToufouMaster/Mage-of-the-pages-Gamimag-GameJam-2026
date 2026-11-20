@@ -10,11 +10,12 @@ radius = 9.055386
 radius = 16.0
 height = 40.0
 
-[node name="Ennemy" type="CharacterBody2D" unique_id=1476115989 node_paths=PackedStringArray("hitbox")]
+[node name="Ennemy" type="CharacterBody2D" unique_id=1476115989 node_paths=PackedStringArray("hitbox", "ennemy_sprite")]
 collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_8dqw5")
 hitbox = NodePath("Hitbox")
+ennemy_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617232152]
 scale = Vector2(0.2, 0.187)

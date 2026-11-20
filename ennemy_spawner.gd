@@ -1,9 +1,9 @@
 extends Node2D
 
 var budget : int = 20
-
 var ennemy_scene : PackedScene = preload("res://ennemy.tscn")
 
+@export var letter_sprites : Array[Texture]
 @export var spawn_timer : Timer
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func spawn_batch_of_ennemies():
 	var letter_choices : Array[int] = self.choose_every_letter()
 	for letter in letter_choices:
 		var new_ennemy : Ennemy = ennemy_scene.instantiate() as Ennemy
-		new_ennemy.set_up_letter(letter)
+		new_ennemy.set_up_letter(letter, letter_sprites[0] if letter-1 >= letter_sprites.size() else letter_sprites[letter-1])
 		var horizontal_movement := Input.get_axis("walk left", "walk right")
 		var vertical_movement := Input.get_axis("walk up", "walk down")
 		var movement = Vector2(horizontal_movement, vertical_movement).normalized()
@@ -38,5 +38,4 @@ func choose_every_letter() -> Array[int]:
 		var next_letter_chosen : int = choose_letter(current_budget)
 		current_budget -= next_letter_chosen
 		letter_list.append(next_letter_chosen)
-		print(current_budget)
 	return letter_list

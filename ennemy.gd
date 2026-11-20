@@ -3,13 +3,19 @@ class_name Ennemy
 
 @export var hitbox : Area2D
 
-@export var letter : int = 0
+@export var ennemy_sprite : Sprite2D 
+var letter : int = 0
+
+
 
 var pv : int
 var speed : float = 50
 
-func set_up_letter(letter : int):
-	self.letter = letter
+
+func set_up_letter(letter_nb : int, letter_sprite : Texture):
+	self.letter = letter_nb
+	self.ennemy_sprite.texture = letter_sprite
+
 
 func _ready() -> void:
 	pv = FuncSingleton.get_pascal_triangle(letter)
@@ -34,6 +40,5 @@ func _physics_process(delta: float) -> void:
 func follow_player():
 	var horizontal_movement := Input.get_axis("walk left", "walk right")
 	var vertical_movement := Input.get_axis("walk up", "walk down")
-	var movement = Vector2(horizontal_movement, vertical_movement).normalized()
 	var direction = (MainSingleton.player.position - position + Vector2(randf_range(-50,50), randf_range(-50,50))).normalized()
 	velocity = direction * speed
