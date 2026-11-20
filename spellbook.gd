@@ -25,9 +25,18 @@ func end_match():
 
 func go_to_page(index : int):
 	print("went to " + str(index))
-	spell_list[current_spell_index].switch_off()
+	var turn_down = index > current_spell_index
+	var old_spell = spell_list[current_spell_index]
+	var new_spell = spell_list[index]
+	old_spell.switch_off()
 	self.current_spell_index = index
-	spell_list[current_spell_index].switch_on()
+	if turn_down:
+		$NotePad/AnimationPlayer.play("PageDown")
+		$NotePad/Page/SpellPage.set_spell_page(new_spell)
+	else:
+		$NotePad/AnimationPlayer.play_backwards("PageDown")
+		$NotePad/Background/SpellPage.set_spell_page(new_spell)
+	new_spell.switch_on()
 
 func turn_page_down():
 	if (self.current_spell_index + 1 < spell_list.size()):
