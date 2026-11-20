@@ -45,6 +45,8 @@ spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2")]
 
 [node name="Spell1" type="Node" parent="SpellBook/Spells" unique_id=2096702184]
 script = ExtResource("5_eow3j")
+cooldown = 1.0
+dmg = 2
 icon = ExtResource("6_iotsf")
 
 [node name="Spell2" type="Node" parent="SpellBook/Spells" unique_id=325248868]
@@ -70,7 +72,7 @@ position = Vector2(205, 760)
 scale = Vector2(0.5, -0.55)
 texture = ExtResource("9_hve3p")
 
-[node name="SpellPageOLD" parent="SpellBook/NotePad/Background" unique_id=1119320805 instance=ExtResource("11_215e1")]
+[node name="SpellPage" parent="SpellBook/NotePad/Background" unique_id=1119320805 instance=ExtResource("11_215e1")]
 position = Vector2(32, 550)
 
 [node name="Page" type="Sprite2D" parent="SpellBook/NotePad" unique_id=489201515]

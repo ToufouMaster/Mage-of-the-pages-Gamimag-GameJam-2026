@@ -8,4 +8,6 @@ func _physics_process(delta: float) -> void:
 	var direction = Vector2.from_angle(angle).normalized()
 	self.position += direction * speed * delta
 	self.rotation = angle
-	
+
+func get_spawn_position():
+	return MainSingleton.player.global_position
