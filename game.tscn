@@ -39,21 +39,19 @@ position = Vector2(1186, 546)
 texture = SubResource("ViewportTexture_tlwt5")
 
 [node name="SpellBook" parent="." unique_id=945037119 node_paths=PackedStringArray("spell_list") instance=ExtResource("4_ryrav")]
-spell_list = [NodePath("Node2D"), NodePath("Node2D2")]
+spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2")]
 
-[node name="Node2D" type="Node2D" parent="SpellBook" unique_id=627465396 node_paths=PackedStringArray("timer")]
+[node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
+
+[node name="Spell1" type="Node" parent="SpellBook/Spells" unique_id=2096702184]
 script = ExtResource("5_eow3j")
-timer = NodePath("Timer")
+cooldown = 1.0
+dmg = 2
 icon = ExtResource("6_iotsf")
 
-[node name="Timer" type="Timer" parent="SpellBook/Node2D" unique_id=1840030722]
-
-[node name="Node2D2" type="Node2D" parent="SpellBook" unique_id=1761752727 node_paths=PackedStringArray("timer")]
+[node name="Spell2" type="Node" parent="SpellBook/Spells" unique_id=325248868]
 script = ExtResource("6_j5wjh")
-timer = NodePath("Timer")
 icon = ExtResource("8_lc2xo")
-
-[node name="Timer" type="Timer" parent="SpellBook/Node2D2" unique_id=1760428060]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

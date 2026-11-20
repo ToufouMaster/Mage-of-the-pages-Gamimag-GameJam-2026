@@ -3,9 +3,27 @@
 [ext_resource type="Script" uid="uid://c360qw64yv3n" path="res://spell_page.gd" id="1_kh30g"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="1_m3v6u"]
 
+[sub_resource type="Shader" id="Shader_v54wv"]
+code = "shader_type canvas_item;
+
+uniform float progress : hint_range(0.0, 1.0, 0.01) = 0.0;
+
+void fragment() {
+	if (progress < 1.0-UV.y) {
+		COLOR.rgb = mix(vec3((COLOR.r + COLOR.g + COLOR.b) / 3.0),  vec3(0.299 * COLOR.r + 0.587 * COLOR.g + 0.114 * COLOR.b), 0);
+	}
+	
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvynu"]
+resource_local_to_scene = true
+shader = SubResource("Shader_v54wv")
+shader_parameter/progress = 0.999999977648
+
 [node name="SpellPage" type="Node2D" unique_id=1119320805]
 script = ExtResource("1_kh30g")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1385985796]
+material = SubResource("ShaderMaterial_uvynu")
 position = Vector2(173, 100)
 texture = ExtResource("1_m3v6u")

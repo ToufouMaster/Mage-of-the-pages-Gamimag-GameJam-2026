@@ -1,17 +1,19 @@
 @abstract
-extends Node2D
+extends Node
 class_name Spell
 
-@export var timer : Timer
 @export var cooldown : float = 10
 @export var dmg : int
 @export var duration : float
 @export var icon : CompressedTexture2D
 
+var timer : Timer
 var is_selected : bool = false
 var spell_ready : bool = false
 
 func _ready() -> void:
+	timer = Timer.new()
+	add_child(timer)
 	self.timer.timeout.connect(_on_cooldown_end)
 	self.timer.wait_time = cooldown
 
@@ -25,6 +27,7 @@ func end_match():
 func _on_cooldown_end():
 	if (is_selected):
 		cast_spell()
+		spell_ready = false
 	else:
 		timer.paused = true
 		spell_ready = true
