@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cf413mpfewd2c" path="res://assets/BG_space.png" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://brb5evee7ce8x" path="res://player.tscn" id="2_tlwt5"]
+[ext_resource type="Script" uid="uid://dctwga1rkaq0o" path="res://ennemy_spawner.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://projectile.tscn" id="4_aqk2v"]
 
 [node name="World" type="Node2D" unique_id=2114406119]
@@ -12,3 +13,9 @@ texture = ExtResource("1_fj7yv")
 [node name="Player" parent="." unique_id=1839239569 instance=ExtResource("2_tlwt5")]
 
 [node name="Projectile" parent="." unique_id=154329058 instance=ExtResource("4_aqk2v")]
+
+[node name="EnnemySpawner" type="Node2D" parent="." unique_id=439457019 node_paths=PackedStringArray("spawn_timer")]
+script = ExtResource("4_036b0")
+spawn_timer = NodePath("SpawnCooldown")
+
+[node name="SpawnCooldown" type="Timer" parent="EnnemySpawner" unique_id=1746727573]
