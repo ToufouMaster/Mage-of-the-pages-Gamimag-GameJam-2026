@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cjoo222tfg86y"]
+
+[ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="1_blqjs"]
+[ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop.gd" id="1_e7rdd"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_blqjs"]
+[ext_resource type="Texture2D" uid="uid://bmfr01g0b1wl" path="res://assets/rat.png" id="3_6lah5"]
+[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="4_gmb2m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgsw5"]
+font_size = 36
+font_color = Color(0.442453, 0.19742036, 0.028910264, 1)
+
+[node name="Shop" type="Node2D" unique_id=1435067064]
+script = ExtResource("1_e7rdd")
+items = Array[Texture2D]([ExtResource("2_blqjs"), ExtResource("3_6lah5"), ExtResource("4_gmb2m")])
+
+[node name="TMP" type="Sprite2D" parent="." unique_id=325278727]
+z_index = -4096
+position = Vector2(959.99994, 539.99994)
+scale = Vector2(0.5, 0.49999997)
+texture = ExtResource("1_blqjs")
+
+[node name="Label" type="Label" parent="." unique_id=1354808628]
+offset_left = 1000.0
+offset_top = 143.0
+offset_right = 1404.0
+offset_bottom = 246.0
+text = "Fuck you I wanna shop
+"
+label_settings = SubResource("LabelSettings_mgsw5")
+horizontal_alignment = 1
+
+[node name="Left" type="Node2D" parent="." unique_id=786568008]
+position = Vector2(650, 500)
+
+[node name="Right" type="Node2D" parent="." unique_id=436634246]
+position = Vector2(1700, 500)
+
+[node name="moneyDisplay" type="Label" parent="." unique_id=2144912536]
+offset_left = 1000.0
+offset_top = 848.0
+offset_right = 1404.0
+offset_bottom = 951.0
+text = "moni :"
+label_settings = SubResource("LabelSettings_mgsw5")
+horizontal_alignment = 1
