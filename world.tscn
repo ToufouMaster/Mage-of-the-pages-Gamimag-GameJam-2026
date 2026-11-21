@@ -4,9 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://brb5evee7ce8x" path="res://player.tscn" id="2_tlwt5"]
 [ext_resource type="Script" uid="uid://dctwga1rkaq0o" path="res://ennemy_spawner.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="4_aqk2v"]
-[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="5_pkg7o"]
-[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="7_ioo17"]
+[ext_resource type="Texture2D" uid="uid://c503nkgd4tajk" path="res://assets/letters/A.png" id="5_bc84e"]
+[ext_resource type="Texture2D" uid="uid://h7xevgompm2q" path="res://assets/letters/B.png" id="6_wukud"]
+[ext_resource type="Texture2D" uid="uid://4iil76jmuuqy" path="res://assets/letters/C.png" id="7_il2jm"]
 [ext_resource type="Script" uid="uid://dbbyt752eaeyw" path="res://projectile_spawner.gd" id="7_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://dcgqch6tqy7ry" path="res://assets/letters/D.png" id="8_wjb0r"]
+[ext_resource type="Texture2D" uid="uid://1j2gdgg3wr1l" path="res://assets/letters/E.png" id="9_mc2jv"]
+[ext_resource type="Texture2D" uid="uid://c1vy25teslx3k" path="res://assets/letters/F.png" id="10_bo7i5"]
+[ext_resource type="Texture2D" uid="uid://dqtru6myvsr6v" path="res://assets/letters/G.png" id="11_4h6ng"]
+[ext_resource type="Texture2D" uid="uid://bgpis678il4s2" path="res://assets/letters/H.png" id="12_o3ebs"]
+[ext_resource type="Texture2D" uid="uid://diiasxybp2h8n" path="res://assets/letters/I.png" id="13_k83mh"]
+[ext_resource type="Texture2D" uid="uid://qguvih1b4drg" path="res://assets/letters/J.png" id="14_qktwf"]
+[ext_resource type="Texture2D" uid="uid://dobpsphsd6wxt" path="res://assets/letters/K.png" id="15_bh8nc"]
+[ext_resource type="Texture2D" uid="uid://diq5bqfn0t0lh" path="res://assets/letters/L.png" id="16_jjr1n"]
+[ext_resource type="Texture2D" uid="uid://my2hd8kr6b81" path="res://assets/letters/M.png" id="17_gggvi"]
+[ext_resource type="Texture2D" uid="uid://dpa3rp1kuexwu" path="res://assets/letters/N.png" id="18_w44yn"]
+[ext_resource type="Texture2D" uid="uid://bh16caulltau8" path="res://assets/letters/P.png" id="19_6ah6f"]
+[ext_resource type="Texture2D" uid="uid://b0pkay3lp5cn7" path="res://assets/letters/Q.png" id="20_g1i3r"]
 
 [node name="World" type="Node2D" unique_id=2114406119]
 
@@ -20,10 +34,11 @@ script = null
 
 [node name="EnnemySpawner" type="Node2D" parent="." unique_id=439457019 node_paths=PackedStringArray("spawn_timer")]
 script = ExtResource("4_036b0")
-letter_sprites = Array[Texture]([ExtResource("5_pkg7o"), ExtResource("7_ioo17")])
+letter_sprites = Array[Texture]([ExtResource("5_bc84e"), ExtResource("6_wukud"), ExtResource("7_il2jm"), ExtResource("8_wjb0r"), ExtResource("9_mc2jv"), ExtResource("10_bo7i5"), ExtResource("11_4h6ng"), ExtResource("12_o3ebs"), ExtResource("13_k83mh"), ExtResource("14_qktwf"), ExtResource("15_bh8nc"), ExtResource("16_jjr1n"), ExtResource("17_gggvi"), ExtResource("18_w44yn"), ExtResource("19_6ah6f"), ExtResource("20_g1i3r"), null])
 spawn_timer = NodePath("SpawnCooldown")
 
 [node name="SpawnCooldown" type="Timer" parent="EnnemySpawner" unique_id=1746727573]
+wait_time = 4.0
 
 [node name="ProjectileSpawner" type="Node2D" parent="." unique_id=1997248687]
 script = ExtResource("7_pkg7o")

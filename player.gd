@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 100.0
+const SPEED = 50.0
 
 @export var health_bar : ProgressBar
 var health : int = 100 : 
