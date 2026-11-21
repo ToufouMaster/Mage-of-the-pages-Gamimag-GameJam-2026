@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="2_feb5d"]
 [ext_resource type="Shader" uid="uid://8r8ivqwga4sn" path="res://sfsdf.gdshader" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
-[ext_resource type="Script" uid="uid://bi0pbjqop367v" path="res://spells/Spell1.gd" id="5_eow3j"]
-[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="6_iotsf"]
-[ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/Spell2.gd" id="6_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spell_1.tscn" id="5_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/spell_2.tscn" id="6_hve3p"]
+[ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/Spell3.gd" id="7_215e1"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="7_lc2xo"]
-[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="8_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://ct01dam7ha414" path="res://assets/dice.png" id="8_7sc4i"]
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
@@ -40,23 +40,22 @@ position = Vector2(1186, 546)
 texture = SubResource("ViewportTexture_tlwt5")
 
 [node name="SpellBook" parent="." unique_id=945037119 node_paths=PackedStringArray("spell_list") instance=ExtResource("4_ryrav")]
-spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2")]
+spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2"), NodePath("Spells/Spell3")]
 
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
-[node name="Spell1" type="Node" parent="SpellBook/Spells" unique_id=2096702184]
-script = ExtResource("5_eow3j")
-max_stock = 20
-cast_cooldown = 0.1
-recharge_cooldown = 0.5
-dmg = 10
-duration = 2.0
-icon = ExtResource("6_iotsf")
-projectile = ExtResource("7_lc2xo")
+[node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
 
-[node name="Spell2" type="Node" parent="SpellBook/Spells" unique_id=325248868]
-script = ExtResource("6_j5wjh")
-icon = ExtResource("8_lc2xo")
+[node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
+
+[node name="Spell3" type="Node" parent="SpellBook/Spells" unique_id=1151765514]
+script = ExtResource("7_215e1")
+max_stock = 100
+recharge_cooldown = 0.7
+dmg = 2
+duration = 10.0
+icon = ExtResource("8_7sc4i")
+projectile = ExtResource("7_lc2xo")
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

@@ -6,7 +6,7 @@ class_name Spell
 @export var cast_cooldown : float = 0.5
 @export var recharge_cooldown : float = 1
 @export var dmg : int
-@export var duration : float
+@export var duration : float = 5
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
 
