@@ -4,6 +4,7 @@ class_name Player
 var speed = 100.0
 
 @export var ennemy_detect_area : Area2D
+@onready var coin_picker_area : Area2D = $CoinPicker
 
 func get_closer_ennemy_direction():
 	var current_closer_ennemy : Ennemy = null

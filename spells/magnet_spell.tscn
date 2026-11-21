@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsolf6nc3s51"]
+
+[ext_resource type="Script" uid="uid://buy8sm7y36itk" path="res://spells/magnet_spell.gd" id="1_pdkgf"]
+
+[node name="Spell8" type="Node" unique_id=1108468634]
+script = ExtResource("1_pdkgf")

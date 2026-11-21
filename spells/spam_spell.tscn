@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgqlxhnwkg6xh"]
 
-[ext_resource type="Script" uid="uid://bi0pbjqop367v" path="res://spells/Spell1.gd" id="1_7d005"]
+[ext_resource type="Script" uid="uid://bi0pbjqop367v" path="res://spells/spam_spell.gd" id="1_7d005"]
 [ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="2_obqm1"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="3_1tdy8"]
 

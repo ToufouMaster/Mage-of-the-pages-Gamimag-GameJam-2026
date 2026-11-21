@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdjqs4qflv38i"]
 
-[ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/Spell2.gd" id="1_vh8q3"]
+[ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/round_spell.gd" id="1_vh8q3"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_55vr4"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="3_rc0bd"]
 

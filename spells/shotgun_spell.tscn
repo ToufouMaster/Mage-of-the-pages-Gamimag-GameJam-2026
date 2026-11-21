@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cse8qt8rd0d1s"]
 
-[ext_resource type="Script" uid="uid://2uqw68whcdip" path="res://spells/Spell4.gd" id="1_jtvf0"]
+[ext_resource type="Script" uid="uid://2uqw68whcdip" path="res://spells/shotgun_spell.gd" id="1_jtvf0"]
 
 [node name="Spell4" type="Node" unique_id=1518170349]
 script = ExtResource("1_jtvf0")

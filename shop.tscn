@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="1_blqjs"]
 [ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_blqjs"]
-[ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spell_1.tscn" id="2_myf4l"]
-[ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/spell_2.tscn" id="3_p5a0g"]
-[ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/spell_3.tscn" id="4_xqmyw"]
+[ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spam_spell.tscn" id="2_myf4l"]
+[ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="3_p5a0g"]
+[ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/targeted_spell.tscn" id="4_xqmyw"]
 [ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="6_gmb2m"]
 [ext_resource type="Texture2D" uid="uid://bewpsyln8jd3p" path="res://assets/cartonIG.png" id="7_8kdgp"]
 
