@@ -33,6 +33,7 @@ spells = Array[PackedScene]([ExtResource("2_myf4l"), ExtResource("3_p5a0g"), Ext
 stickers = Array[Texture2D]([ExtResource("5_ljlg5"), ExtResource("6_bv5vx")])
 
 [node name="TMP" type="Sprite2D" parent="." unique_id=325278727]
+visible = false
 z_index = -4096
 position = Vector2(959.99994, 539.99994)
 scale = Vector2(0.5, 0.49999997)
