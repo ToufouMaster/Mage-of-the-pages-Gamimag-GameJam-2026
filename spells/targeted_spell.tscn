@@ -6,9 +6,10 @@
 
 [node name="Spell3" type="Node" unique_id=421141106]
 script = ExtResource("1_fefvb")
-max_stock = 100
-recharge_cooldown = 0.7
+max_stock = 25
 dmg = 2
 duration = 10.0
+speed = 300.0
+recharge_cooldown = 0.7
 icon = ExtResource("2_ao3pv")
 projectile = ExtResource("3_wwhfi")

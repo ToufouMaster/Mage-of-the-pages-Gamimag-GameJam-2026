@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="6_hve3p"]
 [ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/targeted_spell.tscn" id="7_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cse8qt8rd0d1s" path="res://spells/shotgun_spell.tscn" id="8_e36ub"]
-[ext_resource type="Texture2D" uid="uid://gy4r0mfuw4y5" path="res://assets/ShotGunSpellLogo.png" id="9_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
@@ -113,27 +112,15 @@ texture = SubResource("ViewportTexture_tlwt5")
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
 [node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
-dmg = 7
 
 [node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
-debug_stickers = Dictionary[int, int]({
-1: 5,
-3: 2,
-4: 3
-})
 
 [node name="Spell3" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
-max_stock = 40
-cast_cooldown = 0.3
-recharge_cooldown = 0.6
-dmg = 3
+debug_stickers = Dictionary[int, int]({
+3: 1
+})
 
 [node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
-max_stock = 10
-cast_cooldown = 1.0
-recharge_cooldown = 3.0
-dmg = 4
-icon = ExtResource("9_hb5m1")
 projectile = ExtResource("10_x5p1p")
 
 [node name="Spell5" parent="SpellBook/Spells" unique_id=1199599144 instance=ExtResource("11_hb5m1")]
@@ -143,8 +130,6 @@ projectile = ExtResource("10_x5p1p")
 [node name="Spell7" parent="SpellBook/Spells" unique_id=238909811 instance=ExtResource("13_qhcbd")]
 
 [node name="Spell8" parent="SpellBook/Spells" unique_id=1108468634 instance=ExtResource("14_7knny")]
-max_stock = 1
-recharge_cooldown = 20.0
 duration = 3.0
 icon = ExtResource("20_i2p71")
 

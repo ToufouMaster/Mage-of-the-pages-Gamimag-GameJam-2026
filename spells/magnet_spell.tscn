@@ -5,4 +5,5 @@
 
 [node name="Spell8" type="Node" unique_id=1108468634]
 script = ExtResource("1_pdkgf")
+recharge_cooldown = 20.0
 icon = ExtResource("2_kph0k")

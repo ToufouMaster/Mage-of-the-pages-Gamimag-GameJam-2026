@@ -5,9 +5,8 @@
 
 [node name="Spell5" type="Node" unique_id=1199599144]
 script = ExtResource("1_uraxc")
-max_stock = 1
+dmg = 5
+duration = 8.0
 cast_cooldown = 3.0
-recharge_cooldown = 10.0
-dmg = 20
-duration = 3.0
+recharge_cooldown = 20.0
 icon = ExtResource("2_72bl7")

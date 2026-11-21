@@ -2,8 +2,8 @@
 extends Node
 class_name Spell
 
-@export var max_stock : int = 3
-var actual_max_stock : int = max_stock
+@export var max_stock : int = 1
+var actual_max_stock : int
 @export var dmg : int
 var actual_dmg = dmg
 
@@ -22,7 +22,7 @@ var actual_target_amount : int = target_amount
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
 
-var current_stock = max_stock
+var current_stock
 var cast_timer : Timer
 var recharge_timer : Timer
 var switch_timer : Timer
@@ -31,7 +31,7 @@ var passif_timer : Timer
 var is_selected : bool = false
 var spell_ready : bool = false
 
-var level = 1
+var level = 0
 var next_level_requirement : int = 2
 var item_amount : int = 1 : 
 	set(val):
@@ -73,6 +73,7 @@ func start_match():
 	recharge_timer.start()
 	recharge_timer.paused = true
 	cast_timer.start()
+	current_stock = actual_max_stock
 
 func end_match():
 	recharge_timer.stop()
@@ -160,7 +161,7 @@ func update_speed():
 	self.actual_speed = self.speed * 1.5 ** ((float(sticked_stickers[Sticker.SWIFT_SPELL_UP]) + float(level))/3)
 
 func update_target_amount():
-	self.actual_target_amount = self.target_amount + sticked_stickers[Sticker.SWIFT_SPELL_UP]
+	self.actual_target_amount = self.target_amount + FuncSingleton.get_pascal_triangle(sticked_stickers[Sticker.SWIFT_SPELL_UP])
 
 var sticker_amount : int = 0
 const MAX_STICKER : int = 5

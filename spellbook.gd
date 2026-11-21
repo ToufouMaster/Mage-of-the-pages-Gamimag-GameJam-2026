@@ -20,10 +20,9 @@ func _input(event: InputEvent) -> void:
 		self.turn_page_down()
 
 func start_match():
-	self.current_spell_index = 0
 	for spell in spell_list:
 		spell.start_match()
-	spell_list[0].switch_on()
+	self.go_to_page(0)
 	hourglass.start_round_timer()
 	hourglass.timer.timeout.connect(end_match)
 
@@ -42,7 +41,6 @@ func add_spell_current_index(spell_scene : PackedScene):
 	current_spell_index +=1
 
 func go_to_page(index : int):
-	print("went to " + str(index))
 	var turn_down = index > current_spell_index
 	var old_spell = spell_list[current_spell_index]
 	var new_spell = spell_list[index]
