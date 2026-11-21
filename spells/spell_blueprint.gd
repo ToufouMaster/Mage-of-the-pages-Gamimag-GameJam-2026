@@ -6,6 +6,7 @@ class_name Spell
 @export var dmg : int
 @export var duration : float
 @export var icon : CompressedTexture2D
+@export var projectile : PackedScene
 
 var timer : Timer
 var is_selected : bool = false
@@ -49,3 +50,9 @@ func switch_off():
 	is_selected = false
 
 @abstract func cast_spell()
+
+func projectile_setup() -> Projectile:
+	var new_projectile : Projectile = self.projectile.instantiate() as Projectile
+	new_projectile.dmg = self.dmg
+	new_projectile.duration = self.duration
+	return new_projectile
