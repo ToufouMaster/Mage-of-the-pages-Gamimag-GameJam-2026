@@ -10,7 +10,7 @@ func set_spell_page(spell: Spell):
 	cur_spell = spell
 	stock_label.text = str(spell.max_stock) + " / " + str(spell.max_stock)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if cur_spell == null: return
 	var progress = (cur_spell.cast_timer.wait_time-cur_spell.cast_timer.time_left) / cur_spell.cast_timer.wait_time
 	icon.material.set_shader_parameter("progress", progress)

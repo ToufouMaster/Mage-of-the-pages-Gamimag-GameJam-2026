@@ -52,7 +52,7 @@ func heal_damage(amount : int):
 func die():
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var horizontal_movement := Input.get_axis("walk left", "walk right")
 	var vertical_movement := Input.get_axis("walk up", "walk down")
 	var movement = Vector2(horizontal_movement, vertical_movement).normalized()

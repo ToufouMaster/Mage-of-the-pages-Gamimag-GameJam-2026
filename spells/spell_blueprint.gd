@@ -13,16 +13,27 @@ class_name Spell
 var current_stock = max_stock
 var cast_timer : Timer
 var recharge_timer : Timer
+var switch_timer : Timer
 var is_selected : bool = false
 var spell_ready : bool = false
 
+var level = 1
 
+enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, DOUBLE_SPELL, PASSIF_SPELL, CONSONNE_CRIT, VOYELLE_CRIT, BOOKMARK} 
+
+var sticked_stickers : Dictionary[Sticker, int]
 
 func _ready() -> void:
+	for entry in Sticker.values():
+		sticked_stickers.set(entry, 1)
+	
 	cast_timer = Timer.new()
 	recharge_timer = Timer.new()
+	switch_timer = Timer.new()
 	add_child(cast_timer)
 	add_child(recharge_timer)
+	add_child(switch_timer)
+	switch_timer.wait_time = 0.75
 	self.cast_timer.timeout.connect(_on_cooldown_end)
 	self.cast_timer.wait_time = cast_cooldown
 	self.recharge_timer.timeout.connect(_on_recharge)
@@ -40,9 +51,7 @@ func end_match():
 	cast_timer.stop()
 
 func _on_recharge():
-	current_stock += 1
-	if current_stock >= max_stock:
-		self.recharge_timer.paused = true
+	current_stock = clamp(current_stock + 1, 0, self.max_stock)
 	if is_selected:
 		self.cast_timer.paused = false
 
@@ -51,7 +60,7 @@ func _on_cooldown_end():
 		if (self.current_stock > 0):
 			current_stock -= 1
 			recharge_timer.paused = false
-			cast_spell()
+			cast_spell_sticker_wrapper()
 			spell_ready = false
 			if (self.current_stock == 0):
 				cast_timer.paused = true
@@ -64,7 +73,8 @@ func _on_cooldown_end():
 func switch_on():
 	is_selected = true
 	#wait 1 sec before resuming spell
-	await get_tree().create_timer(1).timeout
+	switch_timer.start()
+	await switch_timer.timeout
 	#If is_selected has been switched off in the mean time,
 	#will simply not cast spell and keep spell_ready true
 	if spell_ready:
@@ -75,7 +85,13 @@ func switch_on():
 	
 
 func switch_off():
+	switch_timer.stop()
 	is_selected = false
+
+func cast_spell_sticker_wrapper():
+	for i in range(0, self.sticked_stickers.get(Sticker.DOUBLE_SPELL)):
+		cast_spell()
+		await get_tree().create_timer(0.1).timeout
 
 @abstract func cast_spell()
 

@@ -36,5 +36,5 @@ func set_progress(value: float):
 func start_round_timer(cooldown: float = 30):
 	timer.start(cooldown)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress = 1 - (timer.time_left / timer.wait_time)
