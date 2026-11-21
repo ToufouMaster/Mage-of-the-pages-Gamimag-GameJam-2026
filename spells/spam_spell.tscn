@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgqlxhnwkg6xh"]
 
 [ext_resource type="Script" uid="uid://bi0pbjqop367v" path="res://spells/spam_spell.gd" id="1_7d005"]
-[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="2_obqm1"]
+[ext_resource type="Texture2D" uid="uid://21oxpieyt3mi" path="res://assets/spammySpellIcon.png" id="2_pmpoc"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="3_1tdy8"]
 
 [node name="Spell1" type="Node" unique_id=139428719]
@@ -11,5 +11,5 @@ cast_cooldown = 0.1
 recharge_cooldown = 0.5
 dmg = 10
 duration = 2.0
-icon = ExtResource("2_obqm1")
+icon = ExtResource("2_pmpoc")
 projectile = ExtResource("3_1tdy8")
