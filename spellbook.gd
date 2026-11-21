@@ -4,6 +4,9 @@ class_name SpellBook
 var spell_list : Array[Node]
 var current_spell_index : int = 0
 
+
+
+
 func _ready() -> void:
 	spell_list = $Spells.get_children()
 	start_match()
@@ -23,6 +26,11 @@ func start_match():
 func end_match():
 	for spell in spell_list:
 		spell.end_match()
+
+func add_spell(spell_scene : PackedScene, position : int):
+	var new_spell : Spell = spell_scene.instantiate() as Spell
+	$Spells.add_child(new_spell)
+	self.spell_list.insert(position, new_spell)
 
 func go_to_page(index : int):
 	print("went to " + str(index))
