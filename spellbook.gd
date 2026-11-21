@@ -31,6 +31,10 @@ func add_spell(spell_scene : PackedScene, position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
 	$Spells.add_child(new_spell)
 	self.spell_list.insert(position, new_spell)
+	
+func add_spell_current_index(spell_scene : PackedScene):
+	add_spell(spell_scene,current_spell_index)
+	current_spell_index +=1
 
 func go_to_page(index : int):
 	print("went to " + str(index))

@@ -52,12 +52,10 @@ sprite_frames = SubResource("SpriteFrames_mgsw5")
 [node name="StompAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1135826992]
 stream = SubResource("AudioStreamRandomizer_7y1nd")
 volume_db = 5.0
-bus = &"SFX"
 
 [node name="CoinTossAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1575838465]
 stream = SubResource("AudioStreamRandomizer_08nl3")
 volume_db = -5.0
-bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1215401364]
 scale = Vector2(0.095722735, 0.105957225)
