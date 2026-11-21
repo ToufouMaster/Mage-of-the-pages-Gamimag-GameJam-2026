@@ -1,10 +1,11 @@
 extends Node2D
 class_name SpellBook
 
-@export var spell_list : Array[Spell]
+var spell_list : Array[Node]
 var current_spell_index : int = 0
 
 func _ready() -> void:
+	spell_list = $Spells.get_children()
 	start_match()
 
 func _input(event: InputEvent) -> void:

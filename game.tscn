@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spell_1.tscn" id="5_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/spell_2.tscn" id="6_hve3p"]
 [ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/spell_3.tscn" id="7_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://cse8qt8rd0d1s" path="res://spell_4.tscn" id="8_e36ub"]
+[ext_resource type="Texture2D" uid="uid://gy4r0mfuw4y5" path="res://assets/ShotGunSpellLogo.png" id="9_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="10_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://8e86m8hdcafn" path="res://spell_page.tscn" id="11_215e1"]
 [ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="13_215e1"]
 [ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
@@ -43,8 +46,7 @@ material = SubResource("ShaderMaterial_fj7yv")
 position = Vector2(1186, 546)
 texture = SubResource("ViewportTexture_tlwt5")
 
-[node name="SpellBook" parent="." unique_id=945037119 node_paths=PackedStringArray("spell_list") instance=ExtResource("4_ryrav")]
-spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2"), NodePath("Spells/Spell3")]
+[node name="SpellBook" parent="." unique_id=945037119 instance=ExtResource("4_ryrav")]
 
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
@@ -57,6 +59,14 @@ max_stock = 40
 cast_cooldown = 0.3
 recharge_cooldown = 0.6
 dmg = 3
+
+[node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
+max_stock = 10
+cast_cooldown = 1.0
+recharge_cooldown = 3.0
+dmg = 4
+icon = ExtResource("9_hb5m1")
+projectile = ExtResource("10_x5p1p")
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
