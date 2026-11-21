@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://57g5x7676wd3"]
 
 [ext_resource type="Script" uid="uid://dsshe6fqwqtea" path="res://spells/speed_boost_spell.gd" id="1_qtebb"]
-[ext_resource type="Texture2D" uid="uid://bmfr01g0b1wl" path="res://assets/rat.png" id="2_1orvp"]
+[ext_resource type="Texture2D" uid="uid://b2dwb54e1gnm6" path="res://assets/SpeedSpeel.png" id="2_ixwff"]
 
 [node name="Spell6" type="Node" unique_id=1989087909]
 script = ExtResource("1_qtebb")
@@ -9,4 +9,4 @@ max_stock = 1
 cast_cooldown = 1.0
 recharge_cooldown = 20.0
 dmg = 50
-icon = ExtResource("2_1orvp")
+icon = ExtResource("2_ixwff")

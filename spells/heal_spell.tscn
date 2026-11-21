@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cf5q6af6nfyo3"]
 
 [ext_resource type="Script" uid="uid://dy0kg6f36prj2" path="res://spells/heal_spell.gd" id="1_uraxc"]
-[ext_resource type="Texture2D" uid="uid://bgpis678il4s2" path="res://assets/letters/H.png" id="2_10s0u"]
+[ext_resource type="Texture2D" uid="uid://n2m6nfeqvq0f" path="res://assets/HealingSpell.png" id="2_72bl7"]
 
 [node name="Spell5" type="Node" unique_id=1199599144]
 script = ExtResource("1_uraxc")
@@ -10,4 +10,4 @@ cast_cooldown = 3.0
 recharge_cooldown = 10.0
 dmg = 20
 duration = 3.0
-icon = ExtResource("2_10s0u")
+icon = ExtResource("2_72bl7")
