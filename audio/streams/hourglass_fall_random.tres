@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://45t4tp8m6xkw"]
+
+[ext_resource type="AudioStream" uid="uid://dhfymm8dmb155" path="res://audio/sfx/hourglass_fall1.ogg" id="1_vrilg"]
+[ext_resource type="AudioStream" uid="uid://3ycdj85kejgr" path="res://audio/sfx/hourglass_fall2.ogg" id="2_584p1"]
+
+[resource]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 2
+stream_0/stream = ExtResource("1_vrilg")
+stream_1/stream = ExtResource("2_584p1")
