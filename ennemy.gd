@@ -20,6 +20,9 @@ func set_up_letter(letter_nb : int, letter_sprite : Texture):
 	self.max_pv = FuncSingleton.get_pascal_triangle(letter)
 	self.pv = max_pv
 
+func _ready() -> void:
+	$AnimationPlayer.play("waving")
+
 func take_damage(amount : int):
 	self.pv -= amount
 	if (self.pv < 1):

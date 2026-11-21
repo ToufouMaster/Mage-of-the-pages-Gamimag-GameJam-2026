@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://in5rayekldnr" path="res://spells/projectiles/base_projectile.gd" id="1_05uwj"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_i6mo1"]
+[ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="3_dgwo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
 
@@ -16,3 +17,7 @@ texture = ExtResource("2_i6mo1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89040903]
 shape = SubResource("CircleShape2D_0j531")
+
+[node name="ProjectileHitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1229037080]
+stream = ExtResource("3_dgwo2")
+bus = &"SFX"
