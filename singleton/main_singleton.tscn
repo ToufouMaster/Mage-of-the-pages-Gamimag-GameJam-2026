@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doj743r55t3wp"]
 
-[ext_resource type="Script" uid="uid://cvlhmfjwa10cw" path="res://main_singleton.gd" id="1_etlbs"]
+[ext_resource type="Script" uid="uid://cvlhmfjwa10cw" path="res://singleton/main_singleton.gd" id="1_etlbs"]
 
 [node name="MainSingleton" type="Node2D" unique_id=2087880637]
 script = ExtResource("1_etlbs")
