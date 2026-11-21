@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
 [ext_resource type="AnimationLibrary" uid="uid://qt0xloqvg6dv" path="res://health_bar_animations.res" id="18_x5p1p"]
 [ext_resource type="AnimationLibrary" uid="uid://dae6snn7if4o1" path="res://game_animation.res" id="19_qhcbd"]
-[ext_resource type="PackedScene" uid="uid://cjoo222tfg86y" path="res://shop.tscn" id="23_qhcbd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -159,6 +158,3 @@ texture = ExtResource("15_boyg6")
 
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
 libraries/ = ExtResource("19_qhcbd")
-
-[node name="Shop" parent="." unique_id=1435067064 instance=ExtResource("23_qhcbd")]
-position = Vector2(56, -196)
