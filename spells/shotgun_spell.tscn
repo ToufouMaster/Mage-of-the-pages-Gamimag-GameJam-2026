@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cse8qt8rd0d1s"]
 
 [ext_resource type="Script" uid="uid://2uqw68whcdip" path="res://spells/shotgun_spell.gd" id="1_jtvf0"]
+[ext_resource type="Texture2D" uid="uid://gy4r0mfuw4y5" path="res://assets/ShotGunSpellLogo.png" id="2_lt7vu"]
 
 [node name="Spell4" type="Node" unique_id=1518170349]
 script = ExtResource("1_jtvf0")
+icon = ExtResource("2_lt7vu")

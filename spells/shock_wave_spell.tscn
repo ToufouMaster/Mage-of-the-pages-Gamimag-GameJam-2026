@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjx7us1nvemoc"]
 
 [ext_resource type="Script" uid="uid://d0xax5vfmqpdc" path="res://spells/shockwave_spell.gd" id="1_ujm1q"]
-[ext_resource type="Texture2D" uid="uid://bkqpnaipljt4l" path="res://assets/SpellRepulseProj.png" id="2_8rqug"]
+[ext_resource type="Texture2D" uid="uid://y485sjcspbi" path="res://assets/SpellRepulseIcon.png" id="2_4xf13"]
 [ext_resource type="PackedScene" uid="uid://5j4ysa1jdxuh" path="res://spells/projectiles/shock_wave.tscn" id="3_lj32e"]
 
 [node name="Spell7" type="Node" unique_id=238909811]
@@ -9,5 +9,5 @@ script = ExtResource("1_ujm1q")
 max_stock = 1
 cast_cooldown = 1.0
 duration = 0.2
-icon = ExtResource("2_8rqug")
+icon = ExtResource("2_4xf13")
 projectile = ExtResource("3_lj32e")
