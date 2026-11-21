@@ -31,10 +31,10 @@ func go_to_page(index : int):
 	old_spell.switch_off()
 	self.current_spell_index = index
 	if turn_down:
-		$NotePad/AnimationPlayer.play("PageDown")
+		$NotePad/NotepadAnimationPlayer.play("PageDown", -1, 5.0)
 		$NotePad/Page/SpellPage.set_spell_page(new_spell)
 	else:
-		$NotePad/AnimationPlayer.play_backwards("PageDown")
+		$NotePad/NotepadAnimationPlayer.play("PageDown", -1, -5.0, true)
 		$NotePad/Background/SpellPage.set_spell_page(new_spell)
 	new_spell.switch_on()
 

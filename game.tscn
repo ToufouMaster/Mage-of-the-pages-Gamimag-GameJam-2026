@@ -13,12 +13,31 @@
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://8e86m8hdcafn" path="res://spell_page.tscn" id="11_215e1"]
+[ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="13_215e1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tlwt5"]
 viewport_path = NodePath("WorldViewport")
+
+[sub_resource type="Animation" id="Animation_215e1"]
+resource_name = "TurnRoundPage"
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpellBook/NotePad/NotepadAnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("SlideOutNotePad"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7sc4i"]
+_data = {
+&"TurnPageToShop": SubResource("Animation_215e1")
+}
 
 [node name="Node2D" type="Node2D" unique_id=1987371302]
 
@@ -91,6 +110,18 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(-384.44443, 422.2222)
 scale = Vector2(2.222, -2.222)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SpellBook/NotePad" unique_id=791094180]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/NotePad/Page" unique_id=1003583569]
+stream = ExtResource("13_215e1")
+bus = &"SFX"
+playback_type = 2
+
+[node name="NotepadAnimationPlayer" type="AnimationPlayer" parent="SpellBook/NotePad" unique_id=791094180]
 libraries/ = ExtResource("9_vef74")
-speed_scale = 5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/NotePad" unique_id=940784718]
+pitch_scale = 1.2
+bus = &"SFX"
+playback_type = 2
+
+[node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
+libraries/ = SubResource("AnimationLibrary_7sc4i")
