@@ -113,8 +113,14 @@ texture = SubResource("ViewportTexture_tlwt5")
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
 [node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
+dmg = 7
 
 [node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
+debug_stickers = Dictionary[int, int]({
+1: 5,
+3: 2,
+4: 3
+})
 
 [node name="Spell3" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
 max_stock = 40
@@ -291,7 +297,7 @@ polygon = PackedVector2Array(99, 166, 74, 155, 45, 133, 29, 118, 21, 103, 171, 1
 
 [node name="SandTop" type="Sprite2D" parent="SpellBook/Hourglass/TopPolygon" unique_id=849718930]
 light_mask = 2
-position = Vector2(92, 170)
+position = Vector2(92, 174)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("22_5b14r")
