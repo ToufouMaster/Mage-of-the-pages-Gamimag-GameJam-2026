@@ -1,8 +1,10 @@
 extends Spell
 
-func cast_spell(angle_offset : float = 0):
+func cast_spell(_angle_offset : float = 0):
 	var new_projectile : Projectile = self.projectile_setup()
-	new_projectile.amount_of_target = 1000000
 	new_projectile.angle = 0
-	new_projectile.speed = 0
+	#Use dmg to determine the strength of the knockback
+	new_projectile.knockback_strength = new_projectile.dmg
+	#reset dmg
+	new_projectile.dmg = 0
 	MainSingleton.projectile_spawner.spawn_projectile(new_projectile.get_spawn_position(), new_projectile)

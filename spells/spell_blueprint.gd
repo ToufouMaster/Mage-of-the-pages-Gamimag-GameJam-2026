@@ -3,18 +3,22 @@ extends Node
 class_name Spell
 
 @export var max_stock : int = 3
-
-@export var cast_cooldown : float = 0.5
-
-@export var recharge_cooldown : float = 1
-
-
+var actual_max_stock : int = max_stock
 @export var dmg : int
-
 var actual_dmg = dmg
 
 @export var duration : float = 5
+var actual_duration : float = duration
+
 @export var speed : float = 100
+var actual_speed : float = speed
+
+@export var target_amount : int = 1
+var actual_target_amount : int = target_amount
+
+@export var cast_cooldown : float = 0.5
+@export var recharge_cooldown : float = 1
+
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
 
@@ -26,17 +30,25 @@ var passif_timer : Timer
 
 var is_selected : bool = false
 var spell_ready : bool = false
+
 var level = 1
+var next_level_requirement : int = 2
+var item_amount : int = 1 : 
+	set(val):
+		if (val >= next_level_requirement):
+			level_up()
 
+func level_up():
+	self.item_amount = 0
+	self.next_level_requirement += 1
+	self.level += 1
 
-
-enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, DOUBLE_SPELL, PASSIF_SPELL, CONSONNE_CRIT, VOYELLE_CRIT, BOOKMARK} 
+enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, SWIFT_SPELL_UP, DOUBLE_SPELL, PASSIF_SPELL, CONSONNE_CRIT, VOYELLE_CRIT, BOOKMARK} 
 
 @export var debug_stickers : Dictionary[Sticker, int]
 var sticked_stickers : Dictionary[Sticker, int]
 
 func _ready() -> void:
-	
 	cast_timer = Timer.new()
 	recharge_timer = Timer.new()
 	passif_timer = Timer.new()
@@ -49,19 +61,14 @@ func _ready() -> void:
 	self.cast_timer.timeout.connect(_on_cooldown_end)
 	self.recharge_timer.timeout.connect(_on_recharge)
 	self.passif_timer.timeout.connect(_on_passif_launch)
-	
 	for entry in Sticker.values():
 		sticked_stickers.set(entry, 0)
 	for entry in debug_stickers.keys():
 		for i in range(0, debug_stickers.get(entry)):
 			self.add_sticker(entry)
-	
-	update_dmg()
-	update_stock()
-	update_cooldowns()
 
 func start_match():
-	current_stock = max_stock
+	update_everything()
 	spell_ready = true
 	recharge_timer.start()
 	recharge_timer.paused = true
@@ -72,7 +79,7 @@ func end_match():
 	cast_timer.stop()
 
 func _on_recharge():
-	current_stock = clamp(current_stock + 1, 0, self.max_stock)
+	current_stock = clamp(current_stock + 1, 0, self.actual_max_stock)
 	if is_selected:
 		self.cast_timer.paused = false
 
@@ -122,9 +129,18 @@ func cast_spell_sticker_wrapper():
 func projectile_setup() -> Projectile:
 	var new_projectile : Projectile = self.projectile.instantiate() as Projectile
 	new_projectile.dmg = self.actual_dmg
-	new_projectile.duration = self.duration
-	new_projectile.speed = self.speed
+	new_projectile.duration = self.actual_duration
+	new_projectile.speed = self.actual_speed
+	new_projectile.amount_of_target = self.actual_target_amount
 	return new_projectile
+
+func update_everything():
+	update_cooldowns()
+	update_dmg()
+	update_stock()
+	update_duration()
+	update_speed()
+	update_target_amount()
 
 func update_cooldowns():
 	self.cast_timer.wait_time = cast_cooldown * (0.75 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
@@ -132,15 +148,29 @@ func update_cooldowns():
 	self.passif_timer.wait_time = self.recharge_timer.wait_time * (5 * (0.8 **sticked_stickers[Sticker.PASSIF_SPELL]))
 
 func update_dmg():
-	self.actual_dmg = self.dmg * (1.5 ** (sticked_stickers[Sticker.DMG_UP]))
+	self.actual_dmg = self.dmg * (1.4 ** (sticked_stickers[Sticker.DMG_UP] + float(level)/2))
 
 func update_stock():
-	if (sticked_stickers[Sticker.STOCKAGE_UP] == 0):
-		return
-	self.max_stock = (self.max_stock / sticked_stickers[Sticker.STOCKAGE_UP]) * (sticked_stickers[Sticker.STOCKAGE_UP]+1)
+	self.actual_max_stock = self.max_stock * (sticked_stickers[Sticker.STOCKAGE_UP]+1 + float(level)/2)
+
+func update_duration():
+	self.actual_duration = self.duration * 1.5 ** ((float(sticked_stickers[Sticker.SWIFT_SPELL_UP]) + float(level))/3)
+
+func update_speed():
+	self.actual_speed = self.speed * 1.5 ** ((float(sticked_stickers[Sticker.SWIFT_SPELL_UP]) + float(level))/3)
+
+func update_target_amount():
+	self.actual_target_amount = self.target_amount + sticked_stickers[Sticker.SWIFT_SPELL_UP]
+
+var sticker_amount : int = 0
+const MAX_STICKER : int = 5
+
+func can_get_new_sticker() -> bool:
+	return sticker_amount < MAX_STICKER
 
 func add_sticker(sticker_type : Sticker):
 	self.sticked_stickers[sticker_type] += 1
+	self.sticker_amount += 1
 	match sticker_type:
 		Sticker.DMG_UP:
 			update_dmg()
@@ -150,3 +180,7 @@ func add_sticker(sticker_type : Sticker):
 			passif_timer.start()
 		Sticker.STOCKAGE_UP:
 			update_stock()
+		Sticker.SWIFT_SPELL_UP:
+			update_duration()
+			update_speed()
+			update_target_amount()

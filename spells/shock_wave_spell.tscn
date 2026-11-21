@@ -7,7 +7,11 @@
 [node name="Spell7" type="Node" unique_id=238909811]
 script = ExtResource("1_ujm1q")
 max_stock = 1
-cast_cooldown = 1.0
+dmg = 1
 duration = 0.2
+speed = 0.0
+target_amount = 10000000000
+cast_cooldown = 0.8
+recharge_cooldown = 15.0
 icon = ExtResource("2_4xf13")
 projectile = ExtResource("3_lj32e")
