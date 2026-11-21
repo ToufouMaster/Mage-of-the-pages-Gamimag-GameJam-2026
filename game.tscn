@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="10_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://8e86m8hdcafn" path="res://spell_page.tscn" id="11_215e1"]
+[ext_resource type="PackedScene" uid="uid://cf5q6af6nfyo3" path="res://spells/spell_5.tscn" id="11_hb5m1"]
+[ext_resource type="PackedScene" uid="uid://57g5x7676wd3" path="res://spells/spell_6.tscn" id="12_x5p1p"]
 [ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="13_215e1"]
 [ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
 [ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
@@ -67,6 +69,10 @@ recharge_cooldown = 3.0
 dmg = 4
 icon = ExtResource("9_hb5m1")
 projectile = ExtResource("10_x5p1p")
+
+[node name="Spell5" parent="SpellBook/Spells" unique_id=1199599144 instance=ExtResource("11_hb5m1")]
+
+[node name="Spell6" parent="SpellBook/Spells" unique_id=1989087909 instance=ExtResource("12_x5p1p")]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

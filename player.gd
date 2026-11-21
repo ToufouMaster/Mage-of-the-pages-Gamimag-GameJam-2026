@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 100.0
+var speed = 100.0
 
 @export var ennemy_detect_area : Area2D
 
@@ -56,9 +56,9 @@ func _physics_process(delta: float) -> void:
 	var vertical_movement := Input.get_axis("walk up", "walk down")
 	var movement = Vector2(horizontal_movement, vertical_movement).normalized()
 	if movement:
-		velocity = movement * SPEED
+		velocity = movement * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.y = move_toward(velocity.y, 0, speed)
 
 	move_and_slide()

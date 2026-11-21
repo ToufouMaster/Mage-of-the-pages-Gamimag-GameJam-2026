@@ -14,4 +14,3 @@ func cast_spell():
 		new_projectile.angle = (randf()*PI*2 if target_direction == null else target_direction.angle()) + offset
 		new_projectile.speed = 300
 		MainSingleton.projectile_spawner.spawn_projectile(new_projectile.get_spawn_position(), new_projectile)
-	

@@ -43,7 +43,8 @@ func _on_recharge():
 	current_stock += 1
 	if current_stock >= max_stock:
 		self.recharge_timer.paused = true
-
+	if is_selected:
+		self.cast_timer.paused = false
 
 func _on_cooldown_end():
 	if is_selected:
@@ -52,6 +53,10 @@ func _on_cooldown_end():
 			recharge_timer.paused = false
 			cast_spell()
 			spell_ready = false
+			if (self.current_stock == 0):
+				cast_timer.paused = true
+		else:
+			cast_timer.paused = true
 	else:
 		cast_timer.paused = true
 		spell_ready = true
