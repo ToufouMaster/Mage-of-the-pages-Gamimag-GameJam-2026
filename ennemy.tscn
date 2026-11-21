@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dy7wlhvqjbkfh"]
 
 [ext_resource type="Script" uid="uid://qvyqfc2ajji1" path="res://ennemy.gd" id="1_8dqw5"]
-[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="2_f3frg"]
+[ext_resource type="Texture2D" uid="uid://c503nkgd4tajk" path="res://assets/letters/A.png" id="2_f3frg"]
 [ext_resource type="AnimationLibrary" uid="uid://ciyxq2e8joxhu" path="res://waving_enemy.res" id="3_f3frg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 9.055386
+radius = 7.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
-radius = 16.0
-height = 40.0
+radius = 9.0
+height = 24.0
 
 [node name="Ennemy" type="CharacterBody2D" unique_id=1476115989 node_paths=PackedStringArray("hitbox", "ennemy_sprite")]
 collision_layer = 4
@@ -19,7 +19,7 @@ hitbox = NodePath("Hitbox")
 ennemy_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617232152]
-scale = Vector2(0.2, 0.187)
+scale = Vector2(0.025, 0.02)
 texture = ExtResource("2_f3frg")
 
 [node name="PhysicCollision" type="CollisionShape2D" parent="." unique_id=1599400034]

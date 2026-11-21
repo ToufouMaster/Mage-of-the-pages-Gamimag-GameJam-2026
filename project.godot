@@ -71,6 +71,7 @@ window/stretch/aspect="expand"
 2d_physics/layer_3="Ennemy"
 2d_physics/layer_4="Projectile"
 2d_physics/layer_5="Coins"
+2d_physics/layer_6="Detectors"
 
 [physics]
 
