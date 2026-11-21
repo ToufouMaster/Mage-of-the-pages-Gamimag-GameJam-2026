@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://eupj1cckxoyl"]
+
+[ext_resource type="AudioStream" uid="uid://c4qgg1rjpeugd" path="res://audio/sfx/paper_flip_short1.ogg" id="1_v7dba"]
+[ext_resource type="AudioStream" uid="uid://dmclyy3avqucg" path="res://audio/sfx/paper_flip_short2.ogg" id="2_gjebf"]
+[ext_resource type="AudioStream" uid="uid://c85bv0gepm3f8" path="res://audio/sfx/paper_flip_short3.ogg" id="3_cu0af"]
+
+[resource]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 3
+stream_0/stream = ExtResource("1_v7dba")
+stream_1/stream = ExtResource("2_gjebf")
+stream_2/stream = ExtResource("3_cu0af")

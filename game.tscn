@@ -11,6 +11,12 @@
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
 [ext_resource type="PackedScene" uid="uid://8e86m8hdcafn" path="res://spell_page.tscn" id="11_215e1"]
+[ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="13_215e1"]
+[ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
+[ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
+[ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
+[ext_resource type="AnimationLibrary" uid="uid://qt0xloqvg6dv" path="res://health_bar_animations.res" id="18_x5p1p"]
+[ext_resource type="AnimationLibrary" uid="uid://dae6snn7if4o1" path="res://game_animation.res" id="19_qhcbd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -85,6 +91,54 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(-384.44443, 422.2222)
 scale = Vector2(2.222, -2.222)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SpellBook/NotePad" unique_id=791094180]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/NotePad/Page" unique_id=1003583569]
+stream = ExtResource("13_215e1")
+bus = &"SFX"
+playback_type = 2
+
+[node name="NotepadAnimationPlayer" type="AnimationPlayer" parent="SpellBook/NotePad" unique_id=791094180]
 libraries/ = ExtResource("9_vef74")
-speed_scale = 5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/NotePad" unique_id=940784718]
+pitch_scale = 1.2
+bus = &"SFX"
+playback_type = 2
+
+[node name="HealthBar" type="Node2D" parent="SpellBook" unique_id=482009555]
+
+[node name="Base" type="Sprite2D" parent="SpellBook/HealthBar" unique_id=768138978]
+position = Vector2(0, 86)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_boyg6")
+
+[node name="HealthProgress" type="TextureProgressBar" parent="SpellBook/HealthBar" unique_id=1204647389]
+offset_left = -256.0
+offset_top = -167.0
+offset_right = 768.0
+offset_bottom = 857.0
+scale = Vector2(0.5, 0.5)
+min_value = -16.0
+max_value = 115.0
+value = 100.0
+texture_under = ExtResource("16_e36ub")
+texture_progress = ExtResource("17_hb5m1")
+
+[node name="HealthBarAnimationPlayer" type="AnimationPlayer" parent="SpellBook/HealthBar" unique_id=1634128879]
+libraries/ = ExtResource("18_x5p1p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/HealthBar" unique_id=356347931]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SpellBook/HealthBar" unique_id=771066853]
+
+[node name="Hourglass" type="Node2D" parent="SpellBook" unique_id=670673721]
+position = Vector2(1728, 0)
+
+[node name="Base" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=1981927994]
+position = Vector2(0, 86)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_boyg6")
+
+[node name="HourglassAnimationPlayer" type="AnimationPlayer" parent="SpellBook/Hourglass" unique_id=3097141]
+
+[node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
+libraries/ = ExtResource("19_qhcbd")

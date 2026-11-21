@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://spal3ekekumk"]
+
+[ext_resource type="AudioStream" uid="uid://b5o3i5wyk8xe4" path="res://audio/sfx/slide_notepad.ogg" id="1_2tqcy"]
+
+[resource]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("1_2tqcy")
