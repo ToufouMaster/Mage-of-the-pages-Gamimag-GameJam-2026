@@ -1,13 +1,16 @@
 extends Node2D
 
-@export var spells: Array[Texture2D]
+@export var spells: Array[PackedScene]
 @export var stickers: Array[Texture2D]
 const SHOP_ITEM_SCENE = preload("res://ShopItem.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(spells.size()):
 		var tmp := SHOP_ITEM_SCENE.instantiate() as ShopItem
-		tmp.texture = spells[i]
+		var spell = spells[i].instantiate()
+		tmp.texture = spell.icon
+		tmp.item = spells[i]
+		tmp.is_spell = true
 		add_child(tmp)
 		tmp.position = $Left.position + ($Right.position - $Left.position) * ((i + 0.0)/(spells.size()-1))
 		
