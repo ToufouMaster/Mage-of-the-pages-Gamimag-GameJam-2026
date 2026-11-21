@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://ha3s68bd6tsi"]
+
+[ext_resource type="AudioStream" uid="uid://1q6u0ur66hw1" path="res://audio/sfx/table_smash1.ogg" id="1_mi40x"]
+[ext_resource type="AudioStream" uid="uid://crmg0jxrdst1i" path="res://audio/sfx/table_smash2.ogg" id="2_0efio"]
+[ext_resource type="AudioStream" uid="uid://mcwpgiwsft4m" path="res://audio/sfx/table_smash3.ogg" id="3_3p24j"]
+
+[resource]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 3
+stream_0/stream = ExtResource("1_mi40x")
+stream_1/stream = ExtResource("2_0efio")
+stream_2/stream = ExtResource("3_3p24j")
