@@ -30,15 +30,25 @@ func spawn_batch_of_ennemies():
 		self.add_child(new_ennemy)
 
 func choose_letter(current_budget : int):
-	return randi_range(0, min(current_budget/2, 25)) + 1
+	var max_afforable_letter : int
+	var sum = 0
+	
+	for i in range(1,27):
+		sum += i
+		if current_budget/sum < 5:
+			break
+		else:
+			max_afforable_letter = i
+	print(max_afforable_letter)
+	return randi_range(1, max_afforable_letter)
 
 func choose_every_letter() -> Array[int]:
 	var letter_list : Array[int] = []
 	var current_budget = budget
 	while (current_budget > 0):
 		var next_letter_chosen : int = choose_letter(current_budget)
-		var affordable_letter : int = current_budget/next_letter_chosen
-		current_budget -= next_letter_chosen*affordable_letter
+		var affordable_letter : int = clamp(current_budget/next_letter_chosen, 0, 25)
+		current_budget -= FuncSingleton.get_pascal_triangle(next_letter_chosen)*affordable_letter
 		for i in range (0, affordable_letter):
-			letter_list.append(next_letter_chosen)
+			letter_list.append(next_letter_chosen-1)
 	return letter_list
