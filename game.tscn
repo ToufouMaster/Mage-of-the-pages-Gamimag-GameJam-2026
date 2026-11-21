@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cf5q6af6nfyo3" path="res://spells/spell_5.tscn" id="11_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://57g5x7676wd3" path="res://spells/spell_6.tscn" id="12_x5p1p"]
 [ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="13_215e1"]
+[ext_resource type="PackedScene" uid="uid://cjx7us1nvemoc" path="res://spells/spell_7.tscn" id="13_qhcbd"]
 [ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
 [ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
 [ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
@@ -73,6 +74,8 @@ projectile = ExtResource("10_x5p1p")
 [node name="Spell5" parent="SpellBook/Spells" unique_id=1199599144 instance=ExtResource("11_hb5m1")]
 
 [node name="Spell6" parent="SpellBook/Spells" unique_id=1989087909 instance=ExtResource("12_x5p1p")]
+
+[node name="Spell7" parent="SpellBook/Spells" unique_id=238909811 instance=ExtResource("13_qhcbd")]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

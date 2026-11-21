@@ -6,10 +6,8 @@
 
 [node name="Spell2" type="Node" unique_id=27304891]
 script = ExtResource("1_vh8q3")
-max_stock = 5
 cast_cooldown = 1.0
-recharge_cooldown = 1.5
-dmg = 10
-duration = 5.0
+recharge_cooldown = 3.0
+dmg = 8
 icon = ExtResource("2_55vr4")
 projectile = ExtResource("3_rc0bd")

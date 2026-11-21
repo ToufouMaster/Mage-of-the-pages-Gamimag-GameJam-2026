@@ -39,7 +39,6 @@ func choose_letter(current_budget : int):
 			break
 		else:
 			max_afforable_letter = i
-	print(max_afforable_letter)
 	return randi_range(1, max_afforable_letter)
 
 func choose_every_letter() -> Array[int]:
