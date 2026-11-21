@@ -1,11 +1,13 @@
 @tool
 extends Node2D
+class_name Hourglass
 
 @export var progress : float = 0 : set = set_progress
 @onready var sand_bottom = $BottomPolygon/SandBottom
 @onready var sand_top = $TopPolygon/SandTop
 @onready var gpu_particles = $GPUParticles2D
 @onready var red_halo = $RedHalo
+@onready var timer = $Timer
 
 var alarm_tick = 0
 
@@ -31,5 +33,8 @@ func set_progress(value: float):
 		alarm_tick = 0
 		red_halo.self_modulate.a = 0
 
+func start_round_timer(cooldown: float = 30):
+	timer.start(cooldown)
+
 func _process(delta: float) -> void:
-	progress += delta/30
+	progress = 1 - (timer.time_left / timer.wait_time)

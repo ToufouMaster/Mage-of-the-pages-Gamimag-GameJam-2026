@@ -4,7 +4,9 @@ class_name SpellBook
 var spell_list : Array[Node]
 var current_spell_index : int = 0
 
-
+@onready var notepad : Node2D = $NotePad
+@onready var healthbar : Node2D = $HealthBar
+@onready var hourglass : Hourglass = $Hourglass
 
 
 func _ready() -> void:
@@ -22,10 +24,13 @@ func start_match():
 	for spell in spell_list:
 		spell.start_match()
 	spell_list[0].switch_on()
+	hourglass.start_round_timer()
+	hourglass.timer.timeout.connect(end_match)
 
 func end_match():
 	for spell in spell_list:
 		spell.end_match()
+	$"../GameAnimationPlayer".play("TurnPageToShop")
 
 func add_spell(spell_scene : PackedScene, position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell

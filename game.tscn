@@ -186,6 +186,8 @@ position = Vector2(1728, 0)
 script = ExtResource("19_i2p71")
 progress = 1.0
 
+[node name="Timer" type="Timer" parent="SpellBook/Hourglass" unique_id=1346501031]
+
 [node name="Bottom" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=600333943]
 position = Vector2(96, 150.00002)
 rotation = -1.5707964
