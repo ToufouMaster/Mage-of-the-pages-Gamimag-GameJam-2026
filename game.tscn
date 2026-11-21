@@ -31,14 +31,28 @@
 [ext_resource type="Texture2D" uid="uid://cwuvr6pxijyd4" path="res://assets/hourglass/sand_top.png" id="22_5b14r"]
 [ext_resource type="Texture2D" uid="uid://cw802jwxky02v" path="res://assets/hourglass/glass.png" id="23_bnpwn"]
 [ext_resource type="Texture2D" uid="uid://ckqdepmrw73qd" path="res://assets/hourglass/hourglass_top.png" id="24_36jdj"]
-[ext_resource type="AudioStream" uid="uid://b1kcc4syscka1" path="res://audio/streams/glass_place_random.tres" id="26_5b14r"]
-[ext_resource type="AudioStream" uid="uid://45t4tp8m6xkw" path="res://audio/streams/hourglass_fall_random.tres" id="27_bnpwn"]
+[ext_resource type="AnimationLibrary" uid="uid://dwipddyenm5j5" path="res://hourglass_animations.res" id="29_36jdj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tlwt5"]
 viewport_path = NodePath("WorldViewport")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7y1nd"]
+polygon = PackedVector2Array(29, 554, 379, 553, 381, 967, 28, 971)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v54wv"]
+polygon = PackedVector2Array(381, 116, 381, 532, 30, 528, 29, 117)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0j531"]
+polygon = PackedVector2Array(168, 17, 197, 17, 199, 157, 168, 155)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uvynu"]
+polygon = PackedVector2Array(-197, 16, -166, 19, -166, 153, -190, 155)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xfvwf"]
+polygon = PackedVector2Array(80, 191, 131, 199, 162, 224, 165, 244, 165, 223, 131, 193, 80, 186, 41, 205, 28, 225, 31, 254, 31, 226, 43, 209)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0j531"]
 particle_flag_disable_z = true
@@ -62,132 +76,17 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[sub_resource type="Animation" id="Animation_36jdj"]
-resource_name = "HourglassSlideIn"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1950, -0.16666667, -37, 0, 0, 1728, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-100, -0.16666667, 0, 0, 0, 0, -0.25, 0, 0.13333334, -85.5),
-"times": PackedFloat32Array(0.6, 1)
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("26_5b14r")
-}],
-"times": PackedFloat32Array(0.5)
-}
-tracks/2/use_blend = true
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer2D2")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("27_bnpwn")
-}],
-"times": PackedFloat32Array(0.56666666)
-}
-tracks/3/use_blend = true
+[sub_resource type="Gradient" id="Gradient_dhpj7"]
+offsets = PackedFloat32Array(0, 0.7056075)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_xfvwf"]
-resource_name = "HourglassSlideOut"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 2),
-"points": PackedFloat32Array(1728, -0.25, 0, 0.25, 0, 1950, -0.16666667, -37, 0, 0),
-"times": PackedFloat32Array(0.4, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.13333334, -85.5, -100, -0.16666667, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.39999998)
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("26_5b14r")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
-
-[sub_resource type="Animation" id="Animation_dhpj7"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1728, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7knny"]
-_data = {
-&"HourglassSlideIn": SubResource("Animation_36jdj"),
-&"HourglassSlideOut": SubResource("Animation_xfvwf"),
-&"RESET": SubResource("Animation_dhpj7")
-}
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uvynu"]
+gradient = SubResource("Gradient_dhpj7")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
 
 [node name="Node2D" type="Node2D" unique_id=1987371302]
 
@@ -204,6 +103,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_feb5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052677504]
+light_mask = 2
 material = SubResource("ShaderMaterial_fj7yv")
 position = Vector2(1186, 546)
 texture = SubResource("ViewportTexture_tlwt5")
@@ -244,19 +144,28 @@ icon = ExtResource("20_i2p71")
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpellBook/NotePad" unique_id=710610416]
+occluder = SubResource("OccluderPolygon2D_7y1nd")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="SpellBook/NotePad" unique_id=908276199]
+occluder = SubResource("OccluderPolygon2D_v54wv")
+
 [node name="Background" type="Node2D" parent="SpellBook/NotePad" unique_id=1555901878]
 
 [node name="NotepadSprite" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=1414882333]
+light_mask = 2
 position = Vector2(204.00002, 541)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("9_iotsf")
 
 [node name="P1" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=2138634502]
+light_mask = 2
 position = Vector2(205, 320)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("10_lc2xo")
 
 [node name="P2" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=2107570064]
+light_mask = 2
 position = Vector2(205, 760)
 scale = Vector2(0.45, -0.45)
 texture = ExtResource("10_lc2xo")
@@ -266,6 +175,7 @@ position = Vector2(32, 550)
 
 [node name="Page" type="Sprite2D" parent="SpellBook/NotePad" unique_id=489201515]
 self_modulate = Color(1, 1, 1, 0)
+light_mask = 2
 position = Vector2(205, 320)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("10_lc2xo")
@@ -290,6 +200,13 @@ playback_type = 2
 
 [node name="HealthBar" type="Node2D" parent="SpellBook" unique_id=482009555]
 position = Vector2(1200, 0)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpellBook/HealthBar" unique_id=668540491]
+z_index = -1
+occluder = SubResource("OccluderPolygon2D_0j531")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="SpellBook/HealthBar" unique_id=26443725]
+occluder = SubResource("OccluderPolygon2D_uvynu")
 
 [node name="Base" type="Sprite2D" parent="SpellBook/HealthBar" unique_id=768138978]
 position = Vector2(0, 86)
@@ -321,7 +238,14 @@ position = Vector2(1728, 0)
 script = ExtResource("19_i2p71")
 progress = 1.0
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpellBook/Hourglass" unique_id=1487289853]
+occluder = SubResource("OccluderPolygon2D_xfvwf")
+
+[node name="Timer" type="Timer" parent="SpellBook/Hourglass" unique_id=1346501031]
+
 [node name="Bottom" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=600333943]
+light_mask = 2
+z_index = 1
 position = Vector2(96, 150.00002)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
@@ -329,15 +253,20 @@ texture = ExtResource("19_vaj68")
 
 [node name="BottomPolygon" type="Polygon2D" parent="SpellBook/Hourglass" unique_id=1171935969]
 clip_children = 1
+light_mask = 3
+z_index = 1
 polygon = PackedVector2Array(99, 267, 73, 266, 51, 258, 33, 242, 29, 229, 35, 208, 58, 187, 84, 171, 99, 165, 130, 180, 148, 196, 162, 220, 163, 230, 158, 244, 144, 259, 123, 266)
 
 [node name="SandBottom" type="Sprite2D" parent="SpellBook/Hourglass/BottomPolygon" unique_id=126146307]
+light_mask = 2
 position = Vector2(96, 152)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("20_i2p71")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="SpellBook/Hourglass" unique_id=2140960495]
+light_mask = 2
+z_index = 1
 position = Vector2(100, 165)
 emitting = false
 amount = 50
@@ -347,6 +276,8 @@ fixed_fps = 20
 process_material = SubResource("ParticleProcessMaterial_0j531")
 
 [node name="BottomFront" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=1981927994]
+light_mask = 2
+z_index = 1
 position = Vector2(96, 150.00002)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
@@ -354,21 +285,28 @@ texture = ExtResource("21_xa8c5")
 
 [node name="TopPolygon" type="Polygon2D" parent="SpellBook/Hourglass" unique_id=1223329197]
 clip_children = 1
+visibility_layer = 2
+z_index = 1
 polygon = PackedVector2Array(99, 166, 74, 155, 45, 133, 29, 118, 21, 103, 171, 102, 169, 117, 146, 142)
 
 [node name="SandTop" type="Sprite2D" parent="SpellBook/Hourglass/TopPolygon" unique_id=849718930]
-position = Vector2(96, 174)
+light_mask = 2
+position = Vector2(92, 170)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("22_5b14r")
 
 [node name="Glass" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=1960091144]
+light_mask = 2
+z_index = 1
 position = Vector2(96, 150)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("23_bnpwn")
 
 [node name="Top" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=1747393092]
+light_mask = 2
+z_index = 2
 position = Vector2(96, 150)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
@@ -383,7 +321,7 @@ offset_bottom = 400.0
 texture = SubResource("GradientTexture2D_0j531")
 
 [node name="HourglassAnimationPlayer" type="AnimationPlayer" parent="SpellBook/Hourglass" unique_id=3097141]
-libraries/ = SubResource("AnimationLibrary_7knny")
+libraries/ = ExtResource("29_36jdj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/Hourglass" unique_id=1924716843]
 volume_db = -10.0
@@ -392,3 +330,53 @@ volume_db = -10.0
 
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
 libraries/ = ExtResource("19_qhcbd")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=305526657]
+position = Vector2(1588, -141)
+color = Color(0.20703125, 0.082812496, 0, 1)
+energy = 2.0
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 7.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D" unique_id=1113659123]
+light_mask = 2
+visibility_layer = 2
+color = Color(0.20703125, 0.082812496, 0, 1)
+energy = 2.0
+range_z_max = 1
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 7.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=865214837]
+position = Vector2(623, 1138)
+color = Color(0.20703125, 0.082812496, 0, 1)
+energy = 2.0
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 10.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D2" unique_id=1583025429]
+light_mask = 2
+visibility_layer = 2
+color = Color(0.20703125, 0.082812496, 0, 1)
+energy = 2.0
+range_z_max = 1
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 10.0

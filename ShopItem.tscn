@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://skfr51238kyr"]
+
+[ext_resource type="Script" path="res://shop_item.gd" id="1_4eib6"]
+[ext_resource type="Texture2D" uid="uid://e7xt4qsp8cyf" path="res://assets/ShopItemBG.png" id="2_uypfl"]
+[ext_resource type="Texture2D" uid="uid://eoby0f6f7yan" path="res://assets/itemBought.png" id="3_q1tx5"]
+[ext_resource type="AudioStream" uid="uid://1q6u0ur66hw1" path="res://audio/sfx/table_smash1.ogg" id="4_q1tx5"]
+[ext_resource type="AudioStream" uid="uid://crmg0jxrdst1i" path="res://audio/sfx/table_smash2.ogg" id="5_ifa3v"]
+[ext_resource type="AudioStream" uid="uid://mcwpgiwsft4m" path="res://audio/sfx/table_smash3.ogg" id="6_lbcxy"]
+[ext_resource type="AudioStream" uid="uid://bb8x1arxhbs7b" path="res://audio/sfx/purchase_coin_fall1.ogg" id="7_sppbc"]
+[ext_resource type="AudioStream" uid="uid://c214qjdgb4fyl" path="res://audio/sfx/purchase_coin_fall2.ogg" id="8_f31l1"]
+[ext_resource type="AudioStream" uid="uid://bup61rcbb3jyi" path="res://audio/sfx/purchase_coin_fall3.ogg" id="9_v34bk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgsw5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7y1nd"]
+streams_count = 3
+stream_0/stream = ExtResource("4_q1tx5")
+stream_1/stream = ExtResource("5_ifa3v")
+stream_2/stream = ExtResource("6_lbcxy")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_08nl3"]
+streams_count = 3
+stream_0/stream = ExtResource("7_sppbc")
+stream_1/stream = ExtResource("8_f31l1")
+stream_2/stream = ExtResource("9_v34bk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgsw5"]
+size = Vector2(154, 201)
+
+[node name="ShopItem" type="Node2D" unique_id=1943634331]
+script = ExtResource("1_4eib6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1370732082]
+z_index = -1
+scale = Vector2(0.095722735, 0.105957225)
+texture = ExtResource("2_uypfl")
+
+[node name="itemAppearance" type="Sprite2D" parent="." unique_id=1681229111]
+
+[node name="boughtSticker" type="Sprite2D" parent="." unique_id=1695577453]
+z_index = 1
+position = Vector2(-8, 12)
+scale = Vector2(0.13139848, 0.13139848)
+texture = ExtResource("3_q1tx5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1476178528]
+position = Vector2(-8, 12)
+rotation = 0.16551036
+scale = Vector2(0.13139848, 0.13139848)
+sprite_frames = SubResource("SpriteFrames_mgsw5")
+
+[node name="StompAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1135826992]
+stream = SubResource("AudioStreamRandomizer_7y1nd")
+volume_db = 5.0
+
+[node name="CoinTossAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1575838465]
+stream = SubResource("AudioStreamRandomizer_08nl3")
+volume_db = -5.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1215401364]
+scale = Vector2(0.095722735, 0.105957225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2049556129]
+position = Vector2(0, 0.5)
+scale = Vector2(11.932791, 10.931936)
+shape = SubResource("RectangleShape2D_mgsw5")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
