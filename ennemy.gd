@@ -14,6 +14,7 @@ func set_up_letter(letter_nb : int, letter_sprite : Texture):
 
 func _ready() -> void:
 	pv = FuncSingleton.get_pascal_triangle(letter)
+	$AnimationPlayer.play("waving")
 
 func take_damage(amount : int):
 	self.pv -= amount
