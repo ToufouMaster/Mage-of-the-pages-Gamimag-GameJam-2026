@@ -21,10 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://dpa3rp1kuexwu" path="res://assets/letters/N.png" id="18_w44yn"]
 [ext_resource type="Texture2D" uid="uid://bh16caulltau8" path="res://assets/letters/P.png" id="19_6ah6f"]
 [ext_resource type="Texture2D" uid="uid://b0pkay3lp5cn7" path="res://assets/letters/Q.png" id="20_g1i3r"]
+[ext_resource type="Texture2D" uid="uid://d0no7aki47gem" path="res://assets/arenev2.png" id="22_wukud"]
 
 [node name="World" type="Node2D" unique_id=2114406119]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=191854157]
+z_index = -100
 texture = ExtResource("1_fj7yv")
 
 [node name="Player" parent="." unique_id=1839239569 instance=ExtResource("2_tlwt5")]
@@ -42,3 +44,15 @@ wait_time = 4.0
 
 [node name="ProjectileSpawner" type="Node2D" parent="." unique_id=1997248687]
 script = ExtResource("7_pkg7o")
+
+[node name="AreneFloatingIsland" type="Sprite2D" parent="." unique_id=324870722]
+z_index = -10
+position = Vector2(-71, -30)
+texture = ExtResource("22_wukud")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AreneFloatingIsland" unique_id=1676348491]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreneFloatingIsland/StaticBody2D" unique_id=2112655600]
+position = Vector2(-888, -733)
+build_mode = 1
+polygon = PackedVector2Array(30, -3, 161, -43, 321, 4, 546, -17, 707, 46, 1053, -2, 1103, 56, 1259, 114, 1632, 19, 1720, 87, 1678, 277, 1761, 478, 1689, 721, 1742, 832, 1803, 892, 1731, 1116, 1761, 1283, 1703, 1436, 1764, 1573, 1741, 1652, 1624, 1622, 1415, 1637, 1214, 1577, 993, 1637, 800, 1588, 500, 1645, 321, 1588, 272, 1493, 90, 1565, -5, 1550, 48, 1223, -40, 1037, 67, 889, 2, 612, 52, 456, 6, 316, 76, 118, 0, 11)

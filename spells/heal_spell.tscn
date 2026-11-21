@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cf5q6af6nfyo3"]
 
 [ext_resource type="Script" uid="uid://dy0kg6f36prj2" path="res://spells/heal_spell.gd" id="1_uraxc"]
-[ext_resource type="Texture2D" uid="uid://n2m6nfeqvq0f" path="res://assets/HealingSpell.png" id="2_72bl7"]
+[ext_resource type="Texture2D" uid="uid://bch6mm8xxch6n" path="res://assets/HealingSpell2.png" id="2_72bl7"]
 
 [node name="Spell5" type="Node" unique_id=1199599144]
 script = ExtResource("1_uraxc")
