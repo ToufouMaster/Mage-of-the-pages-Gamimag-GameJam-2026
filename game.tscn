@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spell_1.tscn" id="5_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/spell_2.tscn" id="6_hve3p"]
-[ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/Spell3.gd" id="7_215e1"]
-[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="7_lc2xo"]
-[ext_resource type="Texture2D" uid="uid://ct01dam7ha414" path="res://assets/dice.png" id="8_7sc4i"]
+[ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/spell_3.tscn" id="7_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
@@ -48,14 +46,11 @@ spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2"), NodePath("Sp
 
 [node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
 
-[node name="Spell3" type="Node" parent="SpellBook/Spells" unique_id=1151765514]
-script = ExtResource("7_215e1")
-max_stock = 100
-recharge_cooldown = 0.7
-dmg = 2
-duration = 10.0
-icon = ExtResource("8_7sc4i")
-projectile = ExtResource("7_lc2xo")
+[node name="Spell3" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
+max_stock = 40
+cast_cooldown = 0.3
+recharge_cooldown = 0.6
+dmg = 3
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
