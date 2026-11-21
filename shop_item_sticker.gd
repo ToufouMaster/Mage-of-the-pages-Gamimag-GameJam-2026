@@ -1,10 +1,10 @@
 extends Node2D
-class_name ShopItem
+class_name ShopItemSticker
+
 
 @export var item:PackedScene
 @export var texture:Texture2D
 @export var price: int
-@export var is_spell:int = false
 var bought:bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,10 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func buy():
-	if (is_spell):
-		MainSingleton.spell_book.add_spell_current_index(item)
-	else :
-		print("plz dont buy stickers yet")
+	print("plz dont buy stickers yet")
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.button_mask == 1 && bought == false:
