@@ -10,6 +10,7 @@ func _ready() -> void:
 		var spell = spells[i].instantiate()
 		tmp.texture = spell.icon
 		tmp.item = spells[i]
+		tmp.is_spell = true
 		add_child(tmp)
 		tmp.position = $Left.position + ($Right.position - $Left.position) * ((i + 0.0)/(spells.size()-1))
 		
