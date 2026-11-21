@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://2m6w2tc61c15"]
 
-[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="1_a85iw"]
-[ext_resource type="Script" uid="uid://57x6rm0sv5so" path="res://projectile.gd" id="1_qxf0c"]
+[ext_resource type="Script" uid="uid://in5rayekldnr" path="res://spells/projectiles/base_projectile.gd" id="1_05uwj"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_i6mo1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
 
 [node name="Projectile" type="Area2D" unique_id=154329058]
 collision_layer = 8
-collision_mask = 6
-script = ExtResource("1_qxf0c")
+collision_mask = 4
+script = ExtResource("1_05uwj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_a85iw")
+texture = ExtResource("2_i6mo1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89040903]
 shape = SubResource("CircleShape2D_0j531")

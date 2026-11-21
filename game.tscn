@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="6_iotsf"]
 [ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/Spell2.gd" id="6_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://clm0hp1ue8e1l" path="res://assets/notepad.png" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="7_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="8_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://cxopc8nkuidbx" path="res://assets/page.png" id="9_hve3p"]
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
@@ -45,9 +46,11 @@ spell_list = [NodePath("Spells/Spell1"), NodePath("Spells/Spell2")]
 
 [node name="Spell1" type="Node" parent="SpellBook/Spells" unique_id=2096702184]
 script = ExtResource("5_eow3j")
-cooldown = 1.0
+cooldown = 0.1
 dmg = 2
+duration = 2.0
 icon = ExtResource("6_iotsf")
+projectile = ExtResource("7_lc2xo")
 
 [node name="Spell2" type="Node" parent="SpellBook/Spells" unique_id=325248868]
 script = ExtResource("6_j5wjh")

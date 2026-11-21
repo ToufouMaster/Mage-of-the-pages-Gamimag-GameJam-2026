@@ -1,19 +1,24 @@
 extends CharacterBody2D
 class_name Ennemy
 
+var coin_drop : PackedScene = preload("res://pickable_letter.tscn")
+
 @export var hitbox : Area2D
 @export var ennemy_sprite : Sprite2D 
 
 var letter : int = 0
-var pv : int
+var max_pv : float
+var pv : float : 
+	set(val):
+		pv = val
+		self.modulate.a = 0.75*pv/max_pv + 0.25
 var speed : float = 50
 
 func set_up_letter(letter_nb : int, letter_sprite : Texture):
 	self.letter = letter_nb
 	self.ennemy_sprite.texture = letter_sprite
-
-func _ready() -> void:
-	pv = FuncSingleton.get_pascal_triangle(letter)
+	self.max_pv = FuncSingleton.get_pascal_triangle(letter)
+	self.pv = max_pv
 
 func take_damage(amount : int):
 	self.pv -= amount
@@ -21,7 +26,11 @@ func take_damage(amount : int):
 		die()
 
 func die():
-	pass
+	var new_drop : PickableLetter = coin_drop.instantiate() as PickableLetter
+	new_drop.value = self.letter
+	new_drop.position = self.position
+	self.get_parent().add_child(new_drop)
+	self.queue_free()
 
 var direction_change_cooldown = 0.5
 

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://duspvkes3p3le"]
+
+[ext_resource type="Script" uid="uid://cko3wgmuccaag" path="res://pickable_letter.gd" id="1_lrr3i"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_rfa7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="PickableLetter" type="Area2D" unique_id=1099727564]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_lrr3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1896742550]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="CoinLetterSprite" type="Sprite2D" parent="." unique_id=2014655701]
+scale = Vector2(0.078125, 0.14062501)
+texture = ExtResource("2_rfa7t")

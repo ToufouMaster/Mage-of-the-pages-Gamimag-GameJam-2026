@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bmfr01g0b1wl" path="res://assets/rat.png" id="2_i3pqv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvynu"]
-radius = 5.0
-height = 20.0
+radius = 6.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 31.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1839239569 node_paths=PackedStringArray("health_bar")]
 collision_layer = 2
@@ -35,3 +38,10 @@ offset_right = 16.0
 offset_bottom = -11.0
 value = 100.0
 show_percentage = false
+
+[node name="CoinPicker" type="Area2D" parent="." unique_id=640819572]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinPicker" unique_id=590628060]
+shape = SubResource("CircleShape2D_g4v7s")
