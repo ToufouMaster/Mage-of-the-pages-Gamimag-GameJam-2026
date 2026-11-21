@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://b1gcgl2g6h2li"]
-
-[ext_resource type="Script" uid="uid://dv6q2mwyg21jm" path="res://func_singleton.gd" id="1_gfwqn"]
-
-[node name="FuncSingleton" type="Node2D" unique_id=321274301]
-script = ExtResource("1_gfwqn")

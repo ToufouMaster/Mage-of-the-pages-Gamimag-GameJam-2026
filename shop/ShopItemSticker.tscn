@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxiodx62f1hj4"]
 
-[ext_resource type="Script" uid="uid://mv1n6iad5byf" path="res://shop_item_sticker.gd" id="1_miall"]
+[ext_resource type="Script" uid="uid://mv1n6iad5byf" path="res://shop/shop_item_sticker.gd" id="1_miall"]
 [ext_resource type="Texture2D" uid="uid://e7xt4qsp8cyf" path="res://assets/ShopItemBG.png" id="1_qaxpi"]
 [ext_resource type="Texture2D" uid="uid://eoby0f6f7yan" path="res://assets/itemBought.png" id="2_miall"]
 [ext_resource type="AudioStream" uid="uid://1q6u0ur66hw1" path="res://audio/sfx/table_smash1.ogg" id="3_q5fmd"]

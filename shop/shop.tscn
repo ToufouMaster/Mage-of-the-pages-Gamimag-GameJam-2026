@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjoo222tfg86y"]
 
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="1_blqjs"]
-[ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop.gd" id="1_e7rdd"]
+[ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop/shop.gd" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_blqjs"]
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spam_spell.tscn" id="2_myf4l"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="3_p5a0g"]
