@@ -5,7 +5,7 @@ var budget : int = 40
 var ennemy_scene : PackedScene = preload("res://ennemy.tscn")
 
 @export var letter_sprites : Array[Texture]
-@export var spawn_cooldown : float = randf_range(2,3.5)
+@export var spawn_cooldown : float = randf_range(2.5,3.5)
 
 var spawn_timer : Timer
 
@@ -14,7 +14,7 @@ func _ready() -> void:
 	FuncSingleton.end_match.connect(end_match)
 
 func start_match():
-	budget = MainSingleton.round * 45
+	budget = MainSingleton.round * 35
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_cooldown
 	self.add_child(spawn_timer)
@@ -45,11 +45,11 @@ func choose_letter(current_budget : int):
 	var sum = 0
 	for i in range(1,27):
 		sum += i
-		if current_budget/sum < 3:
+		if current_budget/sum < 5:
 			break
 		else:
 			max_afforable_letter = i
-	return randi_range(1, min(max_afforable_letter, MainSingleton.round * 2 - 1))
+	return randi_range(1, min(max_afforable_letter, MainSingleton.round * 2))
 
 func choose_every_letter() -> Array[int]:
 	var letter_list : Array[int] = []

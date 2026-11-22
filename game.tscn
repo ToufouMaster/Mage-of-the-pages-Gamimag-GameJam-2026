@@ -589,8 +589,14 @@ visible = false
 
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
+[node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
+
 [node name="Fireball" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
 dmg = 3
+
+[node name="SawSpell" parent="SpellBook/Spells" unique_id=1276658585 instance=ExtResource("16_7knny")]
+
+[node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
@@ -1049,23 +1055,18 @@ offset_bottom = 588.0
 text = "Start"
 label_settings = SubResource("LabelSettings_syckt")
 
-[node name="RetryButton" type="Button" parent="." unique_id=566505694]
-visible = false
-offset_left = 905.0
-offset_top = 743.0
-offset_right = 1615.0
-offset_bottom = 958.0
-flat = true
-
-[node name="Label" type="Label" parent="." unique_id=1372647849]
-offset_left = 19.0
-offset_top = 121.0
-offset_right = 1673.0
-offset_bottom = 343.0
+[node name="Label2" type="Label" parent="StartButton" unique_id=1372647849]
+layout_mode = 0
+offset_left = -681.0
+offset_top = 21.0
+offset_right = 973.0
+offset_bottom = 783.0
 text = "Z/Q/S/D : move the
  character.
 
-Arrow up / down : turn 
+Arrow up / down 
+i / k
+scroll wheel : turn 
 the pages of your spell 
 notebook.
 
@@ -1078,6 +1079,14 @@ as above.
 
 "
 label_settings = SubResource("LabelSettings_jbmwm")
+
+[node name="RetryButton" type="Button" parent="." unique_id=566505694]
+visible = false
+offset_left = 905.0
+offset_top = 743.0
+offset_right = 1615.0
+offset_bottom = 958.0
+flat = true
 
 [connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
 [connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]

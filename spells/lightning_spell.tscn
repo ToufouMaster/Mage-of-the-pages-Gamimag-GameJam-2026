@@ -6,11 +6,11 @@
 
 [node name="LightningSpell" type="Node" unique_id=1704353616]
 script = ExtResource("1_dgr48")
-max_stock = 2
-dmg = 3
+dmg = 4
+duration = 0.5
 target_amount = 3
 cast_cooldown = 1.0
-recharge_cooldown = 10.0
+recharge_cooldown = 15.0
 icon = ExtResource("2_dgr48")
 projectile = ExtResource("3_pctke")
 pentacle_color = Color(0.8784314, 0, 0.8117647, 1)

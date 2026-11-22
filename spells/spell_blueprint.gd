@@ -80,6 +80,7 @@ func start_match():
 	update_everything()
 	is_selected = false
 	spell_ready = true
+	await get_tree().create_timer(3).timeout
 	recharge_timer.start()
 	recharge_timer.paused = true
 	cast_timer.start()
