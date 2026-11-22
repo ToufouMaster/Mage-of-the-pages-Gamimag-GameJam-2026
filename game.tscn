@@ -645,7 +645,6 @@ texture = ExtResource("10_lc2xo")
 [node name="SpellPage" parent="SpellBook/NotePad/Background" unique_id=1119320805 instance=ExtResource("11_215e1")]
 modulate = Color(1.825, 1.825, 1.825, 1)
 position = Vector2(32, 550)
-Stickers = Array[Texture2D]([])
 
 [node name="Page" type="Sprite2D" parent="SpellBook/NotePad" unique_id=489201515]
 self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 0)
@@ -658,7 +657,6 @@ texture = ExtResource("10_lc2xo")
 modulate = Color(1.8247963, 1.8247963, 1.8247963, 0)
 position = Vector2(-384.44443, 422.2222)
 scale = Vector2(2.222, -2.222)
-Stickers = Array[Texture2D]([])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpellBook/NotePad/Page" unique_id=1003583569]
 stream = ExtResource("13_215e1")
