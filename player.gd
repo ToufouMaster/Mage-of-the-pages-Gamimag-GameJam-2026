@@ -6,6 +6,8 @@ var speed = 75
 @export var ennemy_detect_area : Area2D
 @onready var coin_picker_area : Area2D = $CoinPicker
 
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	FuncSingleton.start_match.connect(start_match)
@@ -57,7 +59,7 @@ func regen_health():
 	if !regen_active:
 		regen_active = true
 		await get_tree().create_timer(1).timeout
-		heal_damage(1)
+		heal_damage(3)
 		regen_active = false
 		if (health != max_health):
 			regen_health()

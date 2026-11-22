@@ -80,11 +80,12 @@ func start_match():
 	update_everything()
 	is_selected = false
 	spell_ready = true
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	recharge_timer.start()
-	recharge_timer.paused = true
 	cast_timer.start()
-	cast_timer.paused = true
+	if (!is_selected):
+		recharge_timer.paused = true
+		cast_timer.paused = true
 	current_stock = actual_max_stock
 
 func end_match():

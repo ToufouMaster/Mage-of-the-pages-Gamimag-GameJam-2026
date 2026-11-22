@@ -589,14 +589,10 @@ visible = false
 
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
-[node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
-
 [node name="Fireball" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
 dmg = 3
 
 [node name="SawSpell" parent="SpellBook/Spells" unique_id=1276658585 instance=ExtResource("16_7knny")]
-
-[node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

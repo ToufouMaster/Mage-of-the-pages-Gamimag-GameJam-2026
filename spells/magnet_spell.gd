@@ -12,5 +12,7 @@ func get_description():
 
 func cast_spell(_angle_offset : float = 0):
 	MainSingleton.player.coin_picker_area.scale = Vector2(4,4)
+	MainSingleton.player.sprite.self_modulate = Color.BLUE
 	await get_tree().create_timer(self.duration).timeout
+	MainSingleton.player.sprite.self_modulate = Color.WHITE
 	MainSingleton.player.coin_picker_area.scale = Vector2(1,1)

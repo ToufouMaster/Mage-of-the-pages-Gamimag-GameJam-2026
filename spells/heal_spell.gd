@@ -19,7 +19,9 @@ func cast_spell(_angle_offset : float = 0):
 	regen_timer.wait_time = 100/self.speed
 	regen_timer.start(-1)
 	regen_timer.timeout.connect(_on_heal)
+	MainSingleton.player.sprite.self_modulate = Color.LIME_GREEN
 	await get_tree().create_timer(self.duration).timeout
+	MainSingleton.player.sprite.self_modulate = Color.WHITE
 	regen_timer.stop()
 	regen_timer.timeout.disconnect(_on_heal)
 
