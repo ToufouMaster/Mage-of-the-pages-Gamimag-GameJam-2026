@@ -17,4 +17,5 @@ func cast_spell(_angle_offset : float = 0):
 		return
 	var chosen_letter : int = every_ennemies.pick_random().letter
 	for selected_ennemy in every_ennemies.filter(func (x) : return x.letter == chosen_letter):
-		selected_ennemy.take_damage(self.dmg)
+		var new_lightning : Projectile = self.projectile_setup()
+		MainSingleton.projectile_spawner.spawn_projectile(selected_ennemy.global_position, new_lightning)
