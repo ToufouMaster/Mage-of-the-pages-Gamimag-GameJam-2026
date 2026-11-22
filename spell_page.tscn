@@ -39,6 +39,11 @@ font = ExtResource("3_gyn6v")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_2v5jc"]
+font = ExtResource("3_gyn6v")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
 [node name="SpellPage" type="Node2D" unique_id=1119320805]
 script = ExtResource("1_kh30g")
 Stickers = Array[Texture2D]([ExtResource("3_7eyx0"), ExtResource("2_ejq43"), ExtResource("7_hdjgj"), ExtResource("6_g8pw2"), ExtResource("4_vgnlu"), ExtResource("5_p064v"), ExtResource("9_7eyx0"), ExtResource("8_2v5jc"), ExtResource("10_2v5jc"), ExtResource("11_nimo0"), ExtResource("12_7g87k"), ExtResource("13_pas5i"), ExtResource("14_cwlmg")])
@@ -69,3 +74,12 @@ offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false
+
+[node name="Level" type="Label" parent="." unique_id=283198325]
+offset_left = 5.0
+offset_top = 350.0
+offset_right = 106.0
+offset_bottom = 404.0
+text = "3/3"
+label_settings = SubResource("LabelSettings_2v5jc")
+vertical_alignment = 2

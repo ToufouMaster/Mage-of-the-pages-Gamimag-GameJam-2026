@@ -16,8 +16,8 @@ func _ready() -> void:
 func start_match():
 	self.global_position = Vector2.ZERO
 	self.self_modulate.a = 1
-	self.show()
 	self.health = self.max_health
+	await get_tree().create_timer(1.5).timeout
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	self.show()
 

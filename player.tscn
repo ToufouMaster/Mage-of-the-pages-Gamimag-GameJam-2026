@@ -104,6 +104,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="PentacleFlat" type="Node2D" parent="." unique_id=464902279]
+visible = false
 position = Vector2(0, 6)
 scale = Vector2(1, 0.5)
 script = ExtResource("3_sweqy")

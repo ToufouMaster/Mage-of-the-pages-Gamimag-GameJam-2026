@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://c6slcka8l3xxv" path="res://assets/bookmarquepage5.png" id="52_6qn5j"]
 [ext_resource type="AnimationLibrary" uid="uid://cslwwo7ptn2kw" path="res://reroll_stool_animation.res" id="54_3gvs5"]
 [ext_resource type="Texture2D" uid="uid://cyhwladh2k38m" path="res://assets/pentacle.png" id="61_bqa6y"]
+[ext_resource type="Script" uid="uid://c3ttglow07i8f" path="res://round_label.gd" id="66_56gn1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -1082,6 +1083,16 @@ offset_top = 743.0
 offset_right = 1615.0
 offset_bottom = 958.0
 flat = true
+
+[node name="RoundLabel" type="Label" parent="." unique_id=1938743174]
+visible = false
+offset_left = 830.0
+offset_top = 120.0
+offset_right = 1530.0
+offset_bottom = 383.0
+text = "Round"
+label_settings = SubResource("LabelSettings_syckt")
+script = ExtResource("66_56gn1")
 
 [connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
 [connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]

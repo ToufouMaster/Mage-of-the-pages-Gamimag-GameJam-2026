@@ -28,8 +28,9 @@ func set_spell_page(spell: Spell):
 	icon.texture = spell.icon
 	cur_spell = spell
 	stock_label.text = str(spell.actual_max_stock) + " / " + str(spell.actual_max_stock)
+	$Level.text = "Level " + str(cur_spell.level + 1)
 	#add_sticker(1)
-		
+	
 
 func _process(_delta: float) -> void:
 	if cur_spell == null: return

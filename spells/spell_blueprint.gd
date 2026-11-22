@@ -78,15 +78,13 @@ func _ready() -> void:
 
 func start_match():
 	update_everything()
+	current_stock = actual_max_stock
 	is_selected = false
-	spell_ready = true
 	await get_tree().create_timer(2).timeout
 	recharge_timer.start()
 	cast_timer.start()
-	if (!is_selected):
-		recharge_timer.paused = true
-		cast_timer.paused = true
-	current_stock = actual_max_stock
+	recharge_timer.paused = false
+	cast_timer.paused = false
 
 func end_match():
 	recharge_timer.paused = true
