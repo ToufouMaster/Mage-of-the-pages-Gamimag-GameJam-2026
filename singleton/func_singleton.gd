@@ -4,7 +4,7 @@ func get_letter_scale(n : int) -> int:
 	@warning_ignore("integer_division")
 	return (n+1) * 2
 
-func get_letter_scale_float(n : float) -> float:
+func get_pascal_triangle_float(n : float) -> float:
 	return n*(n+1)/2.0
 
 const voyelles_array : Array[int] = [0,4,8,14,20,24]

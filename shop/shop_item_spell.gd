@@ -3,6 +3,7 @@ class_name ShopItemSpell
 
 func set_item_id(value):
 	super(value)
+	MainSingleton.update_references()
 	var spell : Spell = MainSingleton.shop.spells[item_id].instantiate()
 	$itemAppearance.texture = spell.icon
 	bought_sticker.get_parent().scale = Vector2.ONE*0.8

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bifug2th70iqt"]
 
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="1_a85iw"]
-[ext_resource type="Script" uid="uid://57x6rm0sv5so" path="res://spells/projectiles/projectile.gd" id="1_qxf0c"]
 [ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="3_dgwo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
@@ -9,7 +8,6 @@
 [node name="Projectile" type="Area2D" unique_id=154329058]
 collision_layer = 8
 collision_mask = 6
-script = ExtResource("1_qxf0c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
 scale = Vector2(0.1, 0.1)
