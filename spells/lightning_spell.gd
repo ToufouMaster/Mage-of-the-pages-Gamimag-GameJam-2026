@@ -1,11 +1,11 @@
 extends Spell
 
 func _init() -> void:
-	self.base_price = 80
-	self.price_modulation = 50
+	self.base_price = 40
+	self.price_modulation = 20
 
 func get_title():
-	return "Selective lighting bolt"
+	return "Selective lighting strike"
 
 func get_description():
 	return "Strike all the enemies that share a randomly selected letter and deal " + str(self.actual_dmg).pad_decimals(1) + " damage."

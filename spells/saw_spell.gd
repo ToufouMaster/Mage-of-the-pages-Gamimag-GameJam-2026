@@ -1,8 +1,8 @@
 extends Spell
 
 func _init() -> void:
-	self.base_price = 50
-	self.price_modulation = 20
+	self.base_price = 20
+	self.price_modulation = 10
 
 func get_title():
 	return "Saw blade"
