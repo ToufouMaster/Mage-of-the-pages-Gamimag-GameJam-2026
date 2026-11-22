@@ -41,10 +41,10 @@ func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
 	$Spells.add_child(new_spell)
 	self.spell_list.insert(spell_position, new_spell)
+	go_to_page(spell_position)
 
 func add_spell_current_index(spell_scene : PackedScene):
 	add_spell(spell_scene,current_spell_index)
-	current_spell_index +=1
 	
 func add_sticker_current_index(sticker:Spell.Sticker):
 	var spell = spell_list[current_spell_index] as Spell
@@ -66,11 +66,16 @@ func go_to_page(index : int):
 		$NotePad/Page/SpellPage.remove_stickers()
 		$NotePad/Page/SpellPage.set_stickers(spell_list[current_spell_index])
 		$NotePad/Page/SpellPage.set_spell_page(new_spell)
+		await $NotePad/NotepadAnimationPlayer.animation_finished
+		$NotePad/Background/SpellPage.remove_stickers()
+		
 	else:
 		$NotePad/NotepadAnimationPlayer.play("PageDown", -1, -5.0, true)
 		$NotePad/Background/SpellPage.remove_stickers()
 		$NotePad/Background/SpellPage.set_stickers(spell_list[current_spell_index])
 		$NotePad/Background/SpellPage.set_spell_page(new_spell)
+		await $NotePad/NotepadAnimationPlayer.animation_finished
+		$NotePad/Page/SpellPage.remove_stickers()
 	new_spell.switch_on()
 
 func turn_page_down():
