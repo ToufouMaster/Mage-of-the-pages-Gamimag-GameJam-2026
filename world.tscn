@@ -17,10 +17,20 @@
 [ext_resource type="Texture2D" uid="uid://dobpsphsd6wxt" path="res://assets/letters/K.png" id="15_bh8nc"]
 [ext_resource type="Texture2D" uid="uid://diq5bqfn0t0lh" path="res://assets/letters/L.png" id="16_jjr1n"]
 [ext_resource type="Texture2D" uid="uid://my2hd8kr6b81" path="res://assets/letters/M.png" id="17_gggvi"]
+[ext_resource type="Texture2D" uid="uid://bbtsqhnfu520n" path="res://assets/letters/O.png" id="18_bh8nc"]
 [ext_resource type="Texture2D" uid="uid://dpa3rp1kuexwu" path="res://assets/letters/N.png" id="18_w44yn"]
 [ext_resource type="Texture2D" uid="uid://bh16caulltau8" path="res://assets/letters/P.png" id="19_6ah6f"]
 [ext_resource type="Texture2D" uid="uid://b0pkay3lp5cn7" path="res://assets/letters/Q.png" id="20_g1i3r"]
+[ext_resource type="Texture2D" uid="uid://ca6e757ukwh04" path="res://assets/letters/R.png" id="21_jjr1n"]
+[ext_resource type="Texture2D" uid="uid://qu7ek6v77xxo" path="res://assets/letters/S.png" id="22_gggvi"]
 [ext_resource type="Texture2D" uid="uid://d0no7aki47gem" path="res://assets/arenev2.png" id="22_wukud"]
+[ext_resource type="Texture2D" uid="uid://btsw83jk4fkj8" path="res://assets/letters/T.png" id="23_w44yn"]
+[ext_resource type="Texture2D" uid="uid://cwaj6whvoe1xn" path="res://assets/letters/U.png" id="24_6ah6f"]
+[ext_resource type="Texture2D" uid="uid://bxrijnnbibp36" path="res://assets/letters/V.png" id="25_g1i3r"]
+[ext_resource type="Texture2D" uid="uid://qtmpduvva8xc" path="res://assets/letters/W.png" id="26_my276"]
+[ext_resource type="Texture2D" uid="uid://d301c6lubjj8w" path="res://assets/letters/X.png" id="27_yx0jh"]
+[ext_resource type="Texture2D" uid="uid://cg63uontd4ob8" path="res://assets/letters/Y.png" id="28_1ew0l"]
+[ext_resource type="Texture2D" uid="uid://cj3nynr8exscy" path="res://assets/letters/Z.png" id="29_ryup7"]
 
 [node name="World" type="Node2D" unique_id=2114406119]
 
@@ -32,7 +42,7 @@ texture = ExtResource("1_fj7yv")
 
 [node name="EnnemySpawner" type="Node2D" parent="." unique_id=439457019]
 script = ExtResource("4_036b0")
-letter_sprites = Array[Texture]([ExtResource("5_bc84e"), ExtResource("6_wukud"), ExtResource("7_il2jm"), ExtResource("8_wjb0r"), ExtResource("9_mc2jv"), ExtResource("10_bo7i5"), ExtResource("11_4h6ng"), ExtResource("12_o3ebs"), ExtResource("13_k83mh"), ExtResource("14_qktwf"), ExtResource("15_bh8nc"), ExtResource("16_jjr1n"), ExtResource("17_gggvi"), ExtResource("18_w44yn"), ExtResource("19_6ah6f"), ExtResource("20_g1i3r"), null])
+letter_sprites = Array[Texture]([ExtResource("5_bc84e"), ExtResource("6_wukud"), ExtResource("7_il2jm"), ExtResource("8_wjb0r"), ExtResource("9_mc2jv"), ExtResource("10_bo7i5"), ExtResource("11_4h6ng"), ExtResource("12_o3ebs"), ExtResource("13_k83mh"), ExtResource("14_qktwf"), ExtResource("15_bh8nc"), ExtResource("16_jjr1n"), ExtResource("17_gggvi"), ExtResource("18_w44yn"), ExtResource("18_bh8nc"), ExtResource("19_6ah6f"), ExtResource("20_g1i3r"), ExtResource("21_jjr1n"), ExtResource("22_gggvi"), ExtResource("23_w44yn"), ExtResource("24_6ah6f"), ExtResource("25_g1i3r"), ExtResource("26_my276"), ExtResource("27_yx0jh"), ExtResource("28_1ew0l"), ExtResource("29_ryup7")])
 
 [node name="SpawnCooldown" type="Timer" parent="EnnemySpawner" unique_id=1746727573]
 wait_time = 4.0
