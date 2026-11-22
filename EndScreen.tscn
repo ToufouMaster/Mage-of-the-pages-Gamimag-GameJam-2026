@@ -13,6 +13,14 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_3w1jx"]
+font = ExtResource("1_8dv01")
+font_size = 150
+font_color = Color(1, 0.043137256, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+
 [sub_resource type="Gradient" id="Gradient_082n1"]
 offsets = PackedFloat32Array(0, 0.61214954)
 colors = PackedColorArray(0.54427516, 0.31785312, 0.045689207, 1, 0, 0, 0, 1)
@@ -44,6 +52,16 @@ label_settings = SubResource("LabelSettings_mgsw5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RoundLabel" type="Label" parent="." unique_id=2067322330]
+offset_left = 409.0
+offset_top = 37.0
+offset_right = 1521.0
+offset_bottom = 212.0
+text = "ROUND"
+label_settings = SubResource("LabelSettings_3w1jx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=958779051]
 z_index = -4
 position = Vector2(962.0001, 538.5)
@@ -55,6 +73,12 @@ color = Color(0.08468992, 0.08468992, 0.08468992, 1)
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2082612799]
 position = Vector2(961, 517)
+scale = Vector2(1.6186997, 3.0859375)
+color = Color(0.74964654, 0.58850926, 0.47191525, 1)
+texture = SubResource("GradientTexture2D_xex6t")
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=907432432]
+position = Vector2(969, 106)
 scale = Vector2(1.6186997, 3.0859375)
 color = Color(0.74964654, 0.58850926, 0.47191525, 1)
 texture = SubResource("GradientTexture2D_xex6t")

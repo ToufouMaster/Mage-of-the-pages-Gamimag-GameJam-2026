@@ -89,7 +89,9 @@ func start_match():
 	current_stock = actual_max_stock
 
 func end_match():
+	recharge_timer.paused = true
 	recharge_timer.stop()
+	cast_timer.paused = true
 	cast_timer.stop()
 
 func _on_recharge():
