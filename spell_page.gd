@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 	if (cur_spell.current_stock < cur_spell.actual_max_stock):
 		reload_bar.show()
 		reload_bar.max_value = cur_spell.recharge_timer.wait_time
-		reload_bar.value = cur_spell.recharge_timer.time_left
+		reload_bar.value = cur_spell.recharge_timer.wait_time-cur_spell.recharge_timer.time_left
 	else:
 		reload_bar.hide()
 	var progress = (cur_spell.cast_timer.wait_time-cur_spell.cast_timer.time_left) / cur_spell.cast_timer.wait_time
