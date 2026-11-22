@@ -11,3 +11,5 @@ dmg = 6
 speed = 200.0
 icon = ExtResource("2_lt7vu")
 projectile = ExtResource("3_w04gf")
+pentacle_color = Color(0.9098039, 0, 0.9137255, 1)
+pentacle_duration = 0.3

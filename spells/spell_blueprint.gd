@@ -21,6 +21,9 @@ var actual_target_amount : int = target_amount
 
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
+@export var pentacle_color : Color
+@export var pentacle_duration : float = 0.5
+
 
 var base_price = 0
 var price_modulation = 0
@@ -137,6 +140,7 @@ func switch_off():
 	is_selected = false
 
 func cast_spell_sticker_wrapper():
+	MainSingleton.player.add_pentacle(self.pentacle_duration,  self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1, self.pentacle_color)
 	for i in range(0, self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1):
 		cast_spell(i*PI/16*(1 if randi_range(0,1) == 0 else -1))
 

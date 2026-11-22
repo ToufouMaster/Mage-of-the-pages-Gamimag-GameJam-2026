@@ -9,3 +9,4 @@ dmg = 8
 cast_cooldown = 1.0
 recharge_cooldown = 30.0
 icon = ExtResource("2_pctke")
+pentacle_color = Color(0.8784314, 0, 0.8117647, 1)
