@@ -59,10 +59,10 @@ func choose_letter(current_budget : int):
 func choose_every_letter() -> Array[int]:
 	var letter_list : Array[int] = []
 	var current_budget = budget
-	while (current_budget > 0):
+	while (current_budget > 5):
 		var next_letter_chosen : int = choose_letter(current_budget)
-		var affordable_letter : int = clamp(current_budget/next_letter_chosen, 0, 25)
-		current_budget -= FuncSingleton.get_pascal_triangle(next_letter_chosen)*affordable_letter
+		var affordable_letter : int = clamp(current_budget/(2*(1+next_letter_chosen)), 0, 25)
+		current_budget -= FuncSingleton.get_letter_scale(next_letter_chosen)*affordable_letter
 		for i in range (0, affordable_letter):
 			letter_list.append(next_letter_chosen-1)
 	return letter_list

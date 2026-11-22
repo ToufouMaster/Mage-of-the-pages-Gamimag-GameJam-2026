@@ -68,6 +68,7 @@ func heal_damage(amount : int):
 func die():
 	$GameOver.show()
 	self.self_modulate.a = 0
+	FuncSingleton.game_over.emit()
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 
 func add_pentacle(duration : float, speed: float = 1, color: Color = Color.WHITE):

@@ -12,7 +12,6 @@ func add_rotation_time(time : float, speed : float = 1, color : Color = Color.WH
 
 
 func _process(delta: float) -> void:
-	print(pentacle_duration)
 	if pentacle_duration > 0:
 		self.show()
 		$Pentacle.rotation += delta * 3 * pentacle_speed
