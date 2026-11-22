@@ -30,7 +30,6 @@
 [ext_resource type="AnimationLibrary" uid="uid://dae6snn7if4o1" path="res://game_animation.res" id="19_qhcbd"]
 [ext_resource type="Texture2D" uid="uid://3doh5ieluwnh" path="res://assets/hourglass/hourglass_bottom.png" id="19_vaj68"]
 [ext_resource type="Texture2D" uid="uid://ptppmquh6iut" path="res://assets/hourglass/sand_bottom.png" id="20_i2p71"]
-[ext_resource type="PackedScene" uid="uid://chy6wutbji0j2" path="res://spells/projectiles/retrograder.tscn" id="20_vuohh"]
 [ext_resource type="Script" uid="uid://clustmsv5lbc0" path="res://health_bar.gd" id="21_082n1"]
 [ext_resource type="Texture2D" uid="uid://db31ckd004n7e" path="res://assets/hourglass/hourglass_bottom_empty.png" id="21_xa8c5"]
 [ext_resource type="Texture2D" uid="uid://cwuvr6pxijyd4" path="res://assets/hourglass/sand_top.png" id="22_5b14r"]
@@ -41,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://tcu6lsxg178m" path="res://assets/shop/commode.png" id="34_aa0lp"]
 [ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop/shop.gd" id="36_mljfx"]
 [ext_resource type="Texture2D" uid="uid://d4c4gvqhpglsv" path="res://assets/shop/support_for_dice.png" id="36_r62pu"]
+[ext_resource type="PackedScene" uid="uid://c2qgfcho7628k" path="res://spells/retrograder_spell.tscn" id="37_jo4nb"]
 [ext_resource type="Texture2D" uid="uid://c1ckmy2s34osx" path="res://assets/dice.png" id="37_klri6"]
 [ext_resource type="Texture2D" uid="uid://d38jc40w2083o" path="res://assets/stickers/stickerDMG.png" id="37_qpefm"]
 [ext_resource type="Script" uid="uid://b1x62b4xm34ob" path="res://shop/shop_reroll_dice.gd" id="37_r62pu"]
@@ -803,7 +803,7 @@ volume_db = -10.0
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
 visible = false
 script = ExtResource("36_mljfx")
-spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2"), ExtResource("16_7knny"), ExtResource("17_cfc7e"), ExtResource("15_dhpj7"), ExtResource("20_vuohh")])
+spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2"), ExtResource("16_7knny"), ExtResource("17_cfc7e"), ExtResource("15_dhpj7"), ExtResource("37_jo4nb")])
 stickers = Array[Texture2D]([ExtResource("37_qpefm"), ExtResource("38_tb2lt"), ExtResource("39_cfc7e"), ExtResource("40_gh0px"), ExtResource("41_v33yl"), ExtResource("42_2tki7"), ExtResource("43_ib7ph"), ExtResource("44_vuohh"), ExtResource("48_ra4rb")])
 bookmarks = Array[Texture2D]([ExtResource("48_ra4rb"), ExtResource("49_avmo2"), ExtResource("50_vyqle"), ExtResource("51_xoeau"), ExtResource("52_6qn5j")])
 sticker_prices = Dictionary[int, Vector2]({
