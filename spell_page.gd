@@ -8,13 +8,15 @@ var cur_spell : Spell
 @export var Stickers : Array[Texture2D]
 var stickersNodes : Array[Node]
 
+func remove_stickers():
+	for elt in stickersNodes:
+		remove_child(elt)
+
 func set_stickers(spell :Spell):
 	for elt in stickersNodes:
 		remove_child(elt)
 	for key in spell.sticked_stickers.keys():
 		for sticker in spell.sticker_positions:
-			print("the currently used stickers on this spell are")
-			print(spell.sticked_stickers[key])
 			var tmp = Sprite2D.new()
 			tmp.texture = Stickers[sticker.x]
 			tmp.position = Vector2(sticker.y,sticker.z)
