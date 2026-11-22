@@ -6,6 +6,7 @@ class_name ShopItem
 @export var item_id : int : set = set_item_id
 @export var price: int : set = set_price
 var bought:bool
+var is_sticker = false
 
 
 func _ready() -> void:
@@ -43,7 +44,7 @@ func set_price(value : int):
 
 func _on_area_2d_mouse_entered() -> void:
 	$SpellInfoPopup.show()
-	$SpellInfoPopup.set_popup_info(item_id)
+	$SpellInfoPopup.set_popup_info(item_id, is_sticker)
 	$PageFlipAudioPlayer.play()
 
 func _on_area_2d_mouse_exited() -> void:

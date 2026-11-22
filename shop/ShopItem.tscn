@@ -14,7 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bwe8db7206k45" path="res://assets/livreRectNine.png" id="11_pdste"]
 [ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="11_qa75b"]
 [ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="12_2wflq"]
-[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="13_0ka6s"]
+[ext_resource type="Texture2D" uid="uid://rv2s7x4o3urw" path="res://assets/spells_stats_icons/damage.png" id="15_i3c62"]
+[ext_resource type="Texture2D" uid="uid://dxy7r28kmvv3g" path="res://assets/spells_stats_icons/reload_cooldown.png" id="16_tugpc"]
+[ext_resource type="Texture2D" uid="uid://ct3n6rwtsrwh7" path="res://assets/spells_stats_icons/cast_cooldown.png" id="17_h0t1a"]
+[ext_resource type="Texture2D" uid="uid://biqvvlxtvprqs" path="res://assets/spells_stats_icons/duration.png" id="18_7lesu"]
+[ext_resource type="Texture2D" uid="uid://dewhjx2gqibbk" path="res://assets/spells_stats_icons/travel_speed.png" id="19_njrr5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgsw5"]
 
@@ -56,7 +60,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_v54wv"]
 font = ExtResource("12_2wflq")
 font_size = 64
-font_color = Color(0.99215686, 1, 0, 0.009910673)
+font_color = Color(0.99215686, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_g1t1w"]
 length = 0.001
@@ -93,6 +97,11 @@ _data = {
 &"new_spell_blink": SubResource("Animation_clm0s")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_tugpc"]
+font = ExtResource("12_2wflq")
+font_size = 32
+font_color = Color(0.99215686, 1, 1, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_i3c62"]
 font = ExtResource("12_2wflq")
 font_size = 48
@@ -101,11 +110,6 @@ font_color = Color(0.99215686, 1, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_7y1nd"]
 font = ExtResource("12_2wflq")
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_tugpc"]
-font = ExtResource("12_2wflq")
-font_size = 32
-font_color = Color(0.99215686, 1, 1, 1)
 
 [node name="ShopItem" type="Node2D" unique_id=1943634331]
 script = ExtResource("1_rs30b")
@@ -153,6 +157,7 @@ scale = Vector2(11.932791, 10.931936)
 shape = SubResource("RectangleShape2D_mgsw5")
 
 [node name="SpellInfoPopup" type="Control" parent="." unique_id=699671510]
+visible = false
 modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 light_mask = 2
 z_index = 2
@@ -235,10 +240,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/Damage" unique_id=1672381950]
+self_modulate = Color(0, 0, 0, 1)
 light_mask = 2
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("13_0ka6s")
+texture = ExtResource("15_i3c62")
 expand_mode = 2
 
 [node name="Value" type="Label" parent="SpellInfoPopup/Stats/Damage" unique_id=1412345536]
@@ -253,10 +259,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/ReloadCD" unique_id=1008104196]
+self_modulate = Color(0, 0, 0, 1)
 light_mask = 2
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("13_0ka6s")
+texture = ExtResource("16_tugpc")
 expand_mode = 2
 
 [node name="Value" type="Label" parent="SpellInfoPopup/Stats/ReloadCD" unique_id=570340008]
@@ -271,10 +278,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/CastCD" unique_id=910572303]
+self_modulate = Color(0, 0, 0, 1)
 light_mask = 2
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("13_0ka6s")
+texture = ExtResource("17_h0t1a")
 expand_mode = 2
 
 [node name="Value" type="Label" parent="SpellInfoPopup/Stats/CastCD" unique_id=291903890]
@@ -289,10 +297,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/Duration" unique_id=1886784173]
+self_modulate = Color(0, 0, 0, 1)
 light_mask = 2
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("13_0ka6s")
+texture = ExtResource("18_7lesu")
 expand_mode = 2
 
 [node name="Value" type="Label" parent="SpellInfoPopup/Stats/Duration" unique_id=481094147]
@@ -307,10 +316,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/Speed" unique_id=1237494332]
+self_modulate = Color(0, 0, 0, 1)
 light_mask = 2
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
-texture = ExtResource("13_0ka6s")
+texture = ExtResource("19_njrr5")
 expand_mode = 2
 
 [node name="Value" type="Label" parent="SpellInfoPopup/Stats/Speed" unique_id=589464152]
@@ -339,6 +349,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="SpellInfoPopup/SpellStatus/NewSpell" unique_id=1990710358]
+light_mask = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -353,6 +364,29 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpellInfoPopup/SpellStatus/NewSpell" unique_id=1576096995]
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_1lxtf")
+
+[node name="Sticker" type="Control" parent="SpellInfoPopup/SpellStatus" unique_id=1051038342]
+visible = false
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SpellInfoPopup/SpellStatus/Sticker" unique_id=476977554]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Will be applied to currently equipped spell"
+label_settings = SubResource("LabelSettings_tugpc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LevelUp" type="Control" parent="SpellInfoPopup/SpellStatus" unique_id=914005894]
 visible = false
