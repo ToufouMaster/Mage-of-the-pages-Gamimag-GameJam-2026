@@ -1,11 +1,11 @@
 extends Node2D
 
-var budget : int = 500
+var budget : int = 40
 
 var ennemy_scene : PackedScene = preload("res://ennemy.tscn")
 
 @export var letter_sprites : Array[Texture]
-@export var spawn_cooldown : float = 2
+@export var spawn_cooldown : float = randf_range(2,3.5)
 
 var spawn_timer : Timer
 
@@ -56,7 +56,7 @@ func choose_every_letter() -> Array[int]:
 	var current_budget = budget
 	while (current_budget > 5):
 		var next_letter_chosen : int = choose_letter(current_budget)
-		var affordable_letter : int = clamp(current_budget/(2*(1+next_letter_chosen)), 0, 25)
+		var affordable_letter : int = clamp(current_budget/(2*(1+next_letter_chosen)), 0, MainSingleton.round * 2 - 1)
 		current_budget -= FuncSingleton.get_letter_scale(next_letter_chosen)*affordable_letter
 		for i in range (0, affordable_letter):
 			letter_list.append(next_letter_chosen-1)
