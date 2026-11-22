@@ -397,7 +397,6 @@ offset = Vector2(-2797, 55)
 flip_h = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Book" unique_id=1326705178]
-visible = false
 texture = ExtResource("3_xex6t")
 texture_offset = Vector2(-470, -54)
 texture_scale = Vector2(2, 2)
@@ -443,9 +442,6 @@ icon = ExtResource("20_i2p71")
 [node name="LightningSpell" parent="SpellBook/Spells" unique_id=1704353616 instance=ExtResource("15_dhpj7")]
 
 [node name="SawSpell" parent="SpellBook/Spells" unique_id=1276658585 instance=ExtResource("16_7knny")]
-debug_stickers = Dictionary[int, int]({
-4: 2
-})
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
@@ -658,6 +654,7 @@ volume_db = -10.0
 libraries/ = ExtResource("19_qhcbd")
 
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
+visible = false
 script = ExtResource("36_mljfx")
 spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2")])
 stickers = Array[Texture2D]([ExtResource("37_qpefm"), ExtResource("38_tb2lt"), ExtResource("39_cfc7e"), ExtResource("40_gh0px"), ExtResource("41_v33yl"), ExtResource("42_2tki7"), ExtResource("43_ib7ph"), ExtResource("44_vuohh")])
@@ -813,3 +810,6 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1173383351]
 color = Color(0.2265625, 0.2265625, 0.2265625, 1)
+
+[node name="MoneyDisplay" parent="." unique_id=1960228043 instance=ExtResource("44_tb2lt")]
+position = Vector2(548, 79)

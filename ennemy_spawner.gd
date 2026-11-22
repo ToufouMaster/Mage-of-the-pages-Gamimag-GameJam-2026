@@ -1,6 +1,6 @@
 extends Node2D
 
-var budget : int = 100
+var budget : int = 50
 
 var ennemy_scene : PackedScene = preload("res://ennemy.tscn")
 
@@ -12,10 +12,13 @@ func _ready() -> void:
 	spawn_timer.start()
 
 func start_match():
+	budget = MainSingleton.round * 35
 	spawn_timer.timeout.connect(spawn_batch_of_ennemies)
 
 func end_match():
 	spawn_timer.timeout.disconnect(spawn_batch_of_ennemies)
+
+const SPAWN_OFFSET = 150
 
 func spawn_batch_of_ennemies():
 	var letter_choices : Array[int] = self.choose_every_letter()
@@ -25,8 +28,13 @@ func spawn_batch_of_ennemies():
 		var horizontal_movement := Input.get_axis("walk left", "walk right")
 		var vertical_movement := Input.get_axis("walk up", "walk down")
 		var movement = Vector2(horizontal_movement, vertical_movement).normalized()
-		var spawn_position : Vector2 = MainSingleton.player.global_position + movement * 20 + Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()*300
-		new_ennemy.global_position = spawn_position
+		var random_spawn = Vector2(randf_range(-SPAWN_OFFSET,SPAWN_OFFSET), randf_range(-SPAWN_OFFSET, SPAWN_OFFSET))
+		#horriblement opti
+		while (abs(random_spawn.y - MainSingleton.player.global_position.y)) < 20:
+			random_spawn.y += randf_range(-SPAWN_OFFSET, SPAWN_OFFSET)
+		while(abs(random_spawn.x - MainSingleton.player.global_position.x)) < 20:
+			random_spawn.x += randf_range(-SPAWN_OFFSET, SPAWN_OFFSET)
+		new_ennemy.global_position = random_spawn
 		self.add_child(new_ennemy)
 
 func choose_letter(current_budget : int):
@@ -34,7 +42,7 @@ func choose_letter(current_budget : int):
 	var sum = 0
 	for i in range(1,27):
 		sum += i
-		if current_budget/sum < 5:
+		if current_budget/sum < 3:
 			break
 		else:
 			max_afforable_letter = i

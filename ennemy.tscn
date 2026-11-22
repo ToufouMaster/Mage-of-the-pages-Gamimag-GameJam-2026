@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy7wlhvqjbkfh"]
 
 [ext_resource type="Script" uid="uid://qvyqfc2ajji1" path="res://ennemy.gd" id="1_8dqw5"]
-[ext_resource type="Texture2D" uid="uid://c503nkgd4tajk" path="res://assets/letters/A.png" id="2_f3frg"]
+[ext_resource type="Texture2D" uid="uid://h7xevgompm2q" path="res://assets/letters/B.png" id="2_f3frg"]
 [ext_resource type="AnimationLibrary" uid="uid://ciyxq2e8joxhu" path="res://waving_enemy.res" id="3_f3frg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]

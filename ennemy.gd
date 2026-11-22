@@ -35,12 +35,17 @@ func take_damage(amount : int):
 	if (self.pv < 1):
 		die()
 
+var is_dying : bool = false
+
 func die():
-	var new_drop : PickableLetter = coin_drop.instantiate() as PickableLetter
-	new_drop.value = self.letter
-	new_drop.position = self.position
-	self.get_parent().add_child(new_drop)
-	self.queue_free()
+	if !is_dying:
+		is_dying = true
+		var new_drop : PickableLetter = coin_drop.instantiate() as PickableLetter
+		new_drop.value = self.letter
+		new_drop.position = self.position
+		new_drop.scale = new_drop.scale + Vector2.ONE * float(self.letter/26)
+		self.get_parent().add_child(new_drop)
+		self.queue_free()
 
 var direction_change_cooldown = 0.5
 
@@ -60,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		if (!hitbox.get_overlapping_bodies().is_empty() and attack_cooldown <= 0):
 			var player = hitbox.get_overlapping_bodies()[0]
 			if (player is Player):
-				player.take_damage(letter)
+				player.take_damage(3)
 				attack_cooldown = max_attack_cooldown
 			else:
 				push_error("multiples entity in layer player")

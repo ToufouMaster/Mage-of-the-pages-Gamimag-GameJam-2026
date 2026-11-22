@@ -8,5 +8,5 @@ func _ready() -> void:
 
 
 func _on_area_entered(_area):
-	MainSingleton.coinLetter += value
+	MainSingleton.gain_money(value)
 	self.queue_free()
