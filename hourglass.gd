@@ -28,12 +28,16 @@ func set_progress(value: float):
 			alarm_tick += get_process_delta_time()
 			var speed = 1 + ((progress-0.8)*5)*(PI*5)
 			red_halo.self_modulate.a = 1-(sin(alarm_tick*speed)+1)/2
+			if !$TickingAudio.playing:
+				$TickingAudio.play()
 		else:
 			alarm_tick = 0
 			red_halo.self_modulate.a = 0
+			$TickingAudio.stop()
 	else:
 		alarm_tick = 0
 		red_halo.self_modulate.a = 0
+		$TickingAudio.stop()
 
 func start_round_timer(cooldown: float = 50):
 	timer.start(cooldown)
