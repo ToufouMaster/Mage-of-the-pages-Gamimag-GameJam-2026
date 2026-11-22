@@ -1,6 +1,6 @@
 extends Node2D
 
-var budget : int = 50
+var budget : int = 500
 
 var ennemy_scene : PackedScene = preload("res://ennemy.tscn")
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 	spawn_timer.start()
 
 func start_match():
-	budget = MainSingleton.round * 35
+	budget = MainSingleton.round * 50
 	spawn_timer.timeout.connect(spawn_batch_of_ennemies)
 
 func end_match():
