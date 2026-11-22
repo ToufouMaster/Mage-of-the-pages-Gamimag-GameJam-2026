@@ -23,8 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://ca7tvckec23ti" path="res://spells/saw_spell.tscn" id="16_7knny"]
 [ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
 [ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
+[ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/targeted_spell.gd" id="17_v33yl"]
+[ext_resource type="Texture2D" uid="uid://dp1jkpvt6cb42" path="res://assets/I didn't ask how big the room is I said I cast FIREBALL.png" id="18_2tki7"]
 [ext_resource type="AnimationLibrary" uid="uid://qt0xloqvg6dv" path="res://health_bar_animations.res" id="18_x5p1p"]
 [ext_resource type="Script" uid="uid://elj15cqh8gl3" path="res://hourglass.gd" id="19_i2p71"]
+[ext_resource type="PackedScene" uid="uid://cy7s4s73sbbg3" path="res://spells/projectiles/bomb_projectile.tscn" id="19_ib7ph"]
 [ext_resource type="AnimationLibrary" uid="uid://dae6snn7if4o1" path="res://game_animation.res" id="19_qhcbd"]
 [ext_resource type="Texture2D" uid="uid://3doh5ieluwnh" path="res://assets/hourglass/hourglass_bottom.png" id="19_vaj68"]
 [ext_resource type="Texture2D" uid="uid://ptppmquh6iut" path="res://assets/hourglass/sand_bottom.png" id="20_i2p71"]
@@ -466,6 +469,18 @@ icon = ExtResource("20_i2p71")
 [node name="LightningSpell" parent="SpellBook/Spells" unique_id=1704353616 instance=ExtResource("15_dhpj7")]
 
 [node name="SawSpell" parent="SpellBook/Spells" unique_id=1276658585 instance=ExtResource("16_7knny")]
+
+[node name="RocketLauncherSpell" type="Node" parent="SpellBook/Spells" unique_id=1065381821]
+script = ExtResource("17_v33yl")
+max_stock = 3
+dmg = 5
+duration = 6.0
+speed = 400.0
+target_amount = 2
+cast_cooldown = 2.0
+recharge_cooldown = 4.0
+icon = ExtResource("18_2tki7")
+projectile = ExtResource("19_ib7ph")
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
