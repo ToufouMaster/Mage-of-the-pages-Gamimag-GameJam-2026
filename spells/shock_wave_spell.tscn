@@ -14,3 +14,5 @@ cast_cooldown = 0.8
 recharge_cooldown = 15.0
 icon = ExtResource("2_4xf13")
 projectile = ExtResource("3_lj32e")
+pentacle_color = Color(0.6862745, 0, 0.27450982, 1)
+pentacle_duration = 1.0

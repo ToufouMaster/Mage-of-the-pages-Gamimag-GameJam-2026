@@ -14,3 +14,4 @@ cast_cooldown = 5.0
 recharge_cooldown = 8.0
 icon = ExtResource("2_512at")
 projectile = ExtResource("3_512at")
+pentacle_duration = 2.0
