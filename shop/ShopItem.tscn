@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://cqifigc7x5wo3"]
+[gd_scene format=3 uid="uid://c0gn7qy45wdwk"]
 
-[ext_resource type="Texture2D" uid="uid://e7xt4qsp8cyf" path="res://assets/ShopItemBG.png" id="2_uypfl"]
+[ext_resource type="Texture2D" uid="uid://dsaibcu0pt8aj" path="res://assets/shop/scroll.png" id="1_awmu2"]
+[ext_resource type="Script" uid="uid://bxo2uaw32k03l" path="res://shop/shop_item.gd" id="1_rs30b"]
 [ext_resource type="Texture2D" uid="uid://eoby0f6f7yan" path="res://assets/itemBought.png" id="3_q1tx5"]
 [ext_resource type="AudioStream" uid="uid://1q6u0ur66hw1" path="res://audio/sfx/table_smash1.ogg" id="4_q1tx5"]
 [ext_resource type="AudioStream" uid="uid://crmg0jxrdst1i" path="res://audio/sfx/table_smash2.ogg" id="5_ifa3v"]
@@ -27,15 +28,17 @@ stream_2/stream = ExtResource("9_v34bk")
 size = Vector2(154, 201)
 
 [node name="ShopItem" type="Node2D" unique_id=1943634331]
+script = ExtResource("1_rs30b")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1370732082]
-z_index = -1
-scale = Vector2(0.095722735, 0.105957225)
-texture = ExtResource("2_uypfl")
+[node name="Background" type="Sprite2D" parent="." unique_id=1370732082]
+texture = ExtResource("1_awmu2")
 
 [node name="itemAppearance" type="Sprite2D" parent="." unique_id=1681229111]
+scale = Vector2(0.8, 0.8)
 
-[node name="boughtSticker" type="Sprite2D" parent="." unique_id=1695577453]
+[node name="Bought" type="Node2D" parent="." unique_id=1001626857]
+
+[node name="boughtSticker" type="Sprite2D" parent="Bought" unique_id=1695577453]
 z_index = 1
 position = Vector2(-8, 12)
 scale = Vector2(0.13139848, 0.13139848)
@@ -49,11 +52,10 @@ sprite_frames = SubResource("SpriteFrames_mgsw5")
 
 [node name="StompAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1135826992]
 stream = SubResource("AudioStreamRandomizer_7y1nd")
-volume_db = 5.0
 
 [node name="CoinTossAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1575838465]
 stream = SubResource("AudioStreamRandomizer_08nl3")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1215401364]
 scale = Vector2(0.095722735, 0.105957225)

@@ -1,23 +1,37 @@
 extends Node2D
+class_name Shop
+
+@onready var dice = $RerollStool/Dice
+
+@onready var marker_spell_left : Marker2D = $Markers/SpellLeft
+@onready var marker_spell_right : Marker2D = $Markers/SpellRight
+@onready var marker_sticker_left : Marker2D = $Markers/StickerLeft
+@onready var marker_sticker_right : Marker2D = $Markers/StickerRight
+@onready var spell_items : Node2D = $Items/Spells
+@onready var sticker_items : Node2D = $Items/Stickers
 
 @export var spells: Array[PackedScene]
 @export var stickers: Array[Texture2D]
-const SHOP_ITEM_STICKER_SCENE = preload("res://shop/ShopItemSticker.tscn")
-const SHOP_ITEM_SPELL_SCENE = preload("res://shop/ShopItemSpell.tscn")
+const SHOP_ITEM_SCENE = preload("res://shop/ShopItem.tscn")
+const SHOP_SPELL_SCRIPT = preload("res://shop/shop_item_spell.gd")
+const SHOP_STICKER_SCRIPT = preload("res://shop/shop_item_sticker.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	dice.button.mouse_entered.connect(_on_reroll_dice_mouse_entered)
+	dice.button.mouse_exited.connect(_on_reroll_dice_mouse_exited)
+	dice.button.pressed.connect(_on_reroll_dice_pressed)
+	
 	var chosenSpells = []
 	while chosenSpells.size() < 4:
 		var r = randi() % spells.size()
 		if not chosenSpells.has(r) :
 			chosenSpells.append(r)
 	for i in range(4):
-		var tmp := SHOP_ITEM_SPELL_SCENE.instantiate() as ShopItemSpell
-		var spell = spells[chosenSpells[i]].instantiate()
-		tmp.texture = spell.icon
-		tmp.item = spells[chosenSpells[i]]
-		add_child(tmp)
-		tmp.position = $Left.position + ($Right.position - $Left.position) * ((i + 0.0)/(chosenSpells.size()-1))
+		var tmp := SHOP_ITEM_SCENE.instantiate() as ShopItem
+		tmp.set_script(SHOP_SPELL_SCRIPT)
+		spell_items.add_child(tmp)
+		tmp.item_id = chosenSpells[i]
+		tmp.position = marker_spell_left.position + (marker_spell_right.position - marker_spell_left.position) * ((i + 0.0)/(chosenSpells.size()-1))
 		
 	var chosenStickers = []
 	while chosenStickers.size() < 3:
@@ -25,11 +39,11 @@ func _ready() -> void:
 		if not chosenStickers.has(r) :
 			chosenStickers.append(r)
 	for i in range(3):
-		var tmp := SHOP_ITEM_STICKER_SCENE.instantiate() as ShopItemSticker
-		tmp.texture = stickers[chosenStickers[i]]
-		tmp.stickerType = chosenStickers[i]
-		add_child(tmp)
-		tmp.position = $Left2.position + ($Right2.position - $Left2.position) * ((i + 0.0)/(chosenStickers.size()-1))
+		var tmp := SHOP_ITEM_SCENE.instantiate() as ShopItem
+		tmp.set_script(SHOP_STICKER_SCRIPT)
+		sticker_items.add_child(tmp)
+		tmp.item_id = chosenStickers[i]
+		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(chosenStickers.size()-1))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,8 +51,11 @@ func _process(delta: float) -> void:
 	$moneyDisplay.text = "Letters : " + str(MainSingleton.coinLetter)
 	pass
 
-var previouslyClicked = 0
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.button_mask == 1 and event.button_mask != previouslyClicked:
-		print("reroll not implemented")
-	previouslyClicked = event.button_mask
+func _on_reroll_dice_mouse_entered() -> void:
+	dice.modulate = Color(1.825, 1.825, 1.825)
+	
+func _on_reroll_dice_mouse_exited() -> void:
+	dice.modulate = Color.WHITE
+	
+func _on_reroll_dice_pressed() -> void:
+	dice.animate_roll()
