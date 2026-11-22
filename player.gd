@@ -70,6 +70,9 @@ func die():
 	self.self_modulate.a = 0
 	FuncSingleton.game_over.emit()
 	self.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().root.get_node("Node2D/RetryButton").visible = true
+
+	
 
 func add_pentacle(duration : float, speed: float = 1, color: Color = Color.WHITE):
 	$PentacleFlat.add_rotation_time(duration, speed, color)

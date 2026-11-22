@@ -10,3 +10,7 @@ func start_game():
 	$SpellBook.show()
 	$StartButton.hide()
 	FuncSingleton.start_run.emit()
+
+
+func _on_retry_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://game.tscn")
