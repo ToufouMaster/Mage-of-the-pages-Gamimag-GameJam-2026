@@ -12,6 +12,7 @@ func _ready() -> void:
 	FuncSingleton.end_match.connect(end_match)
 
 func start_match():
+	self.global_position = Vector2.ZERO
 	self.self_modulate.a = 1
 	self.show()
 	self.health = self.max_health
