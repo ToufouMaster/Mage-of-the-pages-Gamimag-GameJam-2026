@@ -1,5 +1,12 @@
 extends Spell
 
+func _init() -> void:
+	self.base_price = 50
+	self.price_modulation = 20
+
+func get_title():
+	return "Shotgun"
+
 func cast_spell(angle_offset : float = 0):
 	var target_direction = MainSingleton.player.get_closer_ennemy_direction()
 	for offset in [-PI/16, 0, PI/16]:

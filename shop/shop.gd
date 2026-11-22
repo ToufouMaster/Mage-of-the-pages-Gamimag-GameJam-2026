@@ -13,6 +13,7 @@ class_name Shop
 
 @export var spells: Array[PackedScene]
 @export var stickers: Array[Texture2D]
+@export var sticker_prices: Dictionary[Spell.Sticker, Vector2]
 const SHOP_ITEM_SCENE = preload("res://shop/ShopItem.tscn")
 const SHOP_SPELL_SCRIPT = preload("res://shop/shop_item_spell.gd")
 const SHOP_STICKER_SCRIPT = preload("res://shop/shop_item_sticker.gd")
@@ -51,11 +52,15 @@ func reroll_items():
 	for i : ShopItem in spell_items.get_children():
 		if i.bought: continue
 		i.item_id = randi() % spells.size()
-		i.price = randi()%100 * price_multiplier
+		var instance : Spell = MainSingleton.shop.spells[i.item_id].instantiate()
+		i.price = (instance.base_price+randi()%max(1, instance.price_modulation)) * price_multiplier
+		if instance.base_price == 0: push_warning(instance.get_title() + "Spell shop price statistics are missing")
 	for i : ShopItem in sticker_items.get_children():
 		if i.bought: continue
 		i.item_id = randi() % stickers.size()
-		i.price = randi()%100 * price_multiplier
+		var instance = sticker_prices.get(i.item_id) if sticker_prices.size() > i.item_id else Vector2.ONE
+		if sticker_prices.size() <= i.item_id: push_warning(Spell.Sticker.keys().get(i.item_id)+" sticker shop price statistics are missing")
+		i.price = (instance.x+randi()%max(1, instance.y)) * price_multiplier
 	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
