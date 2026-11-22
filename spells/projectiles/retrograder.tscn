@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://chy6wutbji0j2"]
+
+[ext_resource type="Script" uid="uid://dfssje6weed3f" path="res://spells/projectiles/retrograder.gd" id="1_dblgh"]
+[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="2_j8w4b"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="3_m4l6n"]
+[ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="4_ry4ue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh0px"]
+size = Vector2(10, 50)
+
+[node name="Projectile" type="Area2D" unique_id=154329058 node_paths=PackedStringArray("sprite")]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_dblgh")
+sprite = NodePath("Sprite2D")
+texture = ExtResource("2_j8w4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
+scale = Vector2(0.078125, 0.390625)
+texture = ExtResource("3_m4l6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89040903]
+shape = SubResource("RectangleShape2D_gh0px")
+
+[node name="ProjectileHitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1229037080]
+stream = ExtResource("4_ry4ue")
+bus = &"SFX"

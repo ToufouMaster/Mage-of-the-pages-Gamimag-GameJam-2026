@@ -21,18 +21,21 @@ var pv : float :
 		self.modulate.a = 0.75*pv/max_pv + 0.25
 var speed : float = 50
 
-func set_up_letter(letter_nb : int, letter_sprite : Texture):
+func set_up_letter(letter_nb : int, letter_sprite : Texture, no_reset : bool = false):
 	self.letter = letter_nb
 	self.ennemy_sprite.texture = letter_sprite
 	self.max_pv = FuncSingleton.get_pascal_triangle(letter)
-	self.pv = max_pv
+	if !no_reset:
+		self.pv = max_pv
+	else:
+		self.pv = clamp(self.pv, 0, self.max_pv)
 
 func _ready() -> void:
 	$AnimationPlayer.play("waving")
 
 func take_damage(amount : int):
 	self.pv -= amount
-	if (self.pv < 1):
+	if (self.pv < 1 and not is_dying):
 		die()
 
 var is_dying : bool = false
