@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://biparjwv3me4v" path="res://world.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="2_feb5d"]
 [ext_resource type="Shader" uid="uid://8r8ivqwga4sn" path="res://sfsdf.gdshader" id="3_feb5d"]
+[ext_resource type="Texture2D" uid="uid://w6rwf2ju4f50" path="res://assets/pagelivre.png" id="3_xex6t"]
 [ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spam_spell.tscn" id="5_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="6_hve3p"]
@@ -27,23 +28,277 @@
 [ext_resource type="AnimationLibrary" uid="uid://dae6snn7if4o1" path="res://game_animation.res" id="19_qhcbd"]
 [ext_resource type="Texture2D" uid="uid://3doh5ieluwnh" path="res://assets/hourglass/hourglass_bottom.png" id="19_vaj68"]
 [ext_resource type="Texture2D" uid="uid://ptppmquh6iut" path="res://assets/hourglass/sand_bottom.png" id="20_i2p71"]
+[ext_resource type="Script" uid="uid://clustmsv5lbc0" path="res://health_bar.gd" id="21_082n1"]
 [ext_resource type="Texture2D" uid="uid://db31ckd004n7e" path="res://assets/hourglass/hourglass_bottom_empty.png" id="21_xa8c5"]
 [ext_resource type="Texture2D" uid="uid://cwuvr6pxijyd4" path="res://assets/hourglass/sand_top.png" id="22_5b14r"]
 [ext_resource type="Texture2D" uid="uid://cw802jwxky02v" path="res://assets/hourglass/glass.png" id="23_bnpwn"]
 [ext_resource type="Texture2D" uid="uid://ckqdepmrw73qd" path="res://assets/hourglass/hourglass_top.png" id="24_36jdj"]
 [ext_resource type="AnimationLibrary" uid="uid://dwipddyenm5j5" path="res://hourglass_animations.res" id="29_36jdj"]
+[ext_resource type="Script" uid="uid://c8gsobn7uxrqg" path="res://light_manager.gd" id="33_7knny"]
+[ext_resource type="Texture2D" uid="uid://tcu6lsxg178m" path="res://assets/shop/commode.png" id="34_aa0lp"]
+[ext_resource type="Script" uid="uid://ct5e1dgulyfnb" path="res://shop/shop.gd" id="34_l1i01"]
+[ext_resource type="Texture2D" uid="uid://d4c4gvqhpglsv" path="res://assets/shop/support_for_dice.png" id="36_r62pu"]
+[ext_resource type="Texture2D" uid="uid://c1ckmy2s34osx" path="res://assets/dice.png" id="37_klri6"]
+[ext_resource type="Script" uid="uid://b1x62b4xm34ob" path="res://shop/shop_reroll_dice.gd" id="37_r62pu"]
+[ext_resource type="AudioStream" uid="uid://cwjealdu7eohv" path="res://audio/streams/dice_roll_random.tres" id="39_klri6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
+shader_parameter/progress = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tlwt5"]
 viewport_path = NodePath("WorldViewport")
+
+[sub_resource type="Animation" id="Animation_aa0lp"]
+resource_name = "PageTurn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book/Polygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(474, 57, 630.6615, 57, 811.3607, 57, 1009.7756, 57, 1170.9877, 57, 1339.2859, 57, 1486.3256, 57, 1665.2532, 57, 1865, 57, 1868, 1030, 1732.0637, 1030.0975, 1538.0498, 1030.2367, 1352.6094, 1030.3698, 1167.1467, 1030.5027, 1035.9094, 1030.5968, 824.779, 1030.7483, 625.0546, 1030.8917, 474, 1031), PackedVector2Array(474, 57, 623, 50, 799, 39, 982, 33, 1170, 22, 1347, 13, 1513, 8, 1690, 5, 1838, 5, 1841, 938, 1704, 955, 1533, 961, 1362, 978, 1176, 986, 1022, 998, 834, 1012, 634, 1023, 474, 1031), PackedVector2Array(474, 57, 623, 50, 799, 39, 982, 26, 1149, 4, 1318, -17, 1449, -32, 1571, -51, 1650, -103, 1663, 849, 1557, 876, 1463, 904, 1356, 927, 1181, 954, 1015, 985, 859, 1001, 656, 1024, 474, 1031), PackedVector2Array(474, 57, 623, 50, 799, 39, 982, 26, 1150, 21, 1319, 3, 1417, -7, 1500, -67, 1534, -173, 1533, 729, 1481, 760, 1398, 815, 1287, 882, 1173, 939, 1064, 973, 867, 1009, 656, 1024, 474, 1031), PackedVector2Array(474, 57, 623, 50, 799, 39, 982, 26, 1079, -15, 1164, -69, 1227, -163, 1307, -275, 1355, -432, 1461, 547, 1432, 581, 1253, 795, 1216, 844, 1123, 904, 976, 958, 856, 984, 656, 1024, 474, 1031)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book/Polygon2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0, 0, 26.751, 0, -10, 0.04, 0, 230.737, 0, 0, 0, 0, 464, -0.016666671, -38.877167, 0, 0),
+"times": PackedFloat32Array(0.26666668, 0.4, 0.5333333, 0.7)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book/Polygon2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.065, 0, 415, 0, 53.8, 0, 0, 464, -0.016666671, -8.166667, 0, 0),
+"times": PackedFloat32Array(0.26666668, 0.5333333, 0.7)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Book/Polygon2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0, -1.0672979, 0, 0, 0, 0, -1.5707964, -0.016666671, 0.08391641, 0, 0),
+"times": PackedFloat32Array(0.26666668, 0.5333333, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Book/Polygon2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0.34421036, 0.099999994, 0.0068758572, 1.06, 0, 0, 0, 0, 1.569051, -0.01667439, -0.084841855, 0, 0),
+"times": PackedFloat32Array(0.26666668, 0.533287, 0.7)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Book/BookPage:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.999366, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Book/BookPage:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.571, -0.03333333, 0.2617994, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Book/BookPage:skew")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1.569, -0.03333333, -0.2615085, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.7, 1)
+}
+
+[sub_resource type="Animation" id="Animation_iu0sx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book/Polygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(474, 57, 630.6615, 57, 811.3607, 57, 1009.7756, 57, 1170.9877, 57, 1339.2859, 57, 1486.3256, 57, 1665.2532, 57, 1865, 57, 1868, 1030, 1732.0637, 1030.0975, 1538.0498, 1030.2367, 1352.6094, 1030.3698, 1167.1467, 1030.5027, 1035.9094, 1030.5968, 824.779, 1030.7483, 625.0546, 1030.8917, 474, 1031)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book/Polygon2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book/Polygon2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Book/Polygon2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Book/Polygon2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Book/BookPage:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Book/BookPage:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Book/BookPage:skew")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Book/Polygon2D/WorldSprite:material:shader_parameter/progress")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_xex6t"]
+resource_name = "WorldShrink"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book/Polygon2D/WorldSprite:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.16666667, -0.16666667, 0, 0, 0, -0.6, 0.0008187769, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_4v2jo"]
+resource_name = "WorldUnshrink"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book/Polygon2D/WorldSprite:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.6, 0.0008187769, 0.25, 0, 1, -0.16666667, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v2jo"]
+_data = {
+&"PageTurn": SubResource("Animation_aa0lp"),
+&"RESET": SubResource("Animation_iu0sx"),
+&"WorldShrink": SubResource("Animation_xex6t"),
+&"WorldUnshrink": SubResource("Animation_4v2jo")
+}
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7y1nd"]
 polygon = PackedVector2Array(29, 554, 379, 553, 381, 967, 28, 971)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v54wv"]
 polygon = PackedVector2Array(381, 116, 381, 532, 30, 528, 29, 117)
+
+[sub_resource type="Gradient" id="Gradient_082n1"]
+offsets = PackedFloat32Array(0, 0.61214954)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xex6t"]
+gradient = SubResource("Gradient_082n1")
+width = 512
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0j531"]
 polygon = PackedVector2Array(168, 17, 197, 17, 199, 157, 168, 155)
@@ -76,13 +331,25 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eu6ph"]
+polygon = PackedVector2Array(-519, 567, -491, 471, -439, 472, -426, 567)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_08nl3"]
+polygon = PackedVector2Array(271, 565, 271, 530, 318, 526, 322, 569)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yu65q"]
+polygon = PackedVector2Array(367, 568, 359, 530, 411, 521, 418, 568)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0j531"]
+frequency = 0.0071
+
 [sub_resource type="Gradient" id="Gradient_dhpj7"]
 offsets = PackedFloat32Array(0, 0.7056075)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uvynu"]
 gradient = SubResource("Gradient_dhpj7")
-width = 256
+width = 512
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -97,16 +364,39 @@ size = Vector2i(1300, 1000)
 [node name="World" parent="WorldViewport" unique_id=2114406119 instance=ExtResource("1_e2o6t")]
 position = Vector2(0, -6)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1967891419]
-position = Vector2(954.1699, 542)
+[node name="Book" type="Node2D" parent="." unique_id=901556191]
+
+[node name="Background" type="Sprite2D" parent="Book" unique_id=1967891419]
+position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_feb5d")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052677504]
+[node name="BookPage" type="Sprite2D" parent="Book" unique_id=1877734089]
+visible = false
+position = Vector2(466, 31.99997)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xex6t")
+centered = false
+offset = Vector2(-2797, 55)
+flip_h = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Book" unique_id=1326705178]
+texture = ExtResource("3_xex6t")
+texture_offset = Vector2(-470, -54)
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(474, 57, 630.6615, 57, 811.3607, 57, 1009.7756, 57, 1170.9877, 57, 1339.2859, 57, 1486.3256, 57, 1665.2532, 57, 1865, 57, 1868, 1030, 1732.0637, 1030.0975, 1538.0498, 1030.2367, 1352.6094, 1030.3698, 1167.1467, 1030.5027, 1035.9094, 1030.5968, 824.779, 1030.7483, 625.0546, 1030.8917, 474, 1031)
+uv = PackedVector2Array(474, 57, 630.6615, 57, 811.3607, 57, 1009.7756, 57, 1170.9877, 57, 1339.2859, 57, 1486.3256, 57, 1665.2532, 57, 1865, 57, 1868, 1030, 1732.0637, 1030.0975, 1538.0498, 1030.2367, 1352.6094, 1030.3698, 1167.1467, 1030.5027, 1035.9094, 1030.5968, 824.779, 1030.7483, 625.0546, 1030.8917, 474, 1031)
+
+[node name="WorldSprite" type="Sprite2D" parent="Book/Polygon2D" unique_id=2052677504]
+self_modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
 light_mask = 2
 material = SubResource("ShaderMaterial_fj7yv")
 position = Vector2(1186, 546)
 texture = SubResource("ViewportTexture_tlwt5")
+
+[node name="BookAnimationPlayer" type="AnimationPlayer" parent="Book" unique_id=1747263433]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_4v2jo")
 
 [node name="SpellBook" parent="." unique_id=945037119 instance=ExtResource("4_ryrav")]
 
@@ -144,10 +434,12 @@ icon = ExtResource("20_i2p71")
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="SpellBook/NotePad" unique_id=710610416]
+[node name="LightOccluders" type="Node2D" parent="SpellBook/NotePad" unique_id=1246663437]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SpellBook/NotePad/LightOccluders" unique_id=710610416]
 occluder = SubResource("OccluderPolygon2D_7y1nd")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="SpellBook/NotePad" unique_id=908276199]
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="SpellBook/NotePad/LightOccluders" unique_id=908276199]
 occluder = SubResource("OccluderPolygon2D_v54wv")
 
 [node name="Background" type="Node2D" parent="SpellBook/NotePad" unique_id=1555901878]
@@ -159,29 +451,32 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("9_iotsf")
 
 [node name="P1" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=2138634502]
-light_mask = 2
+self_modulate = Color(1.825, 1.825, 1.825, 1)
+light_mask = 3
 position = Vector2(205, 320)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("10_lc2xo")
 
 [node name="P2" type="Sprite2D" parent="SpellBook/NotePad/Background" unique_id=2107570064]
-light_mask = 2
+self_modulate = Color(1.825, 1.825, 1.825, 1)
+light_mask = 3
 position = Vector2(205, 760)
 scale = Vector2(0.45, -0.45)
 texture = ExtResource("10_lc2xo")
 
 [node name="SpellPage" parent="SpellBook/NotePad/Background" unique_id=1119320805 instance=ExtResource("11_215e1")]
+modulate = Color(1.825, 1.825, 1.825, 1)
 position = Vector2(32, 550)
 
 [node name="Page" type="Sprite2D" parent="SpellBook/NotePad" unique_id=489201515]
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 0)
 light_mask = 2
 position = Vector2(205, 320)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("10_lc2xo")
 
 [node name="SpellPage" parent="SpellBook/NotePad/Page" unique_id=1840461013 instance=ExtResource("11_215e1")]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 0)
 position = Vector2(-384.44443, 422.2222)
 scale = Vector2(2.222, -2.222)
 
@@ -200,6 +495,18 @@ playback_type = 2
 
 [node name="HealthBar" type="Node2D" parent="SpellBook" unique_id=482009555]
 position = Vector2(1200, 0)
+script = ExtResource("21_082n1")
+
+[node name="PointLight2D" type="PointLight2D" parent="SpellBook/HealthBar" unique_id=1954876855]
+position = Vector2(0, 85)
+color = Color(0.98828125, 0.0372936, 0, 1)
+energy = 1.5
+range_z_max = 1
+range_item_cull_mask = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_xex6t")
+texture_scale = 1.1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="SpellBook/HealthBar" unique_id=668540491]
 z_index = -1
@@ -234,6 +541,7 @@ volume_db = -10.0
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SpellBook/HealthBar" unique_id=771066853]
 
 [node name="Hourglass" type="Node2D" parent="SpellBook" unique_id=670673721]
+modulate = Color(2.454227, 2.454227, 2.454227, 1)
 position = Vector2(1728, 0)
 script = ExtResource("19_i2p71")
 progress = 1.0
@@ -273,6 +581,7 @@ amount = 50
 amount_ratio = 0.0
 lifetime = 0.001
 fixed_fps = 20
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_0j531")
 
 [node name="BottomFront" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=1981927994]
@@ -291,7 +600,7 @@ polygon = PackedVector2Array(99, 166, 74, 155, 45, 133, 29, 118, 21, 103, 171, 1
 
 [node name="SandTop" type="Sprite2D" parent="SpellBook/Hourglass/TopPolygon" unique_id=849718930]
 light_mask = 2
-position = Vector2(92, 170)
+position = Vector2(92, 174)
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("22_5b14r")
@@ -328,13 +637,68 @@ volume_db = -10.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SpellBook/Hourglass" unique_id=465960019]
 
+[node name="Shop" type="Node2D" parent="." unique_id=1345978117]
+script = ExtResource("34_l1i01")
+
+[node name="Market" type="Node2D" parent="Shop" unique_id=1076486144]
+position = Vector2(1100, 510)
+
+[node name="LightOccluders" type="Node2D" parent="Shop/Market" unique_id=612892198]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Shop/Market/LightOccluders" unique_id=1636203349]
+occluder = SubResource("OccluderPolygon2D_eu6ph")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Shop/Market/LightOccluders" unique_id=1389471196]
+occluder = SubResource("OccluderPolygon2D_08nl3")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Shop/Market/LightOccluders" unique_id=248497630]
+occluder = SubResource("OccluderPolygon2D_yu65q")
+
+[node name="Stall" type="Sprite2D" parent="Shop/Market" unique_id=30637268]
+modulate = Color(2.454227, 2.454227, 2.454227, 1)
+light_mask = 2
+z_index = 1
+texture = ExtResource("34_aa0lp")
+
+[node name="RerollStool" type="Node2D" parent="Shop" unique_id=1438501253]
+position = Vector2(1100, 510)
+
+[node name="Stool" type="Sprite2D" parent="Shop/RerollStool" unique_id=1974952344]
+modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
+light_mask = 2
+texture = ExtResource("36_r62pu")
+
+[node name="Dice" type="Node2D" parent="Shop/RerollStool" unique_id=1805889140]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+position = Vector2(566, 80)
+script = ExtResource("37_r62pu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Shop/RerollStool/Dice" unique_id=1126697565]
+position = Vector2(0, 55)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("37_klri6")
+
+[node name="TextureButton" type="TextureButton" parent="Shop/RerollStool/Dice" unique_id=1450320105]
+offset_right = 300.0
+offset_bottom = 500.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-150, 0)
+offset_transform_visual_only = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Shop/RerollStool/Dice" unique_id=20082826]
+stream = ExtResource("39_klri6")
+
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
 libraries/ = ExtResource("19_qhcbd")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=305526657]
+[node name="LightManager" type="Node2D" parent="." unique_id=1975593698]
+script = ExtResource("33_7knny")
+noise = SubResource("FastNoiseLite_0j531")
+
+[node name="PointLight2D" type="PointLight2D" parent="LightManager" unique_id=305526657]
 position = Vector2(1588, -141)
-color = Color(0.20703125, 0.082812496, 0, 1)
-energy = 2.0
+color = Color(0.20784314, 0.09019608, 0, 1)
+energy = 4.0
 range_z_max = 1
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
@@ -342,7 +706,7 @@ shadow_filter = 2
 texture = SubResource("GradientTexture2D_uvynu")
 texture_scale = 7.0
 
-[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D" unique_id=1113659123]
+[node name="PointLight2D2" type="PointLight2D" parent="LightManager/PointLight2D" unique_id=1113659123]
 light_mask = 2
 visibility_layer = 2
 color = Color(0.20703125, 0.082812496, 0, 1)
@@ -356,10 +720,10 @@ shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_uvynu")
 texture_scale = 7.0
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=865214837]
-position = Vector2(623, 1138)
-color = Color(0.20703125, 0.082812496, 0, 1)
-energy = 2.0
+[node name="PointLight2D2" type="PointLight2D" parent="LightManager" unique_id=865214837]
+position = Vector2(408, 1535)
+color = Color(0.20784314, 0.09019608, 0, 1)
+energy = 4.0
 range_z_max = 1
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
@@ -367,7 +731,7 @@ shadow_filter = 2
 texture = SubResource("GradientTexture2D_uvynu")
 texture_scale = 10.0
 
-[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D2" unique_id=1583025429]
+[node name="PointLight2D2" type="PointLight2D" parent="LightManager/PointLight2D2" unique_id=1583025429]
 light_mask = 2
 visibility_layer = 2
 color = Color(0.20703125, 0.082812496, 0, 1)
@@ -380,3 +744,10 @@ shadow_filter = 2
 shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_uvynu")
 texture_scale = 10.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1173383351]
+color = Color(0.2265625, 0.2265625, 0.2265625, 1)
+
+[connection signal="mouse_entered" from="Shop/RerollStool/Dice/TextureButton" to="Shop" method="_on_reroll_dice_mouse_entered"]
+[connection signal="mouse_exited" from="Shop/RerollStool/Dice/TextureButton" to="Shop" method="_on_reroll_dice_mouse_exited"]
+[connection signal="pressed" from="Shop/RerollStool/Dice/TextureButton" to="Shop" method="_on_reroll_dice_pressed"]
