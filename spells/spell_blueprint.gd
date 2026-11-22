@@ -180,7 +180,7 @@ func can_get_new_sticker() -> bool:
 
 func add_sticker(sticker_type : Sticker):
 	self.sticked_stickers[sticker_type] += 1
-	self.sticker_positions.append(Vector3(sticker_type,randi()%300,randi()%300))
+	self.sticker_positions.append(Vector3(sticker_type,randi()%250 +50,randi()%300 + 50))
 	self.sticker_amount += 1
 	match sticker_type:
 		Sticker.DMG_UP:
