@@ -47,6 +47,7 @@ var item_amount : int = 0 :
 func level_up():
 	self.item_amount = 0
 	self.level += 1
+	update_everything()
 
 enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, SWIFT_SPELL_UP, DOUBLE_SPELL, PASSIF_SPELL, CONSONNE_CRIT, VOYELLE_CRIT, BOOKMARK} 
 
@@ -188,7 +189,7 @@ func update_speed():
 	self.actual_speed = self.speed * 1.5 ** ((float(sticked_stickers[Sticker.SWIFT_SPELL_UP]) + float(level))/3)
 
 func update_target_amount():
-	self.actual_target_amount = self.target_amount + FuncSingleton.get_pascal_triangle(sticked_stickers[Sticker.SWIFT_SPELL_UP])
+	self.actual_target_amount = self.target_amount + FuncSingleton.get_letter_scale(sticked_stickers[Sticker.SWIFT_SPELL_UP])
 
 func add_weak_letters(letter_list : Array[int], coef : float):
 	for letter : int in letter_list:
@@ -224,7 +225,7 @@ func add_sticker(sticker_type : Sticker):
 		Sticker.VOYELLE_CRIT:
 			add_weak_letters(FuncSingleton.voyelles_array, 1.9)
 		Sticker.CONSONNE_CRIT:
-			add_weak_letters(range(0,26).filter(FuncSingleton.is_consomn), 1.5)
+			add_weak_letters(FuncSingleton.consone_array, 1.5)
 		Sticker.BOOKMARK:
 			MainSingleton.spell_book.add_bookmark(self.get_index())
 

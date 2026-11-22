@@ -10,6 +10,9 @@ class_name Hourglass
 
 var alarm_tick = 0
 
+func _ready() -> void:
+	FuncSingleton.game_over.connect(on_game_over)
+
 func set_progress(value: float):
 	progress = clamp(value, 0, 1)
 	if not is_node_ready(): return
@@ -34,6 +37,9 @@ func set_progress(value: float):
 
 func start_round_timer(cooldown: float = 5):
 	timer.start(cooldown)
+
+func on_game_over():
+	timer.stop()
 
 func _process(_delta: float) -> void:
 	progress = 1 - (timer.time_left / timer.wait_time)

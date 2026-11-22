@@ -9,7 +9,6 @@ func cast_spell(_angle_offset : float = 0):
 	regen_timer.wait_time = 100/self.speed
 	regen_timer.start(-1)
 	regen_timer.timeout.connect(_on_heal)
-	print(regen_timer.wait_time)
 	await get_tree().create_timer(self.duration).timeout
 	regen_timer.stop()
 	regen_timer.timeout.disconnect(_on_heal)
