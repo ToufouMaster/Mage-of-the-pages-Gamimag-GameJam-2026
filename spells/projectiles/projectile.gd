@@ -2,6 +2,7 @@
 extends Area2D
 class_name Projectile
 
+@export var sprite : Sprite2D
 var angle : float ## Angle in radians
 var speed : float = 100 ## The speed of a projectile
 var duration : float = 2

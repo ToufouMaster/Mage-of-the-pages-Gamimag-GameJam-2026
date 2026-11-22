@@ -1,6 +1,5 @@
 extends Projectile
 
-
 func get_spawn_position():
 	return MainSingleton.player.position
 

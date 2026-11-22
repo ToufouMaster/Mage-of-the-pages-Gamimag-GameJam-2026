@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spam_spell.tscn" id="5_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="6_hve3p"]
+[ext_resource type="Texture2D" uid="uid://dp1jkpvt6cb42" path="res://assets/I didn't ask how big the room is I said I cast FIREBALL.png" id="7_eu6ph"]
 [ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/targeted_spell.tscn" id="7_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cse8qt8rd0d1s" path="res://spells/shotgun_spell.tscn" id="8_e36ub"]
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
@@ -403,6 +404,8 @@ libraries/ = SubResource("AnimationLibrary_4v2jo")
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
 [node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
+projectile_sprite = ExtResource("7_eu6ph")
+projectile_sprite_scale = Vector2(0.02, 0.02)
 
 [node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
 

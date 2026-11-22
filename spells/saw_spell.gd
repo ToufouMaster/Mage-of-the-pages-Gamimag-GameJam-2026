@@ -10,6 +10,6 @@ func cast_spell(_angle_offset : float = 0):
 		new_projectile.position = Vector2.ZERO
 		MainSingleton.player.add_child(new_projectile)
 	else: 
-		new_projectile.position = Vector2(randf_range(-600,600), randf_range(-600, 600))
+		new_projectile.position = Vector2(randf_range(-500,500), randf_range(-500, 500))
 		new_projectile.scale = Vector2.ONE * 3
 		first_saw.sprite.add_child(new_projectile)

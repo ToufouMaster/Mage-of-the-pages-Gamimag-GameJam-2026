@@ -1,6 +1,5 @@
 extends Projectile
 
-@onready var sprite : Sprite2D = $Sprite2D
 
 func get_spawn_position():
 	return MainSingleton.player.position
