@@ -8,7 +8,7 @@ func get_title():
 	return "Selective lighting bolt"
 
 func get_description():
-	return "Strike all the enemies that share a randomly selected letter and deal " + str(self.actual_dmg).pad_decimals(1) + "."
+	return "Strike all the enemies that share a randomly selected letter and deal " + str(self.actual_dmg).pad_decimals(1) + " damage."
 
 
 func cast_spell(_angle_offset : float = 0):
