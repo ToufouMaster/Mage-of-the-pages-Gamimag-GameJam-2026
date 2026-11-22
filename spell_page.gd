@@ -5,11 +5,26 @@ var cur_spell : Spell
 
 @onready var stock_label := $StockLabel
 @onready var reload_bar := $ReloadBar
+@export var Stickers : Array[Texture2D]
+
+func add_sticker(indice : int):
+	var currentspell : Spell = MainSingleton.spell_book.spell_list[MainSingleton.spell_book.current_spell_index] 
+	for sticker in cur_spell.sticked_stickers:
+		print("the currently used stickers on this spell are")
+		print(cur_spell.sticked_stickers[sticker])
+		print()
+	var sticker = Sprite2D.new()
+	sticker.texture = Stickers[indice]
+	sticker.position = Vector2(randi()%200+100,randi()%200+100)
+	sticker.scale = Vector2(0.3,0.3)
+	self.add_child(sticker)
 
 func set_spell_page(spell: Spell):
 	icon.texture = spell.icon
 	cur_spell = spell
 	stock_label.text = str(spell.actual_max_stock) + " / " + str(spell.actual_max_stock)
+	add_sticker(1)
+		
 
 func _process(_delta: float) -> void:
 	if cur_spell == null: return
