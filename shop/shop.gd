@@ -27,6 +27,7 @@ func _ready() -> void:
 	for i in range(3):
 		var tmp := SHOP_ITEM_STICKER_SCENE.instantiate() as ShopItemSticker
 		tmp.texture = stickers[chosenStickers[i]]
+		tmp.stickerType = chosenStickers[i]
 		add_child(tmp)
 		tmp.position = $Left2.position + ($Right2.position - $Left2.position) * ((i + 0.0)/(chosenStickers.size()-1))
 

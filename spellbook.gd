@@ -39,6 +39,10 @@ func add_spell(spell_scene : PackedScene, spell_position : int):
 func add_spell_current_index(spell_scene : PackedScene):
 	add_spell(spell_scene,current_spell_index)
 	current_spell_index +=1
+	
+func add_sticker_current_index(sticker:Spell.Sticker):
+	var spell = spell_list[current_spell_index] as Spell
+	spell.add_sticker(sticker)
 
 func go_to_page(index : int):
 	var turn_down = index > current_spell_index
