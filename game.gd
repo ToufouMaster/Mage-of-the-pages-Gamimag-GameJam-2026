@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	MainSingleton.update_references()
 	$StartButton.pressed.connect(start_game)
 
 func start_game():

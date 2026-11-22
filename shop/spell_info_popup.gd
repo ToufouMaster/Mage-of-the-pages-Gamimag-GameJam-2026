@@ -40,15 +40,15 @@ func set_popup_info(spell_id, is_sticker):
 		$Title.text = spell_instance.get_title()
 		$Description.text = spell_instance.get_description()
 		$Stats/Damage.visible = damage != 0
-		$Stats/Damage/Value.text = ": " + str(damage)
+		$Stats/Damage/Value.text = ": " + str(damage).pad_decimals(1)
 		$Stats/ReloadCD.visible = reload_cd != 0
-		$Stats/ReloadCD/Value.text = ": " + str(reload_cd)
+		$Stats/ReloadCD/Value.text = ": " + str(reload_cd).pad_decimals(1)
 		$Stats/CastCD.visible = cast_cd != 0
-		$Stats/CastCD/Value.text = ": " + str(cast_cd)
+		$Stats/CastCD/Value.text = ": " + str(cast_cd).pad_decimals(1)
 		$Stats/Duration.visible = duration != 0
-		$Stats/Duration/Value.text = ": " + str(duration)
+		$Stats/Duration/Value.text = ": " + str(duration).pad_decimals(1)
 		$Stats/Speed.visible = speed != 0
-		$Stats/Speed/Value.text = ": " + str(speed)
+		$Stats/Speed/Value.text = ": " + str(speed).pad_decimals(1)
 	else:
 		$SpellStatus/Sticker.show()
 	

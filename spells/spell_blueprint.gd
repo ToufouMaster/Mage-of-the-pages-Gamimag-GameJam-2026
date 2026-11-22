@@ -163,12 +163,15 @@ func update_everything():
 	update_target_amount()
 
 func get_actual_cast_cooldown():
+	if !sticked_stickers.has(Sticker.COOLDOWN_DOWN): return cast_cooldown
 	return cast_cooldown * (0.75 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
 	
 func get_actual_reload_cooldown():
+	if !sticked_stickers.has(Sticker.COOLDOWN_DOWN): return recharge_cooldown
 	return recharge_cooldown * (0.80 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
 	
 func get_actual_passive_cooldown():
+	if !sticked_stickers.has(Sticker.PASSIF_SPELL): return self.recharge_timer.wait_time
 	return self.recharge_timer.wait_time * (5 * (0.8 **sticked_stickers[Sticker.PASSIF_SPELL]))
 
 func update_cooldowns():

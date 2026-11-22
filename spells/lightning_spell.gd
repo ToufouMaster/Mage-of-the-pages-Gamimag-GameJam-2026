@@ -1,5 +1,16 @@
 extends Spell
 
+func _init() -> void:
+	self.base_price = 80
+	self.price_modulation = 50
+
+func get_title():
+	return "Selective lighting bolt"
+
+func get_description():
+	return "Strike all the enemies that share a randomly selected letter and deal " + str(self.actual_dmg).pad_decimals(1) + " damage."
+
+
 func cast_spell(_angle_offset : float = 0):
 	var every_ennemies : Array[Node] = MainSingleton.ennemy_spawner.get_children().filter(func(x) : return x is Ennemy)
 	if (every_ennemies.is_empty()):

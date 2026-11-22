@@ -47,6 +47,8 @@ func generate_items():
 		tmp.is_sticker = true
 		sticker_items.add_child(tmp)
 		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(2))
+	
+	reroll_items()
 
 func reroll_items():
 	var price_multiplier = 1+FuncSingleton.get_pascal_triangle_float((1+float(MainSingleton.round))/5.0)
@@ -55,14 +57,14 @@ func reroll_items():
 		if i.bought: continue
 		i.item_id = randi() % spells.size()
 		var instance : Spell = MainSingleton.shop.spells[i.item_id].instantiate()
-		i.price = (instance.base_price+randi()%max(1, instance.price_modulation)) * price_multiplier
+		i.price = (instance.base_price+randi()%max(1, instance.price_modulation)) * price_multiplier*3
 		if instance.base_price == 0: push_warning(instance.get_title() + "Spell shop price statistics are missing")
 	for i : ShopItem in sticker_items.get_children():
 		if i.bought: continue
 		i.item_id = randi() % stickers.size()
 		var instance = sticker_prices.get(i.item_id) if sticker_prices.size() > i.item_id else Vector2.ONE
 		if sticker_prices.size() <= i.item_id: push_warning(Spell.Sticker.keys().get(i.item_id)+" sticker shop price statistics are missing")
-		i.price = (instance.x+randi()%max(1, instance.y)) * price_multiplier
+		i.price = (instance.x+randi()%max(1, instance.y)) * price_multiplier*5
 	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
 
 func _on_reroll_dice_mouse_entered() -> void:
