@@ -36,13 +36,8 @@ func spawn_batch_of_ennemies():
 		var horizontal_movement := Input.get_axis("walk left", "walk right")
 		var vertical_movement := Input.get_axis("walk up", "walk down")
 		var movement = Vector2(horizontal_movement, vertical_movement).normalized()
-		var random_spawn = Vector2(randf_range(-SPAWN_OFFSET,SPAWN_OFFSET), randf_range(-SPAWN_OFFSET, SPAWN_OFFSET))
-		#horriblement opti
-		while (abs(random_spawn.y - MainSingleton.player.global_position.y)) < 10:
-			random_spawn.y += randf_range(-SPAWN_OFFSET, SPAWN_OFFSET)
-		while(abs(random_spawn.x - MainSingleton.player.global_position.x)) < 10:
-			random_spawn.x += randf_range(-SPAWN_OFFSET, SPAWN_OFFSET)
-		new_ennemy.global_position = random_spawn
+		var spawn_position : Vector2 = MainSingleton.player.global_position + movement * 20 + Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()*randf_range(120,200)
+		new_ennemy.global_position = spawn_position
 		self.add_child(new_ennemy)
 
 func choose_letter(current_budget : int):

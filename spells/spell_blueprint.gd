@@ -105,7 +105,6 @@ func _on_recharge():
 func _on_cooldown_end():
 	if is_selected:
 		if (self.current_stock > 0):
-			current_stock -= 1
 			recharge_timer.paused = false
 			cast_spell_sticker_wrapper()
 			spell_ready = false
@@ -139,10 +138,11 @@ func _on_switch_timer_timeout():
 		
 
 func cast_spell_sticker_wrapper():
-	print(is_selected)
 	MainSingleton.player.add_pentacle(self.pentacle_duration,  self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1, self.pentacle_color)
 	for i in range(0, self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1):
-		cast_spell(i*PI/16*(1 if randi_range(0,1) == 0 else -1))
+		if (self.current_stock >= 1):
+			cast_spell(i*PI/16*(1 if randi_range(0,1) == 0 else -1))
+			self.current_stock -= 1
 
 @abstract func cast_spell(angle_offset : float = 0)
 

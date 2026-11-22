@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-var speed = 100.0
+var speed = 75
 
 @export var ennemy_detect_area : Area2D
 @onready var coin_picker_area : Area2D = $CoinPicker
