@@ -35,6 +35,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			tween.tween_callback($CoinTossAudioPlayer.play)
 			MainSingleton.coinLetter -= price
 			bought = true
+			$SpellInfoPopup.hide()
 		else:
 			print("you poor dumbass")
 
@@ -43,6 +44,7 @@ func set_price(value : int):
 	$"Money Display".money = price
 
 func _on_area_2d_mouse_entered() -> void:
+	if bought: return
 	$SpellInfoPopup.show()
 	$SpellInfoPopup.set_popup_info(item_id, is_sticker)
 	$PageFlipAudioPlayer.play()
