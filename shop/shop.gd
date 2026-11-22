@@ -47,6 +47,8 @@ func generate_items():
 		tmp.is_sticker = true
 		sticker_items.add_child(tmp)
 		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(2))
+	
+	reroll_items()
 
 func reroll_items():
 	var price_multiplier = 1+FuncSingleton.get_letter_scale_float((1+float(MainSingleton.round))/5.0)

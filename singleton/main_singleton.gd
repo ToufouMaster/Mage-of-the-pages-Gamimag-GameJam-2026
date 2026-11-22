@@ -8,6 +8,7 @@ var projectile_spawner : ProjectileSpawner
 var spell_book : SpellBook
 var shop : Shop
 var ennemy_spawner : Node2D
+var game_animation_player : AnimationPlayer
 var coinLetter:int = 0 : 
 	set(val):
 		coinLetter = val
@@ -21,6 +22,7 @@ func _ready() -> void:
 	spell_book = get_tree().root.get_node("Node2D/SpellBook")
 	ennemy_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/EnnemySpawner")
 	shop = get_tree().root.get_node("Node2D/Shop")
+	game_animation_player = get_tree().root.get_node("Node2D/GameAnimationPlayer")
 	FuncSingleton.start_run.connect(_on_run_start)
 	
 func _on_run_start():

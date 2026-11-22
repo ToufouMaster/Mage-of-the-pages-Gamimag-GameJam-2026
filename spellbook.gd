@@ -18,9 +18,10 @@ func _on_run_start():
 
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("switch up")):
+	var animating = $NotePad/NotepadAnimationPlayer.current_animation == "SlideInNotePad" || $NotePad/NotepadAnimationPlayer.current_animation == "SlideOutNotePad"
+	if (event.is_action_pressed("switch up") && !animating):
 		self.turn_page_up()
-	if (event.is_action_pressed("switch down")):
+	if (event.is_action_pressed("switch down") && !animating):
 		self.turn_page_down()
 	for i in range(1, 6):
 		if (event.is_action_pressed(str(i))):
@@ -36,6 +37,7 @@ func start_match():
 func end_match():
 	$"../GameAnimationPlayer".play("TurnPageToShop")
 	FuncSingleton.end_match.emit()
+	MainSingleton.shop.generate_items()
 
 func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
