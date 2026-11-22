@@ -12,6 +12,7 @@ func _ready() -> void:
 	FuncSingleton.end_match.connect(end_match)
 
 func start_match():
+	self.self_modulate.a = 1
 	self.show()
 	self.health = self.max_health
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -65,17 +66,28 @@ func heal_damage(amount : int):
 
 
 func die():
-	self.process_mode = Node.PROCESS_MODE_DISABLED
 	$GameOver.show()
-	self.hide()
+	self.self_modulate.a = 0
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+
+func add_pentacle(duration : float, speed: float = 1, color: Color = Color.WHITE):
+	$PentacleFlat.add_rotation_time(duration, speed, color)
+
 
 func _physics_process(_delta: float) -> void:
 	var horizontal_movement := Input.get_axis("walk left", "walk right")
 	var vertical_movement := Input.get_axis("walk up", "walk down")
 	if (horizontal_movement > 0):
-		$Sprite2D.flip_h = false
-	else :
-		$Sprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("run")
+	elif horizontal_movement < 0 :
+		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("run")
+	elif vertical_movement !=0 :
+		$AnimatedSprite2D.play("run")
+	else : 
+		$AnimatedSprite2D.stop()
+		
 		
 	var movement = Vector2(horizontal_movement, vertical_movement).normalized()
 	if movement:

@@ -21,6 +21,9 @@ var actual_target_amount : int = target_amount
 
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
+@export var pentacle_color : Color
+@export var pentacle_duration : float = 0.5
+
 
 var base_price = 0
 var price_modulation = 0
@@ -136,6 +139,7 @@ func switch_off():
 	is_selected = false
 
 func cast_spell_sticker_wrapper():
+	MainSingleton.player.add_pentacle(self.pentacle_duration,  self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1, self.pentacle_color)
 	for i in range(0, self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1):
 		cast_spell(i*PI/16*(1 if randi_range(0,1) == 0 else -1))
 
@@ -201,7 +205,7 @@ func can_get_new_sticker() -> bool:
 	return sticker_amount < MAX_STICKER
 
 func add_sticker(sticker_type : Sticker):
-	self.sticked_stickers[sticker_type] += 1
+	self.sticked_stickers[sticker_type] += 1 if sticker_type < 8 else 8 + MainSingleton.spell_book.next_bookmark
 	self.sticker_positions.append(Vector3(sticker_type,randi()%250 +50,randi()%300 + 50))
 	self.sticker_amount += 1
 	match sticker_type:

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://brb5evee7ce8x"]
 
 [ext_resource type="Script" uid="uid://cdrvignd88gw1" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://bmfr01g0b1wl" path="res://assets/rat.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://cw3tuhb45duix" path="res://pentacle_flat.gd" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cyhwladh2k38m" path="res://assets/pentacle.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://riqt0hrl735l" path="res://assets/ratanim.png" id="5_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://bk04yydg68reg" path="res://EndScreen.tscn" id="5_sweqy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvynu"]
@@ -12,7 +14,50 @@ height = 22.0
 radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 335.65756
+radius = 146.4138
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("5_2hs0m")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("5_2hs0m")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("5_2hs0m")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("5_2hs0m")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("5_2hs0m")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgsw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1839239569 node_paths=PackedStringArray("ennemy_detect_area", "health_bar")]
 collision_layer = 2
@@ -24,10 +69,6 @@ health_bar = NodePath("HealthBar")
 visible = false
 position = Vector2(-290, -160)
 scale = Vector2(0.3, 0.3)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=787673499]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=961704320]
 scale = Vector2(0.25, 0.25)
@@ -61,3 +102,19 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnnemyDetection" unique_id=502763675]
 shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="PentacleFlat" type="Node2D" parent="." unique_id=464902279]
+position = Vector2(0, 6)
+scale = Vector2(1, 0.5)
+script = ExtResource("3_sweqy")
+
+[node name="Pentacle" type="Sprite2D" parent="PentacleFlat" unique_id=210571774]
+rotation = -6.2831855
+scale = Vector2(0.06263065, 0.06263065)
+texture = ExtResource("4_2hs0m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1409602573]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_mgsw5")
+animation = &"run"
+frame_progress = 0.24800771

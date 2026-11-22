@@ -13,3 +13,5 @@ speed = 300.0
 recharge_cooldown = 0.7
 icon = ExtResource("2_ao3pv")
 projectile = ExtResource("3_ao3pv")
+pentacle_color = Color(0.65882355, 0.7058824, 0, 1)
+pentacle_duration = 0.3

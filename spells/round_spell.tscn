@@ -13,3 +13,4 @@ cast_cooldown = 1.0
 recharge_cooldown = 3.0
 icon = ExtResource("2_voro3")
 projectile = ExtResource("3_voro3")
+pentacle_color = Color(0.7019608, 0.22352941, 0, 1)
