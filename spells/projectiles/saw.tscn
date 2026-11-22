@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cmlv7ve6kn5i5"]
+
+[ext_resource type="Script" uid="uid://bj6g8v3i7b5x5" path="res://spells/projectiles/saw.gd" id="1_8a0cg"]
+[ext_resource type="Texture2D" uid="uid://y485sjcspbi" path="res://assets/SpellRepulseIcon.png" id="2_8a0cg"]
+[ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="3_euqnj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
+radius = 28.0
+
+[node name="Projectile" type="Area2D" unique_id=154329058 node_paths=PackedStringArray("sprite")]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_8a0cg")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
+scale = Vector2(0.30468747, 0.3046875)
+texture = ExtResource("2_8a0cg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89040903]
+shape = SubResource("CircleShape2D_0j531")
+
+[node name="ProjectileHitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1229037080]
+stream = ExtResource("3_euqnj")
+bus = &"SFX"

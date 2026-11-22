@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ca7tvckec23ti"]
+
+[ext_resource type="Script" uid="uid://dss2hfapepnnj" path="res://spells/saw_spell.gd" id="1_v4b6t"]
+[ext_resource type="Texture2D" uid="uid://ikevrn7hr8fx" path="res://assets/pentacle.png" id="2_512at"]
+[ext_resource type="PackedScene" uid="uid://cmlv7ve6kn5i5" path="res://spells/projectiles/saw.tscn" id="3_512at"]
+
+[node name="SawSpell" type="Node" unique_id=1276658585]
+script = ExtResource("1_v4b6t")
+dmg = 1
+duration = 2.0
+speed = 0.0
+target_amount = 100000000000
+cast_cooldown = 5.0
+recharge_cooldown = 8.0
+icon = ExtResource("2_512at")
+projectile = ExtResource("3_512at")
+debug_stickers = Dictionary[int, int]({
+4: 3
+})

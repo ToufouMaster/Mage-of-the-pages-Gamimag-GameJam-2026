@@ -44,7 +44,7 @@ func die():
 
 var direction_change_cooldown = 0.5
 
-var max_attack_cooldown : float = 0.2
+var max_attack_cooldown : float = 0.1
 var attack_cooldown : float = max_attack_cooldown
 func _physics_process(delta: float) -> void:
 	if knockback_timer > 0:
