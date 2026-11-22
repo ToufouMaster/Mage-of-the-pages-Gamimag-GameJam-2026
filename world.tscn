@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cf413mpfewd2c" path="res://assets/BG_space.png" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://brb5evee7ce8x" path="res://player.tscn" id="2_tlwt5"]
 [ext_resource type="Script" uid="uid://dctwga1rkaq0o" path="res://ennemy_spawner.gd" id="4_036b0"]
-[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://c503nkgd4tajk" path="res://assets/letters/A.png" id="5_bc84e"]
 [ext_resource type="Texture2D" uid="uid://h7xevgompm2q" path="res://assets/letters/B.png" id="6_wukud"]
 [ext_resource type="Texture2D" uid="uid://4iil76jmuuqy" path="res://assets/letters/C.png" id="7_il2jm"]
@@ -31,13 +30,9 @@ texture = ExtResource("1_fj7yv")
 
 [node name="Player" parent="." unique_id=1839239569 instance=ExtResource("2_tlwt5")]
 
-[node name="Projectile" parent="." unique_id=154329058 instance=ExtResource("4_aqk2v")]
-script = null
-
-[node name="EnnemySpawner" type="Node2D" parent="." unique_id=439457019 node_paths=PackedStringArray("spawn_timer")]
+[node name="EnnemySpawner" type="Node2D" parent="." unique_id=439457019]
 script = ExtResource("4_036b0")
 letter_sprites = Array[Texture]([ExtResource("5_bc84e"), ExtResource("6_wukud"), ExtResource("7_il2jm"), ExtResource("8_wjb0r"), ExtResource("9_mc2jv"), ExtResource("10_bo7i5"), ExtResource("11_4h6ng"), ExtResource("12_o3ebs"), ExtResource("13_k83mh"), ExtResource("14_qktwf"), ExtResource("15_bh8nc"), ExtResource("16_jjr1n"), ExtResource("17_gggvi"), ExtResource("18_w44yn"), ExtResource("19_6ah6f"), ExtResource("20_g1i3r"), null])
-spawn_timer = NodePath("SpawnCooldown")
 
 [node name="SpawnCooldown" type="Timer" parent="EnnemySpawner" unique_id=1746727573]
 wait_time = 4.0

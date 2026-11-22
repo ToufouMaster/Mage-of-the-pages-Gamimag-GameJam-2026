@@ -16,5 +16,7 @@ func is_consomn(letter : int):
 	return not is_voyelle(letter)
 
 
+signal start_run
+
 signal start_match
 signal end_match

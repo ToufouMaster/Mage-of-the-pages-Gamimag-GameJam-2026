@@ -10,14 +10,22 @@ var current_spell_index : int = 0
 
 
 func _ready() -> void:
-	spell_list = $Spells.get_children()
+	FuncSingleton.start_run.connect(_on_run_start)
+
+func _on_run_start():
 	start_match()
+	spell_list = $Spells.get_children()
+
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("switch up")):
 		self.turn_page_up()
 	if (event.is_action_pressed("switch down")):
 		self.turn_page_down()
+	for i in range(1, 6):
+		if (event.is_action_pressed(str(i))):
+			if bookmark_dico.has(str(i)):
+				go_to_page(bookmark_dico.get(str(i)))
 
 func start_match():
 	FuncSingleton.start_match.emit()
@@ -90,3 +98,15 @@ func _on_sign_button_pressed() -> void:
 func _on_game_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "TurnPageToWorld":
 		MainSingleton.round += 1
+
+var next_bookmark : int = 1
+var bookmark_dico : Dictionary[String, int]
+var bookmark_available : bool = true
+
+func add_bookmark(related_spell_index : int):
+	if bookmark_available:
+		bookmark_dico.set(str(next_bookmark), related_spell_index) 
+		next_bookmark += 1
+		bookmark_available = next_bookmark < 5
+	else:
+		push_error("too much bookmark in sells")

@@ -21,6 +21,11 @@ func _ready() -> void:
 	spell_book = get_tree().root.get_node("Node2D/SpellBook")
 	ennemy_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/EnnemySpawner")
 	shop = get_tree().root.get_node("Node2D/Shop")
+	FuncSingleton.start_run.connect(_on_run_start)
+	
+func _on_run_start():
+	coinLetter = 0
+	round = 1
 
 func gain_money(amount : int):
 	self.coinLetter += amount
