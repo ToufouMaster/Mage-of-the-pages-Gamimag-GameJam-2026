@@ -582,9 +582,6 @@ visible = false
 [node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
 
 [node name="Spell3" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
-debug_stickers = Dictionary[int, int]({
-3: 1
-})
 
 [node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
 
