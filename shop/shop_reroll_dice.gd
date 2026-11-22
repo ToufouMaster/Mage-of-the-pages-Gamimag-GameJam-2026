@@ -3,6 +3,8 @@ extends Node2D
 @onready var button : TextureButton = $TextureButton
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var audio_stream : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var money_display : Node2D = $"../Money Display"
+var rolls = 0
 
 func animate_roll():
 	button.disabled = true

@@ -4,7 +4,7 @@ class_name ShopItem
 @onready var bought_sticker = $Bought/boughtSticker
 
 @export var item_id : int : set = set_item_id
-@export var price: int
+@export var price: int : set = set_price
 var bought:bool
 
 
@@ -16,6 +16,7 @@ func set_item_id(value):
 
 func buy():
 	$itemAppearance.hide()
+	$"Money Display".hide()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.button_mask == 1 && bought == false:
@@ -35,3 +36,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			bought = true
 		else:
 			print("you poor dumbass")
+
+func set_price(value : int):
+	price = value
+	$"Money Display".money = price

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cwswb8trhl0qj"]
+
+[ext_resource type="Script" uid="uid://d3mr1et2vguuw" path="res://money_display.gd" id="1_hq2hp"]
+[ext_resource type="Texture2D" uid="uid://coqdyvh322xdt" path="res://assets/coin.png" id="2_wp6so"]
+[ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="3_ee1hs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7yiw6"]
+font = ExtResource("3_ee1hs")
+font_size = 60
+font_color = Color(0.13945708, 0.030145472, 6.016344e-09, 1)
+outline_size = 10
+
+[node name="Money Display" type="Node2D" unique_id=310482769]
+modulate = Color(2.454227, 2.454227, 2.454227, 1)
+script = ExtResource("1_hq2hp")
+
+[node name="MoneyIcon" type="Sprite2D" parent="." unique_id=232020913]
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_wp6so")
+centered = false
+
+[node name="moneyDisplay" type="Label" parent="." unique_id=418228371]
+offset_left = 75.0
+offset_right = 310.0
+offset_bottom = 82.0
+text = "5000000"
+label_settings = SubResource("LabelSettings_7yiw6")
+vertical_alignment = 1

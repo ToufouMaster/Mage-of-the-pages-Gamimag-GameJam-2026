@@ -7,6 +7,7 @@ var spell_book : SpellBook
 var shop : Shop
 var ennemy_spawner : Node2D
 var coinLetter:int = 0
+var round = 1
 
 func _ready() -> void:
 	player = get_tree().root.get_node("Node2D/WorldViewport/World/Player")

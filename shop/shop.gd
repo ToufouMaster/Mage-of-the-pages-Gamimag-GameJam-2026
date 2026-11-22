@@ -9,12 +9,14 @@ class_name Shop
 @onready var marker_sticker_right : Marker2D = $Markers/StickerRight
 @onready var spell_items : Node2D = $Items/Spells
 @onready var sticker_items : Node2D = $Items/Stickers
+@onready var money_display : Node2D = $"Money Display"
 
 @export var spells: Array[PackedScene]
 @export var stickers: Array[Texture2D]
 const SHOP_ITEM_SCENE = preload("res://shop/ShopItem.tscn")
 const SHOP_SPELL_SCRIPT = preload("res://shop/shop_item_spell.gd")
 const SHOP_STICKER_SCRIPT = preload("res://shop/shop_item_sticker.gd")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	dice.button.mouse_entered.connect(_on_reroll_dice_mouse_entered)
@@ -44,17 +46,21 @@ func generate_items():
 		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(2))
 
 func reroll_items():
+	var price_multiplier = 1+FuncSingleton.get_pascal_triangle_float((1+float(MainSingleton.round))/5.0)
+	print("price_multiplier: "+ str(price_multiplier))
 	for i : ShopItem in spell_items.get_children():
 		if i.bought: continue
 		i.item_id = randi() % spells.size()
+		i.price = randi()%100 * price_multiplier
 	for i : ShopItem in sticker_items.get_children():
 		if i.bought: continue
 		i.item_id = randi() % stickers.size()
+		i.price = randi()%100 * price_multiplier
+	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$moneyDisplay.text = "Letters : " + str(MainSingleton.coinLetter)
-	pass
+	money_display.money = MainSingleton.coinLetter
 
 func _on_reroll_dice_mouse_entered() -> void:
 	dice.modulate = Color(1.825, 1.825, 1.825)
@@ -63,5 +69,7 @@ func _on_reroll_dice_mouse_exited() -> void:
 	dice.modulate = Color.WHITE
 	
 func _on_reroll_dice_pressed() -> void:
-	dice.animate_roll()
-	reroll_items()
+	if MainSingleton.coinLetter >= dice.money_display.money:
+		dice.animate_roll()
+		dice.rolls += 1
+		reroll_items()

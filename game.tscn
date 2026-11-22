@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://b4k4dk4skdsd0" path="res://assets/stickers/stickerDoubleAttack.png" id="41_v33yl"]
 [ext_resource type="Texture2D" uid="uid://dg4jaevpxhmyl" path="res://assets/stickers/StickerPassif.png" id="42_2tki7"]
 [ext_resource type="Texture2D" uid="uid://dfme5luy660lj" path="res://assets/stickers/ConsonnentBuff.png" id="43_ib7ph"]
+[ext_resource type="PackedScene" uid="uid://cwswb8trhl0qj" path="res://money_display.tscn" id="44_tb2lt"]
 [ext_resource type="Texture2D" uid="uid://c7limludn5ku2" path="res://assets/stickers/StickerVoyelleBuff.png" id="44_vuohh"]
 [ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="45_3gvs5"]
 [ext_resource type="Texture2D" uid="uid://ddns6svy2ylrt" path="res://assets/shop/bookworm.png" id="47_qpefm"]
@@ -346,11 +347,6 @@ font = ExtResource("45_3gvs5")
 font_size = 120
 font_color = Color(0.14266068, 0.04466646, 0.003017052, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_gmb2m"]
-font = ExtResource("45_3gvs5")
-font_size = 120
-font_color = Color(0.13945708, 0.030145472, 6.016344e-09, 1)
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eu6ph"]
 polygon = PackedVector2Array(-519, 567, -491, 471, -439, 472, -426, 567)
 
@@ -570,6 +566,7 @@ progress = 1.0
 occluder = SubResource("OccluderPolygon2D_xfvwf")
 
 [node name="Timer" type="Timer" parent="SpellBook/Hourglass" unique_id=1346501031]
+one_shot = true
 
 [node name="Bottom" type="Sprite2D" parent="SpellBook/Hourglass" unique_id=600333943]
 light_mask = 2
@@ -679,22 +676,17 @@ position = Vector2(796, 733)
 [node name="StickerRight" type="Marker2D" parent="Shop/Markers" unique_id=202583019]
 position = Vector2(1269, 733)
 
+[node name="Money Display" parent="Shop" unique_id=310482769 instance=ExtResource("44_tb2lt")]
+position = Vector2(518, 61)
+centered = false
+
 [node name="Label" type="Label" parent="Shop" unique_id=1354808628]
-offset_left = 581.0
-offset_top = 100.0
-offset_right = 985.0
-offset_bottom = 258.0
+offset_left = 570.0
+offset_top = 155.0
+offset_right = 974.0
+offset_bottom = 313.0
 text = "Shop"
 label_settings = SubResource("LabelSettings_mgsw5")
-horizontal_alignment = 1
-
-[node name="moneyDisplay" type="Label" parent="Shop" unique_id=2144912536]
-offset_left = 1123.0
-offset_top = 100.0
-offset_right = 1750.0
-offset_bottom = 258.0
-text = "Letters : "
-label_settings = SubResource("LabelSettings_gmb2m")
 horizontal_alignment = 1
 
 [node name="Market" type="Node2D" parent="Shop" unique_id=583591060]
@@ -749,6 +741,9 @@ offset_transform_visual_only = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Shop/RerollStool/Dice" unique_id=1274624211]
 stream = ExtResource("39_klri6")
+
+[node name="Money Display" parent="Shop/RerollStool" unique_id=480370143 instance=ExtResource("44_tb2lt")]
+position = Vector2(397, 209)
 
 [node name="Items" type="Node2D" parent="Shop" unique_id=1269187849]
 z_index = 1
