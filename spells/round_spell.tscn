@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://bdjqs4qflv38i"]
 
 [ext_resource type="Script" uid="uid://cfmh2kikqitpn" path="res://spells/round_spell.gd" id="1_vh8q3"]
-[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_55vr4"]
+[ext_resource type="Texture2D" uid="uid://dpxw4vtths125" path="res://assets/CircleAttackIcon.png" id="2_voro3"]
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="3_rc0bd"]
 
 [node name="Spell2" type="Node" unique_id=27304891]
 script = ExtResource("1_vh8q3")
+max_stock = 3
+dmg = 5
+speed = 75.0
 cast_cooldown = 1.0
 recharge_cooldown = 3.0
-dmg = 8
-icon = ExtResource("2_55vr4")
+icon = ExtResource("2_voro3")
 projectile = ExtResource("3_rc0bd")

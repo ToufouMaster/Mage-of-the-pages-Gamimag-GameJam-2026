@@ -2,12 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="1_blqjs"]
 [ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop/shop.gd" id="1_e7rdd"]
-[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_blqjs"]
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spam_spell.tscn" id="2_myf4l"]
+[ext_resource type="PackedScene" uid="uid://cf5q6af6nfyo3" path="res://spells/heal_spell.tscn" id="2_yrv44"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="3_p5a0g"]
+[ext_resource type="PackedScene" uid="uid://dsolf6nc3s51" path="res://spells/magnet_spell.tscn" id="3_pafut"]
 [ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/targeted_spell.tscn" id="4_xqmyw"]
+[ext_resource type="PackedScene" uid="uid://cjx7us1nvemoc" path="res://spells/shock_wave_spell.tscn" id="5_hv745"]
+[ext_resource type="PackedScene" uid="uid://cse8qt8rd0d1s" path="res://spells/shotgun_spell.tscn" id="6_c8ks2"]
 [ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="6_gmb2m"]
 [ext_resource type="Texture2D" uid="uid://bewpsyln8jd3p" path="res://assets/cartonIG.png" id="7_8kdgp"]
+[ext_resource type="PackedScene" uid="uid://57g5x7676wd3" path="res://spells/speed_boost_spell.tscn" id="8_k6x22"]
+[ext_resource type="Texture2D" uid="uid://cyg4u78vqnlxq" path="res://assets/stickers/stickerATKSpeed.png" id="10_mtsdc"]
+[ext_resource type="Texture2D" uid="uid://d38jc40w2083o" path="res://assets/stickers/stickerDMG.png" id="11_sigkv"]
+[ext_resource type="Texture2D" uid="uid://b4k4dk4skdsd0" path="res://assets/stickers/stickerDoubleAttack.png" id="12_wobyc"]
+[ext_resource type="Texture2D" uid="uid://dg4jaevpxhmyl" path="res://assets/stickers/StickerPassif.png" id="13_7bvr6"]
+[ext_resource type="Texture2D" uid="uid://6stpdty4ecpn" path="res://assets/stickers/stickerProjSpeed.png" id="14_mlbjk"]
+[ext_resource type="Texture2D" uid="uid://cpnwkivp5tx7k" path="res://assets/stickers/StickerStorage.png" id="15_q5yfe"]
+[ext_resource type="Texture2D" uid="uid://c7limludn5ku2" path="res://assets/stickers/StickerVoyelleBuff.png" id="16_auoiy"]
+[ext_resource type="Texture2D" uid="uid://dfme5luy660lj" path="res://assets/stickers/ConsonnentBuff.png" id="16_sigkv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mgsw5"]
 font = ExtResource("6_gmb2m")
@@ -28,10 +40,11 @@ font_color = Color(0.13945708, 0.030145472, 6.016344e-09, 1)
 
 [node name="Shop" type="Node2D" unique_id=1435067064]
 script = ExtResource("1_e7rdd")
-spells = Array[PackedScene]([ExtResource("2_myf4l"), ExtResource("3_p5a0g"), ExtResource("4_xqmyw")])
-stickers = Array[Texture2D]([ExtResource("2_blqjs"), ExtResource("2_blqjs")])
+spells = Array[PackedScene]([ExtResource("2_yrv44"), ExtResource("3_pafut"), ExtResource("3_p5a0g"), ExtResource("5_hv745"), ExtResource("6_c8ks2"), ExtResource("2_myf4l"), ExtResource("8_k6x22"), ExtResource("4_xqmyw")])
+stickers = Array[Texture2D]([ExtResource("11_sigkv"), ExtResource("10_mtsdc"), ExtResource("15_q5yfe"), ExtResource("14_mlbjk"), ExtResource("12_wobyc"), ExtResource("13_7bvr6"), ExtResource("16_sigkv"), ExtResource("16_auoiy")])
 
 [node name="TMP" type="Sprite2D" parent="." unique_id=325278727]
+visible = false
 z_index = -4096
 position = Vector2(959.99994, 539.99994)
 scale = Vector2(0.5, 0.49999997)

@@ -20,10 +20,9 @@ func _input(event: InputEvent) -> void:
 		self.turn_page_down()
 
 func start_match():
-	self.current_spell_index = 0
 	for spell in spell_list:
 		spell.start_match()
-	spell_list[0].switch_on()
+	self.go_to_page(0)
 	hourglass.start_round_timer()
 	hourglass.timer.timeout.connect(end_match)
 
@@ -32,17 +31,20 @@ func end_match():
 		spell.end_match()
 	$"../GameAnimationPlayer".play("TurnPageToShop")
 
-func add_spell(spell_scene : PackedScene, position : int):
+func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
 	$Spells.add_child(new_spell)
-	self.spell_list.insert(position, new_spell)
-	
+	self.spell_list.insert(spell_position, new_spell)
+
 func add_spell_current_index(spell_scene : PackedScene):
 	add_spell(spell_scene,current_spell_index)
 	current_spell_index +=1
+	
+func add_sticker_current_index(sticker:Spell.Sticker):
+	var spell = spell_list[current_spell_index] as Spell
+	spell.add_sticker(sticker)
 
 func go_to_page(index : int):
-	print("went to " + str(index))
 	var turn_down = index > current_spell_index
 	var old_spell = spell_list[current_spell_index]
 	var new_spell = spell_list[index]

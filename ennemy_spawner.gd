@@ -32,7 +32,6 @@ func spawn_batch_of_ennemies():
 func choose_letter(current_budget : int):
 	var max_afforable_letter : int
 	var sum = 0
-	
 	for i in range(1,27):
 		sum += i
 		if current_budget/sum < 5:
