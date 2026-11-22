@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://b6848go1ly15s" path="res://spells/lightning_spell.gd" id="1_dgr48"]
 [ext_resource type="Texture2D" uid="uid://rtjqo3af7qxh" path="res://assets/LightningSpell.png" id="2_dgr48"]
+[ext_resource type="PackedScene" uid="uid://bna825vbwh8fc" path="res://spells/projectiles/lightning.tscn" id="3_pctke"]
 
 [node name="LightningSpell" type="Node" unique_id=1704353616]
 script = ExtResource("1_dgr48")
-dmg = 8
+max_stock = 2
+dmg = 3
+target_amount = 3
 cast_cooldown = 1.0
-recharge_cooldown = 30.0
+recharge_cooldown = 10.0
 icon = ExtResource("2_dgr48")
+projectile = ExtResource("3_pctke")
 pentacle_color = Color(0.8784314, 0, 0.8117647, 1)
