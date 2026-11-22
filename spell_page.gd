@@ -6,16 +6,21 @@ var cur_spell : Spell
 @onready var stock_label := $StockLabel
 @onready var reload_bar := $ReloadBar
 @export var Stickers : Array[Texture2D]
+var stickersNodes : Array[Node]
 
-func set_sticker(spell :Spell):
+func set_stickers(spell :Spell):
+	for elt in stickersNodes:
+		remove_child(elt)
 	for key in spell.sticked_stickers.keys():
-		print("the currently used stickers on this spell are")
-		print(spell.sticked_stickers[key])
-		var sticker = Sprite2D.new()
-		sticker.texture = Stickers[key]
-		sticker.position = Vector2(randi()%200+100,randi()%200+100)
-		sticker.scale = Vector2(0.3,0.3)
-		self.add_child(sticker)
+		for sticker in spell.sticker_positions:
+			print("the currently used stickers on this spell are")
+			print(spell.sticked_stickers[key])
+			var tmp = Sprite2D.new()
+			tmp.texture = Stickers[sticker.x]
+			tmp.position = Vector2(sticker.y,sticker.z)
+			tmp.scale = Vector2(0.5,0.5)
+			stickersNodes.append(tmp)
+			self.add_child(tmp)
 
 func set_spell_page(spell: Spell):
 	icon.texture = spell.icon

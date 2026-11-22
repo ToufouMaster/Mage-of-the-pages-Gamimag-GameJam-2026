@@ -50,6 +50,7 @@ enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, SWIFT_SPELL_UP, DOUBLE_SPELL, 
 
 @export var debug_stickers : Dictionary[Sticker, int]
 var sticked_stickers : Dictionary[Sticker, int]
+var sticker_positions : Array[Vector3]
 
 func _ready() -> void:
 	cast_timer = Timer.new()
@@ -179,6 +180,7 @@ func can_get_new_sticker() -> bool:
 
 func add_sticker(sticker_type : Sticker):
 	self.sticked_stickers[sticker_type] += 1
+	self.sticker_positions.append(Vector3(sticker_type,randi()%300,randi()%300))
 	self.sticker_amount += 1
 	match sticker_type:
 		Sticker.DMG_UP:

@@ -11,3 +11,4 @@ func set_item_id(value):
 func buy():
 	super()
 	MainSingleton.spell_book.add_sticker_current_index(item_id)
+	MainSingleton.spell_book.update_stickers()
