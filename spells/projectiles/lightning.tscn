@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="4_kuocc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
+radius = 4.1231055
 
 [node name="Projectile" type="Area2D" unique_id=154329058 node_paths=PackedStringArray("sprite")]
 collision_layer = 8
