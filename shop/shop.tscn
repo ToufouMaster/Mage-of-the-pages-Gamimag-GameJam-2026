@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjoo222tfg86y"]
+[gd_scene format=3 uid="uid://2cvv0v36uas5"]
 
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="1_blqjs"]
 [ext_resource type="Script" uid="uid://46vm8n2i6shi" path="res://shop/shop.gd" id="1_e7rdd"]

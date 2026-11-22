@@ -4,6 +4,9 @@ func get_pascal_triangle(n : int) -> int:
 	@warning_ignore("integer_division")
 	return n*(n+1)/2
 
+func get_pascal_triangle_float(n : float) -> float:
+	return n*(n+1)/2.0
+
 const voyelles_array = [0,4,8,14,20,24]
 
 func is_voyelle(letter : int):

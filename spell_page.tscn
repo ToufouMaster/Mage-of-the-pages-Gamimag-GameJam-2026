@@ -2,7 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c360qw64yv3n" path="res://spell_page.gd" id="1_kh30g"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="1_m3v6u"]
+[ext_resource type="Texture2D" uid="uid://cyg4u78vqnlxq" path="res://assets/stickers/stickerATKSpeed.png" id="2_ejq43"]
+[ext_resource type="Texture2D" uid="uid://d38jc40w2083o" path="res://assets/stickers/stickerDMG.png" id="3_7eyx0"]
 [ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="3_gyn6v"]
+[ext_resource type="Texture2D" uid="uid://b4k4dk4skdsd0" path="res://assets/stickers/stickerDoubleAttack.png" id="4_vgnlu"]
+[ext_resource type="Texture2D" uid="uid://dg4jaevpxhmyl" path="res://assets/stickers/StickerPassif.png" id="5_p064v"]
+[ext_resource type="Texture2D" uid="uid://6stpdty4ecpn" path="res://assets/stickers/stickerProjSpeed.png" id="6_g8pw2"]
+[ext_resource type="Texture2D" uid="uid://cpnwkivp5tx7k" path="res://assets/stickers/StickerStorage.png" id="7_hdjgj"]
+[ext_resource type="Texture2D" uid="uid://c7limludn5ku2" path="res://assets/stickers/StickerVoyelleBuff.png" id="8_2v5jc"]
 
 [sub_resource type="Shader" id="Shader_v54wv"]
 code = "shader_type canvas_item;
@@ -28,6 +35,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="SpellPage" type="Node2D" unique_id=1119320805]
 script = ExtResource("1_kh30g")
+Stickers = Array[Texture2D]([ExtResource("2_ejq43"), ExtResource("3_7eyx0"), ExtResource("4_vgnlu"), ExtResource("5_p064v"), ExtResource("6_g8pw2"), ExtResource("7_hdjgj"), ExtResource("8_2v5jc")])
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1385985796]
 material = SubResource("ShaderMaterial_uvynu")

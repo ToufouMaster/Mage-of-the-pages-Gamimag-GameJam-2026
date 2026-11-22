@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dal5cmpp5p7wy"]
+
+[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="1_hgaww"]
+[ext_resource type="Texture2D" uid="uid://dmwc3f2treog0" path="res://assets/spammySpellProj.png" id="2_u6jgr"]
+
+[node name="Projectile" unique_id=154329058 instance=ExtResource("1_hgaww")]
+texture = ExtResource("2_u6jgr")

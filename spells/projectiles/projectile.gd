@@ -3,11 +3,15 @@ extends Area2D
 class_name Projectile
 
 @export var sprite : Sprite2D
+@export var texture : Texture2D
 var angle : float ## Angle in radians
 var speed : float = 100 ## The speed of a projectile
 var duration : float = 2
 var amount_of_target : int = 1
 var dmg : int
+
+func _ready() -> void:
+	$Sprite2D.texture = texture
 
 
 func _physics_process(delta: float) -> void:

@@ -48,11 +48,12 @@ script = ExtResource("7_pkg7o")
 [node name="AreneFloatingIsland" type="Sprite2D" parent="." unique_id=324870722]
 z_index = -10
 position = Vector2(-71, -30)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("22_wukud")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AreneFloatingIsland" unique_id=1676348491]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreneFloatingIsland/StaticBody2D" unique_id=2112655600]
-position = Vector2(-888, -733)
+position = Vector2(-886, -730)
 build_mode = 1
-polygon = PackedVector2Array(30, -3, 161, -43, 321, 4, 546, -17, 707, 46, 1053, -2, 1103, 56, 1259, 114, 1632, 19, 1720, 87, 1678, 277, 1761, 478, 1689, 721, 1742, 832, 1803, 892, 1731, 1116, 1761, 1283, 1703, 1436, 1764, 1573, 1741, 1652, 1624, 1622, 1415, 1637, 1214, 1577, 993, 1637, 800, 1588, 500, 1645, 321, 1588, 272, 1493, 90, 1565, -5, 1550, 48, 1223, -40, 1037, 67, 889, 2, 612, 52, 456, 6, 316, 76, 118, 0, 11)
+polygon = PackedVector2Array(30, -3, 161, -43, 321, 4, 546, -17, 707, 46, 1053, -2, 1103, 56, 1259, 114, 1632, 19, 1726, 80, 1678, 277, 1756, 472, 1689, 721, 1742, 832, 1812, 878, 1731, 1116, 1766, 1278, 1696, 1436, 1764, 1573, 1741, 1652, 1614, 1612, 1416, 1632, 1226, 1572, 993, 1637, 800, 1588, 500, 1645, 321, 1588, 260, 1478, 90, 1565, -5, 1550, 50, 1214, -50, 1044, 66, 884, -6, 616, 52, 456, 0, 340, 76, 118, 0, 11)

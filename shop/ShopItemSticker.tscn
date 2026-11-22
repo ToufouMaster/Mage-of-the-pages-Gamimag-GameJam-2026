@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bxiodx62f1hj4"]
+[gd_scene format=3 uid="uid://dqu4hhje425sq"]
 
 [ext_resource type="Script" uid="uid://mv1n6iad5byf" path="res://shop/shop_item_sticker.gd" id="1_miall"]
 [ext_resource type="Texture2D" uid="uid://e7xt4qsp8cyf" path="res://assets/ShopItemBG.png" id="1_qaxpi"]
