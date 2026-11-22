@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqh52wb1mumf4"]
+
+[ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/targeted_spell.gd" id="1_oqv7u"]
+[ext_resource type="Texture2D" uid="uid://dp1jkpvt6cb42" path="res://assets/I didn't ask how big the room is I said I cast FIREBALL.png" id="2_eooir"]
+[ext_resource type="PackedScene" uid="uid://cy7s4s73sbbg3" path="res://spells/projectiles/bomb_projectile.tscn" id="3_wgjtd"]
+
+[node name="RocketLauncherSpell" type="Node" unique_id=512849794]
+script = ExtResource("1_oqv7u")
+max_stock = 3
+dmg = 5
+duration = 6.0
+speed = 400.0
+target_amount = 2
+cast_cooldown = 2.0
+recharge_cooldown = 4.0
+icon = ExtResource("2_eooir")
+projectile = ExtResource("3_wgjtd")

@@ -6,7 +6,6 @@
 
 [node name="Spell7" type="Node" unique_id=238909811]
 script = ExtResource("1_ujm1q")
-max_stock = 1
 dmg = 1
 duration = 0.2
 speed = 0.0

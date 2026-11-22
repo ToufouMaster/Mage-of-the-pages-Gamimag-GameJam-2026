@@ -12,6 +12,7 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_8a0cg")
 sprite = NodePath("Sprite2D")
+texture = ExtResource("2_8a0cg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
 scale = Vector2(0.30468747, 0.3046875)

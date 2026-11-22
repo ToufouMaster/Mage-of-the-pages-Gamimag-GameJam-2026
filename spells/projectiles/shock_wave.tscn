@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5j4ysa1jdxuh"]
 
 [ext_resource type="Script" uid="uid://c3mrxu4gs3vcp" path="res://spells/projectiles/shock_wave.gd" id="1_jl353"]
+[ext_resource type="Texture2D" uid="uid://y485sjcspbi" path="res://assets/SpellRepulseIcon.png" id="2_0oloe"]
 [ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="2_vlg6n"]
 [ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="3_tnymp"]
 
@@ -12,6 +13,7 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_jl353")
 sprite = NodePath("Sprite2D")
+texture = ExtResource("2_0oloe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
 scale = Vector2(1.1249999, 1.15625)

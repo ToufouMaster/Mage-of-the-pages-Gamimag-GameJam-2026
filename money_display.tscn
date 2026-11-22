@@ -24,6 +24,7 @@ centered = false
 offset_left = 75.0
 offset_right = 310.0
 offset_bottom = 82.0
-text = "5000000"
+text = "0
+"
 label_settings = SubResource("LabelSettings_7yiw6")
 vertical_alignment = 1

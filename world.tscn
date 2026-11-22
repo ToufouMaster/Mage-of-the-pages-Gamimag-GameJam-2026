@@ -47,8 +47,7 @@ script = ExtResource("7_pkg7o")
 
 [node name="AreneFloatingIsland" type="Sprite2D" parent="." unique_id=324870722]
 z_index = -10
-position = Vector2(-71, -30)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.35937503, 0.35937503)
 texture = ExtResource("22_wukud")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AreneFloatingIsland" unique_id=1676348491]

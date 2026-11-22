@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cy7s4s73sbbg3"]
+
+[ext_resource type="Script" uid="uid://c0n4rbwxma3sj" path="res://spells/projectiles/bomb_projectile.gd" id="1_wqiso"]
+[ext_resource type="Texture2D" uid="uid://dp1jkpvt6cb42" path="res://assets/I didn't ask how big the room is I said I cast FIREBALL.png" id="2_qjgtb"]
+[ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="4_kwwdl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
+radius = 7.071068
+
+[node name="Projectile" type="Area2D" unique_id=154329058 node_paths=PackedStringArray("sprite")]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_wqiso")
+sprite = NodePath("Sprite2D")
+texture = ExtResource("2_qjgtb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211186722]
+scale = Vector2(0.10156251, 0.1015625)
+texture = ExtResource("2_qjgtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89040903]
+shape = SubResource("CircleShape2D_0j531")
+
+[node name="ProjectileHitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1229037080]
+stream = ExtResource("4_kwwdl")
+bus = &"SFX"
