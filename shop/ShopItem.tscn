@@ -10,6 +10,15 @@
 [ext_resource type="AudioStream" uid="uid://bb8x1arxhbs7b" path="res://audio/sfx/purchase_coin_fall1.ogg" id="7_sppbc"]
 [ext_resource type="AudioStream" uid="uid://c214qjdgb4fyl" path="res://audio/sfx/purchase_coin_fall2.ogg" id="8_f31l1"]
 [ext_resource type="AudioStream" uid="uid://bup61rcbb3jyi" path="res://audio/sfx/purchase_coin_fall3.ogg" id="9_v34bk"]
+[ext_resource type="Script" uid="uid://dlgs0vlch2srj" path="res://shop/spell_info_popup.gd" id="11_0ka6s"]
+[ext_resource type="Texture2D" uid="uid://bwe8db7206k45" path="res://assets/livreRectNine.png" id="11_pdste"]
+[ext_resource type="AudioStream" uid="uid://eupj1cckxoyl" path="res://audio/streams/page_flip_short_random.tres" id="11_qa75b"]
+[ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="12_2wflq"]
+[ext_resource type="Texture2D" uid="uid://rv2s7x4o3urw" path="res://assets/spells_stats_icons/damage.png" id="15_i3c62"]
+[ext_resource type="Texture2D" uid="uid://dxy7r28kmvv3g" path="res://assets/spells_stats_icons/reload_cooldown.png" id="16_tugpc"]
+[ext_resource type="Texture2D" uid="uid://ct3n6rwtsrwh7" path="res://assets/spells_stats_icons/cast_cooldown.png" id="17_h0t1a"]
+[ext_resource type="Texture2D" uid="uid://biqvvlxtvprqs" path="res://assets/spells_stats_icons/duration.png" id="18_7lesu"]
+[ext_resource type="Texture2D" uid="uid://dewhjx2gqibbk" path="res://assets/spells_stats_icons/travel_speed.png" id="19_njrr5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgsw5"]
 
@@ -27,6 +36,80 @@ stream_2/stream = ExtResource("9_v34bk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgsw5"]
 size = Vector2(154, 201)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0j531"]
+font = ExtResource("12_2wflq")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0j531"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qa75b"]
+font = ExtResource("12_2wflq")
+font_size = 21
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvynu"]
+font = ExtResource("12_2wflq")
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v54wv"]
+font = ExtResource("12_2wflq")
+font_size = 64
+font_color = Color(0.99215686, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_g1t1w"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_clm0s"]
+resource_name = "new_spell_blink"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0.083333336, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lxtf"]
+_data = {
+&"RESET": SubResource("Animation_g1t1w"),
+&"new_spell_blink": SubResource("Animation_clm0s")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_tugpc"]
+font = ExtResource("12_2wflq")
+font_size = 32
+font_color = Color(0.99215686, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3c62"]
+font = ExtResource("12_2wflq")
+font_size = 48
+font_color = Color(0.99215686, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7y1nd"]
+font = ExtResource("12_2wflq")
+font_size = 32
 
 [node name="ShopItem" type="Node2D" unique_id=1943634331]
 script = ExtResource("1_rs30b")
@@ -62,6 +145,9 @@ stream = SubResource("AudioStreamRandomizer_7y1nd")
 stream = SubResource("AudioStreamRandomizer_08nl3")
 volume_db = -10.0
 
+[node name="PageFlipAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=102817049]
+stream = ExtResource("11_qa75b")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1215401364]
 scale = Vector2(0.095722735, 0.105957225)
 
@@ -70,4 +156,305 @@ position = Vector2(0, 0.5)
 scale = Vector2(11.932791, 10.931936)
 shape = SubResource("RectangleShape2D_mgsw5")
 
+[node name="SpellInfoPopup" type="Control" parent="." unique_id=699671510]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+light_mask = 2
+z_index = 2
+z_as_relative = false
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -300.0
+offset_right = 1000.0
+offset_bottom = 300.0
+script = ExtResource("11_0ka6s")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SpellInfoPopup" unique_id=1922828037]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_pdste")
+region_rect = Rect2(0, 0, 950.9452, 950.96246)
+
+[node name="Title" type="Label" parent="SpellInfoPopup" unique_id=1582611279]
+light_mask = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.05
+offset_bottom = 54.0
+grow_horizontal = 2
+text = "TITLE TEST PARCE QUE C lol"
+label_settings = SubResource("LabelSettings_0j531")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 3
+uppercase = true
+max_lines_visible = 2
+
+[node name="HSeparator" type="HSeparator" parent="SpellInfoPopup" unique_id=2051092584]
+light_mask = 2
+layout_mode = 0
+offset_left = 20.0
+offset_top = 138.0
+offset_right = 780.0
+offset_bottom = 142.0
+theme_override_styles/separator = SubResource("StyleBoxLine_0j531")
+
+[node name="Description" type="Label" parent="SpellInfoPopup" unique_id=941098589]
+light_mask = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.25
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "Ceci est une description du sort, c'est un peu long et ça peut contenir des info sur le fonctionnement plus précis qu'en lisant juste les stats"
+label_settings = SubResource("LabelSettings_qa75b")
+horizontal_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 3
+max_lines_visible = 3
+
+[node name="Stats" type="HBoxContainer" parent="SpellInfoPopup" unique_id=156689553]
+light_mask = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.45
+anchor_right = 1.0
+anchor_bottom = 0.45
+offset_bottom = 64.0
+
+[node name="Damage" type="HBoxContainer" parent="SpellInfoPopup/Stats" unique_id=2107900762]
+light_mask = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/Damage" unique_id=1672381950]
+self_modulate = Color(0, 0, 0, 1)
+light_mask = 2
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("15_i3c62")
+expand_mode = 2
+
+[node name="Value" type="Label" parent="SpellInfoPopup/Stats/Damage" unique_id=1412345536]
+light_mask = 2
+layout_mode = 2
+text = ": 10"
+label_settings = SubResource("LabelSettings_uvynu")
+
+[node name="ReloadCD" type="HBoxContainer" parent="SpellInfoPopup/Stats" unique_id=1182541315]
+light_mask = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/ReloadCD" unique_id=1008104196]
+self_modulate = Color(0, 0, 0, 1)
+light_mask = 2
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("16_tugpc")
+expand_mode = 2
+
+[node name="Value" type="Label" parent="SpellInfoPopup/Stats/ReloadCD" unique_id=570340008]
+light_mask = 2
+layout_mode = 2
+text = ": 10"
+label_settings = SubResource("LabelSettings_uvynu")
+
+[node name="CastCD" type="HBoxContainer" parent="SpellInfoPopup/Stats" unique_id=1195272153]
+light_mask = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/CastCD" unique_id=910572303]
+self_modulate = Color(0, 0, 0, 1)
+light_mask = 2
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("17_h0t1a")
+expand_mode = 2
+
+[node name="Value" type="Label" parent="SpellInfoPopup/Stats/CastCD" unique_id=291903890]
+light_mask = 2
+layout_mode = 2
+text = ": 10"
+label_settings = SubResource("LabelSettings_uvynu")
+
+[node name="Duration" type="HBoxContainer" parent="SpellInfoPopup/Stats" unique_id=232494623]
+light_mask = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/Duration" unique_id=1886784173]
+self_modulate = Color(0, 0, 0, 1)
+light_mask = 2
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("18_7lesu")
+expand_mode = 2
+
+[node name="Value" type="Label" parent="SpellInfoPopup/Stats/Duration" unique_id=481094147]
+light_mask = 2
+layout_mode = 2
+text = ": 10"
+label_settings = SubResource("LabelSettings_uvynu")
+
+[node name="Speed" type="HBoxContainer" parent="SpellInfoPopup/Stats" unique_id=569762865]
+light_mask = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="SpellInfoPopup/Stats/Speed" unique_id=1237494332]
+self_modulate = Color(0, 0, 0, 1)
+light_mask = 2
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("19_njrr5")
+expand_mode = 2
+
+[node name="Value" type="Label" parent="SpellInfoPopup/Stats/Speed" unique_id=589464152]
+light_mask = 2
+layout_mode = 2
+text = ": 10"
+label_settings = SubResource("LabelSettings_uvynu")
+
+[node name="SpellStatus" type="Control" parent="SpellInfoPopup" unique_id=1533005466]
+light_mask = 2
+layout_mode = 1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewSpell" type="Control" parent="SpellInfoPopup/SpellStatus" unique_id=745763614]
+visible = false
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SpellInfoPopup/SpellStatus/NewSpell" unique_id=1990710358]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "New Spell +"
+label_settings = SubResource("LabelSettings_v54wv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpellInfoPopup/SpellStatus/NewSpell" unique_id=1576096995]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_1lxtf")
+
+[node name="Sticker" type="Control" parent="SpellInfoPopup/SpellStatus" unique_id=1051038342]
+visible = false
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SpellInfoPopup/SpellStatus/Sticker" unique_id=476977554]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Will be applied to currently equipped spell"
+label_settings = SubResource("LabelSettings_tugpc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelUp" type="Control" parent="SpellInfoPopup/SpellStatus" unique_id=914005894]
+visible = false
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SpellInfoPopup/SpellStatus/LevelUp" unique_id=709468953]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You already have this spell"
+label_settings = SubResource("LabelSettings_i3c62")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="SpellInfoPopup/SpellStatus/LevelUp" unique_id=1102155382]
+light_mask = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.4
+anchor_right = 0.8
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 2.0
+value = 1.0
+rounded = true
+show_percentage = false
+
+[node name="Label" type="Label" parent="SpellInfoPopup/SpellStatus/LevelUp/ProgressBar" unique_id=1137664320]
+light_mask = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0 / 2"
+label_settings = SubResource("LabelSettings_7y1nd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PurshaseMore" type="Label" parent="SpellInfoPopup/SpellStatus/LevelUp" unique_id=609309450]
+light_mask = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.9
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Purshase more of the same spell to level up it's stats"
+label_settings = SubResource("LabelSettings_tugpc")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=971283599]
+z_index = 1
+position = Vector2(990, -290)
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

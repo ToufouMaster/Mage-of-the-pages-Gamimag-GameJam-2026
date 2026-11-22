@@ -10,3 +10,5 @@ duration = 8.0
 cast_cooldown = 3.0
 recharge_cooldown = 20.0
 icon = ExtResource("2_72bl7")
+pentacle_color = Color(0, 0.6745098, 0, 1)
+pentacle_duration = 1.0

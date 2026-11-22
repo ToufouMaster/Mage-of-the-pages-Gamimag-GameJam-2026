@@ -6,6 +6,7 @@ class_name ShopItem
 @export var item_id : int : set = set_item_id
 @export var price: int : set = set_price
 var bought:bool
+var is_sticker = false
 
 
 func _ready() -> void:
@@ -34,9 +35,19 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			tween.tween_callback($CoinTossAudioPlayer.play)
 			MainSingleton.coinLetter -= price
 			bought = true
+			$SpellInfoPopup.hide()
 		else:
 			print("you poor dumbass")
 
 func set_price(value : int):
 	price = value
 	$"Money Display".money = price
+
+func _on_area_2d_mouse_entered() -> void:
+	if bought: return
+	$SpellInfoPopup.show()
+	$SpellInfoPopup.set_popup_info(item_id, is_sticker)
+	$PageFlipAudioPlayer.play()
+
+func _on_area_2d_mouse_exited() -> void:
+	$SpellInfoPopup.hide()

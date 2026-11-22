@@ -44,6 +44,7 @@ func generate_items():
 	for i in range(3):
 		var tmp := SHOP_ITEM_SCENE.instantiate() as ShopItem
 		tmp.set_script(SHOP_STICKER_SCRIPT)
+		tmp.is_sticker = true
 		sticker_items.add_child(tmp)
 		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(2))
 

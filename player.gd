@@ -12,6 +12,7 @@ func _ready() -> void:
 	FuncSingleton.end_match.connect(end_match)
 
 func start_match():
+	self.self_modulate.a = 1
 	self.show()
 	self.health = self.max_health
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -65,9 +66,13 @@ func heal_damage(amount : int):
 
 
 func die():
-	self.process_mode = Node.PROCESS_MODE_DISABLED
 	$GameOver.show()
-	self.hide()
+	self.self_modulate.a = 0
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+
+func add_pentacle(duration : float, speed: float = 1, color: Color = Color.WHITE):
+	$PentacleFlat.add_rotation_time(duration, speed, color)
+
 
 func _physics_process(_delta: float) -> void:
 	var horizontal_movement := Input.get_axis("walk left", "walk right")
