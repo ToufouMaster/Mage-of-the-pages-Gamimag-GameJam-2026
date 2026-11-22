@@ -4,6 +4,7 @@ class_name Projectile
 
 @export var sprite : Sprite2D
 @export var texture : Texture2D
+@export var hit_sfx : AudioStream
 var angle : float ## Angle in radians
 var speed : float = 100 ## The speed of a projectile
 var duration : float = 2
