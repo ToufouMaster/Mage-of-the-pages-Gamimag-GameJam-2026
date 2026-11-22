@@ -58,15 +58,15 @@ func reroll_items():
 		if i.bought: continue
 		i.item_id = randi() % spells.size()
 		var instance : Spell = MainSingleton.shop.spells[i.item_id].instantiate()
-		i.price = (instance.base_price+randi()%max(1, instance.price_modulation)) * price_multiplier*3
+		i.price = (instance.base_price+randi()%max(1, instance.price_modulation)) * price_multiplier*1.5
 		if instance.base_price == 0: push_warning(instance.get_title() + "Spell shop price statistics are missing")
 	for i : ShopItem in sticker_items.get_children():
 		if i.bought: continue
 		i.item_id = randi() % stickers.size()
 		var instance = sticker_prices.get(i.item_id) if sticker_prices.size() > i.item_id else Vector2.ONE
 		if sticker_prices.size() <= i.item_id: push_warning(Spell.Sticker.keys().get(i.item_id)+" sticker shop price statistics are missing")
-		i.price = (instance.x+randi()%int(max(1, instance.y))) * price_multiplier*5
-	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
+		i.price = (instance.x+randi()%int(max(1, instance.y))) * price_multiplier*2
+	dice.money_display.money = (30*((1+dice.rolls)**1.35))*price_multiplier if dice.rolls > 0 else 30*price_multiplier
 
 func _on_reroll_dice_mouse_entered() -> void:
 	dice.modulate = Color(1.825, 1.825, 1.825)
@@ -78,4 +78,5 @@ func _on_reroll_dice_pressed() -> void:
 	if MainSingleton.coinLetter >= dice.money_display.money:
 		dice.animate_roll()
 		dice.rolls += 1
+		MainSingleton.coinLetter -= dice.money_display.money
 		reroll_items()

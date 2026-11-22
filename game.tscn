@@ -64,7 +64,6 @@
 [ext_resource type="Texture2D" uid="uid://c6slcka8l3xxv" path="res://assets/bookmarquepage5.png" id="52_6qn5j"]
 [ext_resource type="AnimationLibrary" uid="uid://cslwwo7ptn2kw" path="res://reroll_stool_animation.res" id="54_3gvs5"]
 [ext_resource type="Texture2D" uid="uid://cyhwladh2k38m" path="res://assets/pentacle.png" id="61_bqa6y"]
-[ext_resource type="Script" uid="uid://do3drxuy2u5op" path="res://retry_button.gd" id="62_du4n2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -1037,7 +1036,6 @@ offset_top = 743.0
 offset_right = 1615.0
 offset_bottom = 958.0
 flat = true
-script = ExtResource("62_du4n2")
 
 [connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
 [connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]
