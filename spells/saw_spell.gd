@@ -1,5 +1,15 @@
 extends Spell
 
+func _init() -> void:
+	self.base_price = 50
+	self.price_modulation = 20
+
+func get_title():
+	return "Saw blade"
+
+func get_description():
+	return "Deal a small amount of damage (" + str(self.actual_dmg).pad_decimals(1) + ") very fast around the player in a short range."
+
 var first_saw : Projectile
 
 func cast_spell(_angle_offset : float = 0):

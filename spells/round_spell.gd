@@ -1,5 +1,15 @@
 extends Spell
 
+func _init() -> void:
+	self.base_price = 80
+	self.price_modulation = 50
+
+func get_title():
+	return "Circular spikes"
+
+func get_description():
+	return "Shoot 8 spells in a circular shape around the player every " +str(self.get_actual_cast_cooldown()).pad_decimals(1)+ " seconds that deal" + str(self.actual_dmg).pad_decimals(1) + " damage each."
+
 func cast_spell(angle_offset : float = 0):
 	for i in range(-4,4):
 		var new_projectile : Projectile = self.projectile_setup()

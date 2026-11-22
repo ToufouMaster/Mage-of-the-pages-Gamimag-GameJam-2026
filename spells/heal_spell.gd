@@ -2,6 +2,16 @@ extends Spell
 
 var regen_timer : Timer
 
+func _init() -> void:
+	self.base_price = 100
+	self.price_modulation = 50
+
+func get_title():
+	return "Rod of Asclepius"
+
+func get_description():
+	return "Heal a small amount ("+str(self.actual_dmg).pad_decimals(1)+") of hp every " + str(100/self.actual_speed).pad_decimals(1) + " seconds during the next 5 seconds following its activation."
+
 func cast_spell(_angle_offset : float = 0):
 	if regen_timer == null: 
 		regen_timer = Timer.new()

@@ -13,7 +13,8 @@ config_version=5
 config/name="VampireGameJamSurvivor"
 run/main_scene="uid://cveiqbhphtikj"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://bnht6q4xkolj1"
+config/icon="uid://bnht6q4xkolj1"
 
 [autoload]
 
