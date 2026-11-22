@@ -20,16 +20,14 @@ func _input(event: InputEvent) -> void:
 		self.turn_page_down()
 
 func start_match():
-	for spell in spell_list:
-		spell.start_match()
+	FuncSingleton.start_match.emit()
 	self.go_to_page(0)
 	hourglass.start_round_timer()
 	hourglass.timer.timeout.connect(end_match)
 
 func end_match():
-	for spell in spell_list:
-		spell.end_match()
 	$"../GameAnimationPlayer".play("TurnPageToShop")
+	FuncSingleton.end_match.emit()
 
 func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
@@ -80,8 +78,8 @@ func turn_page_up():
 
 func _on_sign_button_pressed() -> void:
 	$"../GameAnimationPlayer".play("TurnPageToWorld")
+	start_match()
 
 func _on_game_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "TurnPageToWorld":
 		MainSingleton.round += 1
-		start_match()
