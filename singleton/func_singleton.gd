@@ -7,9 +7,9 @@ func get_letter_scale(n : int) -> int:
 func get_letter_scale_float(n : float) -> float:
 	return n*(n+1)/2.0
 
-const voyelles_array = [0,4,8,14,20,24]
+const voyelles_array : Array[int] = [0,4,8,14,20,24]
 
-const consone_array = [1,2,3,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,25]
+const consone_array : Array[int] = [1,2,3,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,25]
 
 
 signal start_run

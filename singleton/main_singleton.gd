@@ -16,6 +16,10 @@ var coinLetter:int = 0 :
 var round = 1
 
 func _ready() -> void:
+	update_references()
+	FuncSingleton.start_run.connect(_on_run_start)
+
+func update_references():
 	player = get_tree().root.get_node("Node2D/WorldViewport/World/Player")
 	money_displayer = get_tree().root.get_node("Node2D/Shop/Money Display")
 	projectile_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/ProjectileSpawner")
@@ -23,8 +27,8 @@ func _ready() -> void:
 	ennemy_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/EnnemySpawner")
 	shop = get_tree().root.get_node("Node2D/Shop")
 	game_animation_player = get_tree().root.get_node("Node2D/GameAnimationPlayer")
-	FuncSingleton.start_run.connect(_on_run_start)
-	
+
+
 func _on_run_start():
 	coinLetter = 0
 	round = 1

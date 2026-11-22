@@ -20,19 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://cjx7us1nvemoc" path="res://spells/shock_wave_spell.tscn" id="13_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dsolf6nc3s51" path="res://spells/magnet_spell.tscn" id="14_7knny"]
 [ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
-[ext_resource type="PackedScene" uid="uid://c5ud6ded6myw6" path="res://spells/lightning_spell.tscn" id="15_dhpj7"]
-[ext_resource type="PackedScene" uid="uid://ca7tvckec23ti" path="res://spells/saw_spell.tscn" id="16_7knny"]
 [ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
-[ext_resource type="PackedScene" uid="uid://cqh52wb1mumf4" path="res://spells/rocket_launcher_spell.tscn" id="17_cfc7e"]
 [ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
-[ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/targeted_spell.gd" id="17_v33yl"]
 [ext_resource type="AnimationLibrary" uid="uid://qt0xloqvg6dv" path="res://health_bar_animations.res" id="18_x5p1p"]
 [ext_resource type="Script" uid="uid://elj15cqh8gl3" path="res://hourglass.gd" id="19_i2p71"]
-[ext_resource type="Texture2D" uid="uid://cam0o851qbixl" path="res://assets/images.png" id="19_ib7ph"]
 [ext_resource type="AnimationLibrary" uid="uid://dae6snn7if4o1" path="res://game_animation.res" id="19_qhcbd"]
 [ext_resource type="Texture2D" uid="uid://3doh5ieluwnh" path="res://assets/hourglass/hourglass_bottom.png" id="19_vaj68"]
 [ext_resource type="Texture2D" uid="uid://ptppmquh6iut" path="res://assets/hourglass/sand_bottom.png" id="20_i2p71"]
-[ext_resource type="PackedScene" uid="uid://chy6wutbji0j2" path="res://spells/projectiles/retrograder.tscn" id="20_vuohh"]
 [ext_resource type="Script" uid="uid://clustmsv5lbc0" path="res://health_bar.gd" id="21_082n1"]
 [ext_resource type="Texture2D" uid="uid://db31ckd004n7e" path="res://assets/hourglass/hourglass_bottom_empty.png" id="21_xa8c5"]
 [ext_resource type="Texture2D" uid="uid://cwuvr6pxijyd4" path="res://assets/hourglass/sand_top.png" id="22_5b14r"]
@@ -582,40 +576,7 @@ visible = false
 
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
-[node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
-
-[node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
-
-[node name="Spell3" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
-
-[node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
-
-[node name="Spell5" parent="SpellBook/Spells" unique_id=1199599144 instance=ExtResource("11_hb5m1")]
-
-[node name="Spell6" parent="SpellBook/Spells" unique_id=1989087909 instance=ExtResource("12_x5p1p")]
-
-[node name="Spell7" parent="SpellBook/Spells" unique_id=238909811 instance=ExtResource("13_qhcbd")]
-
-[node name="Spell8" parent="SpellBook/Spells" unique_id=1108468634 instance=ExtResource("14_7knny")]
-duration = 3.0
-icon = ExtResource("20_i2p71")
-
-[node name="LightningSpell" parent="SpellBook/Spells" unique_id=1704353616 instance=ExtResource("15_dhpj7")]
-
-[node name="SawSpell" parent="SpellBook/Spells" unique_id=1276658585 instance=ExtResource("16_7knny")]
-
-[node name="RocketLauncherSpell" parent="SpellBook/Spells" unique_id=512849794 instance=ExtResource("17_cfc7e")]
-
-[node name="RetroGraderSpell" type="Node" parent="SpellBook/Spells" unique_id=328848232]
-script = ExtResource("17_v33yl")
-max_stock = 3
-duration = 8.0
-speed = 75.0
-target_amount = 1000
-cast_cooldown = 0.8
-recharge_cooldown = 3.0
-icon = ExtResource("19_ib7ph")
-projectile = ExtResource("20_vuohh")
+[node name="Fireball" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
