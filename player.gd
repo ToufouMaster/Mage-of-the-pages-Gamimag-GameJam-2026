@@ -66,8 +66,6 @@ func heal_damage(amount : int):
 func die():
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	$GameOver.show()
-	$"New Run".show()
-	$"New Run".button_pressed.connect(func():FuncSingleton.start_run.emit())
 
 func _physics_process(_delta: float) -> void:
 	var horizontal_movement := Input.get_axis("walk left", "walk right")

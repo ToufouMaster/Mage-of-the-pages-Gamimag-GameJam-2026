@@ -13,8 +13,8 @@ func _ready() -> void:
 	FuncSingleton.start_run.connect(_on_run_start)
 
 func _on_run_start():
-	start_match()
 	spell_list = $Spells.get_children()
+	start_match()
 
 
 func _input(event: InputEvent) -> void:

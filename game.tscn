@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cveiqbhphtikj"]
 
+[ext_resource type="Script" uid="uid://cqb1a8vmsll61" path="res://game.gd" id="1_du4n2"]
 [ext_resource type="PackedScene" uid="uid://biparjwv3me4v" path="res://world.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://dskb4alkr2xcn" path="res://assets/livreSansCarnet.png" id="2_feb5d"]
 [ext_resource type="Shader" uid="uid://8r8ivqwga4sn" path="res://sfsdf.gdshader" id="3_feb5d"]
@@ -60,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://ddns6svy2ylrt" path="res://assets/shop/bookworm.png" id="47_qpefm"]
 [ext_resource type="AnimationLibrary" uid="uid://dvrm07duui5t4" path="res://market_animation.res" id="50_vuohh"]
 [ext_resource type="AnimationLibrary" uid="uid://cslwwo7ptn2kw" path="res://reroll_stool_animation.res" id="54_3gvs5"]
+[ext_resource type="Texture2D" uid="uid://cyhwladh2k38m" path="res://assets/pentacle.png" id="61_bqa6y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -526,12 +528,14 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
 [node name="Node2D" type="Node2D" unique_id=1987371302]
+script = ExtResource("1_du4n2")
 
 [node name="WorldViewport" type="SubViewport" parent="." unique_id=484838408]
 transparent_bg = true
 size = Vector2i(1300, 1000)
 
 [node name="World" parent="WorldViewport" unique_id=2114406119 instance=ExtResource("1_e2o6t")]
+visible = false
 position = Vector2(0, -6)
 
 [node name="Book" type="Node2D" parent="." unique_id=901556191]
@@ -569,6 +573,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_4v2jo")
 
 [node name="SpellBook" parent="." unique_id=945037119 instance=ExtResource("4_ryrav")]
+visible = false
 
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
@@ -818,6 +823,7 @@ volume_db = -10.0
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SpellBook/Hourglass" unique_id=465960019]
 
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
+visible = false
 script = ExtResource("36_mljfx")
 spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2")])
 stickers = Array[Texture2D]([ExtResource("37_qpefm"), ExtResource("38_tb2lt"), ExtResource("39_cfc7e"), ExtResource("40_gh0px"), ExtResource("41_v33yl"), ExtResource("42_2tki7"), ExtResource("43_ib7ph"), ExtResource("44_vuohh")])
@@ -1019,6 +1025,19 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1173383351]
 color = Color(0.2265625, 0.2265625, 0.2265625, 1)
+
+[node name="StartButton" type="Button" parent="." unique_id=179149460]
+offset_left = 700.0
+offset_top = 100.0
+offset_right = 1700.0
+offset_bottom = 1000.0
+theme_override_fonts/font = ExtResource("45_3gvs5")
+theme_override_font_sizes/font_size = 300
+text = "Start
+"
+icon = ExtResource("61_bqa6y")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
 [connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]
