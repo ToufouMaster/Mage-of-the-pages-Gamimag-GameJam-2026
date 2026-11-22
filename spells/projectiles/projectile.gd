@@ -33,10 +33,12 @@ func _physics_process(delta: float) -> void:
 			var ennemy : Ennemy = ennemy_hitbox.get_parent() as Ennemy
 			var actual_dmg = dmg if not weak_letter.has(ennemy.letter) else dmg * weak_letter.get(ennemy.letter)
 			ennemy.take_damage(dmg)
+			if hit_sfx:
+				MainSingleton.play_audioplayer_at_pos($ProjectileHitPlayer, global_position)
 			effect_on_ennemy(ennemy)
-		amount_of_target -= overlapping_areas.size()
-		if amount_of_target <= 0:
-			end_life_handling()
+			amount_of_target -= 1
+			if amount_of_target <= 0:
+				end_life_handling()
 
 func end_life_handling():
 	self.queue_free()

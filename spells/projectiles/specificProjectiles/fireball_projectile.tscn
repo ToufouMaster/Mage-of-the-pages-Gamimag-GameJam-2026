@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="1_68wor"]
 [ext_resource type="Texture2D" uid="uid://begbuvs1mvlrq" path="res://assets/fireballProj.png" id="2_b3g08"]
+[ext_resource type="AudioStream" uid="uid://ylar1aah4ghh" path="res://audio/streams/spell_fireball_hit_random.tres" id="3_b3g08"]
 
-[node name="Projectile" unique_id=154329058 instance=ExtResource("1_68wor")]
+[node name="Projectile2" unique_id=154329058 instance=ExtResource("1_68wor")]
 texture = ExtResource("2_b3g08")
+hit_sfx = ExtResource("3_b3g08")
