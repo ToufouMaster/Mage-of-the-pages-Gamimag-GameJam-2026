@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqh52wb1mumf4"]
 
-[ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/targeted_spell.gd" id="1_oqv7u"]
+[ext_resource type="Script" uid="uid://dg473etc0wkd2" path="res://spells/rocket_launcher_spell.gd" id="1_oqv7u"]
 [ext_resource type="Texture2D" uid="uid://bbw3wh0hcmlic" path="res://assets/LanceRoquette.png" id="2_oqv7u"]
 [ext_resource type="PackedScene" uid="uid://cy7s4s73sbbg3" path="res://spells/projectiles/bomb_projectile.tscn" id="3_wgjtd"]
 
