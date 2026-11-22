@@ -7,8 +7,8 @@ class_name Shop
 @onready var marker_spell_right : Marker2D = $Markers/SpellRight
 @onready var marker_sticker_left : Marker2D = $Markers/StickerLeft
 @onready var marker_sticker_right : Marker2D = $Markers/StickerRight
-@onready var spell_items : Node2D = $Items/Spells
-@onready var sticker_items : Node2D = $Items/Stickers
+@onready var spell_items : Node2D = $Market/Items/Spells
+@onready var sticker_items : Node2D = $Market/Items/Stickers
 @onready var money_display : Node2D = $"Money Display"
 
 @export var spells: Array[PackedScene]
@@ -62,10 +62,6 @@ func reroll_items():
 		if sticker_prices.size() <= i.item_id: push_warning(Spell.Sticker.keys().get(i.item_id)+" sticker shop price statistics are missing")
 		i.price = (instance.x+randi()%max(1, instance.y)) * price_multiplier
 	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	money_display.money = MainSingleton.coinLetter
 
 func _on_reroll_dice_mouse_entered() -> void:
 	dice.modulate = Color(1.825, 1.825, 1.825)

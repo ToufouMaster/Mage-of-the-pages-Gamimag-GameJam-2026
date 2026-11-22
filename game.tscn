@@ -46,15 +46,19 @@
 [ext_resource type="Script" uid="uid://b1x62b4xm34ob" path="res://shop/shop_reroll_dice.gd" id="37_r62pu"]
 [ext_resource type="Texture2D" uid="uid://cyg4u78vqnlxq" path="res://assets/stickers/stickerATKSpeed.png" id="38_tb2lt"]
 [ext_resource type="Texture2D" uid="uid://cpnwkivp5tx7k" path="res://assets/stickers/StickerStorage.png" id="39_cfc7e"]
-[ext_resource type="AudioStream" uid="uid://cwjealdu7eohv" path="res://audio/streams/dice_roll_random.tres" id="39_klri6"]
 [ext_resource type="Texture2D" uid="uid://6stpdty4ecpn" path="res://assets/stickers/stickerProjSpeed.png" id="40_gh0px"]
 [ext_resource type="Texture2D" uid="uid://b4k4dk4skdsd0" path="res://assets/stickers/stickerDoubleAttack.png" id="41_v33yl"]
 [ext_resource type="Texture2D" uid="uid://dg4jaevpxhmyl" path="res://assets/stickers/StickerPassif.png" id="42_2tki7"]
 [ext_resource type="Texture2D" uid="uid://dfme5luy660lj" path="res://assets/stickers/ConsonnentBuff.png" id="43_ib7ph"]
+[ext_resource type="AnimationLibrary" uid="uid://cugxh48cxtr40" path="res://money_displayer_animations.res" id="44_2tki7"]
 [ext_resource type="PackedScene" uid="uid://cwswb8trhl0qj" path="res://money_display.tscn" id="44_tb2lt"]
 [ext_resource type="Texture2D" uid="uid://c7limludn5ku2" path="res://assets/stickers/StickerVoyelleBuff.png" id="44_vuohh"]
 [ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="45_3gvs5"]
+[ext_resource type="Texture2D" uid="uid://mdyww4xx1pf" path="res://assets/shop/next_round_sign.png" id="46_cfc7e"]
+[ext_resource type="AnimationLibrary" uid="uid://dml1xwpd3f4gb" path="res://sign_animations.res" id="47_ib7ph"]
 [ext_resource type="Texture2D" uid="uid://ddns6svy2ylrt" path="res://assets/shop/bookworm.png" id="47_qpefm"]
+[ext_resource type="AnimationLibrary" uid="uid://dvrm07duui5t4" path="res://market_animation.res" id="50_vuohh"]
+[ext_resource type="AnimationLibrary" uid="uid://cslwwo7ptn2kw" path="res://reroll_stool_animation.res" id="54_3gvs5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("3_feb5d")
@@ -284,6 +288,78 @@ tracks/9/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_bqa6y"]
+resource_name = "ResetPage"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book/Polygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(474, 57, 630.6615, 57, 811.3607, 57, 1009.7756, 57, 1170.9877, 57, 1339.2859, 57, 1486.3256, 57, 1665.2532, 57, 1865, 57, 1868, 1030, 1732.0637, 1030.0975, 1538.0498, 1030.2367, 1352.6094, 1030.3698, 1167.1467, 1030.5027, 1035.9094, 1030.5968, 824.779, 1030.7483, 625.0546, 1030.8917, 474, 1031)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book/Polygon2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book/Polygon2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Book/Polygon2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Book/Polygon2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Book/Polygon2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_xex6t"]
 resource_name = "WorldShrink"
 tracks/0/type = "bezier"
@@ -316,6 +392,7 @@ tracks/0/keys = {
 _data = {
 &"PageTurn": SubResource("Animation_aa0lp"),
 &"RESET": SubResource("Animation_iu0sx"),
+&"ResetPage": SubResource("Animation_bqa6y"),
 &"WorldShrink": SubResource("Animation_xex6t"),
 &"WorldUnshrink": SubResource("Animation_4v2jo")
 }
@@ -382,6 +459,55 @@ polygon = PackedVector2Array(271, 565, 271, 530, 318, 526, 322, 569)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yu65q"]
 polygon = PackedVector2Array(367, 568, 359, 530, 411, 521, 418, 568)
+
+[sub_resource type="Animation" id="Animation_vuohh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Worm:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(200, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3gvs5"]
+resource_name = "WormSlideIn"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Worm:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(700, 0, 0, 0.26666668, -63.38733, 0, -0.55833334, -493.69696, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_mc3al"]
+resource_name = "WormSlideOut"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Worm:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.8, -338.7605, 700, -0.3333333, 79.63098, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqa6y"]
+_data = {
+&"RESET": SubResource("Animation_vuohh"),
+&"WormSlideIn": SubResource("Animation_3gvs5"),
+&"WormSlideOut": SubResource("Animation_mc3al")
+}
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0j531"]
 frequency = 0.0071
@@ -691,9 +817,6 @@ volume_db = -10.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SpellBook/Hourglass" unique_id=465960019]
 
-[node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
-libraries/ = ExtResource("19_qhcbd")
-
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
 visible = false
 script = ExtResource("36_mljfx")
@@ -718,7 +841,12 @@ position = Vector2(1269, 733)
 position = Vector2(518, 61)
 centered = false
 
+[node name="MoneyDisplayAnimationPlayer" type="AnimationPlayer" parent="Shop/Money Display" unique_id=373420452]
+root_node = NodePath("../..")
+libraries/ = ExtResource("44_2tki7")
+
 [node name="Label" type="Label" parent="Shop" unique_id=1354808628]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 570.0
 offset_top = 155.0
 offset_right = 974.0
@@ -727,8 +855,30 @@ text = "Shop"
 label_settings = SubResource("LabelSettings_mgsw5")
 horizontal_alignment = 1
 
+[node name="Sign" type="Node2D" parent="Shop" unique_id=754699846]
+position = Vector2(1500, 510)
+
+[node name="Sign" type="Sprite2D" parent="Shop/Sign" unique_id=874163278]
+self_modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+position = Vector2(684, 101)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("46_cfc7e")
+
+[node name="SignButton" type="TextureButton" parent="Shop/Sign" unique_id=782484782]
+offset_left = 549.0
+offset_top = -131.0
+offset_right = 821.0
+offset_bottom = -24.0
+disabled = true
+
+[node name="SignAnimationPlayer" type="AnimationPlayer" parent="Shop/Sign" unique_id=1749436011]
+libraries/ = ExtResource("47_ib7ph")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Shop/Sign" unique_id=1087204280]
+position = Vector2(667, -73)
+
 [node name="Market" type="Node2D" parent="Shop" unique_id=583591060]
-position = Vector2(1100, 510)
+position = Vector2(1100, 1500)
 
 [node name="LightOccluders" type="Node2D" parent="Shop/Market" unique_id=22829898]
 
@@ -748,12 +898,32 @@ z_index = 1
 texture = ExtResource("34_aa0lp")
 
 [node name="Worm" type="Node2D" parent="Shop/Market" unique_id=164837134]
+position = Vector2(0, 200)
 
 [node name="Worm" type="Sprite2D" parent="Shop/Market/Worm" unique_id=1666572137]
 texture = ExtResource("47_qpefm")
 
+[node name="WormAnimationPlayer" type="AnimationPlayer" parent="Shop/Market/Worm" unique_id=307164056]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_bqa6y")
+
+[node name="Items" type="Node2D" parent="Shop/Market" unique_id=1269187849]
+z_index = 1
+position = Vector2(-1100, -510)
+
+[node name="Spells" type="Node2D" parent="Shop/Market/Items" unique_id=1823396970]
+
+[node name="Stickers" type="Node2D" parent="Shop/Market/Items" unique_id=1661722633]
+
+[node name="MarketAnimationPlayer" type="AnimationPlayer" parent="Shop/Market" unique_id=1220384025]
+root_node = NodePath("../..")
+libraries/ = ExtResource("50_vuohh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Shop/Market" unique_id=416376998]
+position = Vector2(-62, 234)
+
 [node name="RerollStool" type="Node2D" parent="Shop" unique_id=164328403]
-position = Vector2(1100, 510)
+position = Vector2(1100, 1200)
 
 [node name="Stool" type="Sprite2D" parent="Shop/RerollStool" unique_id=1732956609]
 modulate = Color(3.2944162, 3.2944162, 3.2944162, 1)
@@ -778,17 +948,16 @@ offset_transform_position = Vector2(-150, 0)
 offset_transform_visual_only = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Shop/RerollStool/Dice" unique_id=1274624211]
-stream = ExtResource("39_klri6")
 
 [node name="Money Display" parent="Shop/RerollStool" unique_id=480370143 instance=ExtResource("44_tb2lt")]
 position = Vector2(397, 209)
 
-[node name="Items" type="Node2D" parent="Shop" unique_id=1269187849]
-z_index = 1
+[node name="StoolAnimationPlayer" type="AnimationPlayer" parent="Shop/RerollStool" unique_id=368682623]
+root_node = NodePath("../..")
+libraries/ = ExtResource("54_3gvs5")
 
-[node name="Spells" type="Node2D" parent="Shop/Items" unique_id=1823396970]
-
-[node name="Stickers" type="Node2D" parent="Shop/Items" unique_id=1661722633]
+[node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
+libraries/ = ExtResource("19_qhcbd")
 
 [node name="LightManager" type="Node2D" parent="." unique_id=1975593698]
 script = ExtResource("33_7knny")
@@ -852,5 +1021,5 @@ metadata/_edit_lock_ = true
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1173383351]
 color = Color(0.2265625, 0.2265625, 0.2265625, 1)
 
-[node name="MoneyDisplay" parent="." unique_id=1960228043 instance=ExtResource("44_tb2lt")]
-position = Vector2(548, 79)
+[connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
+[connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]
