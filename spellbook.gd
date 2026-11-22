@@ -35,10 +35,10 @@ func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
 	$Spells.add_child(new_spell)
 	self.spell_list.insert(spell_position, new_spell)
+	go_to_page(spell_position)
 
 func add_spell_current_index(spell_scene : PackedScene):
 	add_spell(spell_scene,current_spell_index)
-	current_spell_index +=1
 	
 func add_sticker_current_index(sticker:Spell.Sticker):
 	var spell = spell_list[current_spell_index] as Spell

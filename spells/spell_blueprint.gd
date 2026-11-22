@@ -35,15 +35,13 @@ var is_selected : bool = false
 var spell_ready : bool = false
 
 var level = 0
-var next_level_requirement : int = 2
 var item_amount : int = 1 : 
 	set(val):
-		if (val >= next_level_requirement):
+		if (val >= level+1):
 			level_up()
 
 func level_up():
 	self.item_amount = 0
-	self.next_level_requirement += 1
 	self.level += 1
 
 enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, SWIFT_SPELL_UP, DOUBLE_SPELL, PASSIF_SPELL, CONSONNE_CRIT, VOYELLE_CRIT, BOOKMARK} 
@@ -151,10 +149,19 @@ func update_everything():
 	update_speed()
 	update_target_amount()
 
+func get_actual_cast_cooldown():
+	return cast_cooldown * (0.75 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
+	
+func get_actual_reload_cooldown():
+	return recharge_cooldown * (0.80 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
+	
+func get_actual_passive_cooldown():
+	return self.recharge_timer.wait_time * (5 * (0.8 **sticked_stickers[Sticker.PASSIF_SPELL]))
+
 func update_cooldowns():
-	self.cast_timer.wait_time = cast_cooldown * (0.75 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
-	self.recharge_timer.wait_time =  recharge_cooldown * (0.80 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
-	self.passif_timer.wait_time = self.recharge_timer.wait_time * (5 * (0.8 **sticked_stickers[Sticker.PASSIF_SPELL]))
+	self.cast_timer.wait_time = get_actual_cast_cooldown()
+	self.recharge_timer.wait_time =  get_actual_reload_cooldown()
+	self.passif_timer.wait_time = get_actual_passive_cooldown()
 
 func update_dmg():
 	self.actual_dmg = self.dmg * (1.4 ** (sticked_stickers[Sticker.DMG_UP] + float(level)/2))
@@ -197,3 +204,7 @@ func add_sticker(sticker_type : Sticker):
 func get_title():
 	push_warning(get_name() + " spell name is not implemented")
 	return "EMPTY TITLE"
+
+func get_description():
+	push_warning(get_name() + " spell description is not implemented")
+	return "EMPTY DESCRIPTION"

@@ -40,3 +40,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 func set_price(value : int):
 	price = value
 	$"Money Display".money = price
+
+func _on_area_2d_mouse_entered() -> void:
+	$SpellInfoPopup.show()
+	$SpellInfoPopup.set_popup_info(item_id)
+	$PageFlipAudioPlayer.play()
+
+func _on_area_2d_mouse_exited() -> void:
+	$SpellInfoPopup.hide()
