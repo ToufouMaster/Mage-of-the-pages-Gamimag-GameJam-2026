@@ -6,11 +6,11 @@
 
 [node name="Spell4" type="Node" unique_id=1518170349]
 script = ExtResource("1_jtvf0")
-max_stock = 5
-dmg = 6
+max_stock = 6
+dmg = 4
 speed = 200.0
 cast_cooldown = 1.0
-recharge_cooldown = 2.0
+recharge_cooldown = 3.0
 icon = ExtResource("2_lt7vu")
 projectile = ExtResource("3_w04gf")
 pentacle_color = Color(0.9098039, 0, 0.9137255, 1)
