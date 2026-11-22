@@ -49,14 +49,14 @@ func choose_letter(current_budget : int):
 			break
 		else:
 			max_afforable_letter = i
-	return randi_range(1, max_afforable_letter)
+	return randi_range(1, min(max_afforable_letter, MainSingleton.round * 2 - 1))
 
 func choose_every_letter() -> Array[int]:
 	var letter_list : Array[int] = []
 	var current_budget = budget
 	while (current_budget > 5):
 		var next_letter_chosen : int = choose_letter(current_budget)
-		var affordable_letter : int = clamp(current_budget/(2*(1+next_letter_chosen)), 0, MainSingleton.round * 2 - 1)
+		var affordable_letter : int = clamp(current_budget/(2*(1+next_letter_chosen)), 0, 20)
 		current_budget -= FuncSingleton.get_letter_scale(next_letter_chosen)*affordable_letter
 		for i in range (0, affordable_letter):
 			letter_list.append(next_letter_chosen-1)

@@ -7,10 +7,10 @@
 [node name="SawSpell" type="Node" unique_id=1276658585]
 script = ExtResource("1_v4b6t")
 dmg = 1
-duration = 2.0
+duration = 3.0
 speed = 0.0
 target_amount = 100000000000
-cast_cooldown = 5.0
+cast_cooldown = 1.0
 recharge_cooldown = 8.0
 icon = ExtResource("2_512at")
 projectile = ExtResource("3_512at")

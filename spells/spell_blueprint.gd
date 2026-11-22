@@ -31,7 +31,6 @@ var price_modulation = 0
 var current_stock = 0
 var cast_timer : Timer
 var recharge_timer : Timer
-var switch_timer : Timer
 var passif_timer : Timer
 
 var is_selected : bool = false
@@ -65,12 +64,9 @@ func _ready() -> void:
 	cast_timer = Timer.new()
 	recharge_timer = Timer.new()
 	passif_timer = Timer.new()
-	switch_timer = Timer.new()
 	add_child(cast_timer)
 	add_child(recharge_timer)
 	add_child(passif_timer)
-	add_child(switch_timer)
-	switch_timer.wait_time = 0.75
 	self.cast_timer.timeout.connect(_on_cooldown_end)
 	self.recharge_timer.timeout.connect(_on_recharge)
 	self.passif_timer.timeout.connect(_on_passif_launch)
@@ -79,9 +75,6 @@ func _ready() -> void:
 	for entry in debug_stickers.keys():
 		for i in range(0, debug_stickers.get(entry)):
 			self.add_sticker(entry)
-	update_everything()
-	current_stock = actual_max_stock
-	switch_timer.timeout.connect(_on_switch_timer_timeout)
 
 func start_match():
 	update_everything()
@@ -125,17 +118,12 @@ func _on_passif_launch():
 
 func switch_on():
 	is_selected = true
-	switch_timer.start(1)
+	cast_timer.paused = false
+	cast_timer.start()
 
 func switch_off():
-	cast_timer.paused = true
 	is_selected = false
-	switch_timer.stop()
-
-func _on_switch_timer_timeout():
-	if is_selected:
-		cast_timer.paused = false
-		
+	cast_timer.paused = true
 
 func cast_spell_sticker_wrapper():
 	MainSingleton.player.add_pentacle(self.pentacle_duration,  self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1, self.pentacle_color)
