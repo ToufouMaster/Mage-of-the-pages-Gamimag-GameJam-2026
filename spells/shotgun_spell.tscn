@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://2uqw68whcdip" path="res://spells/shotgun_spell.gd" id="1_jtvf0"]
 [ext_resource type="Texture2D" uid="uid://gy4r0mfuw4y5" path="res://assets/ShotGunSpellLogo.png" id="2_lt7vu"]
+[ext_resource type="PackedScene" uid="uid://0208x8v1s1b" path="res://spells/projectiles/specificProjectiles/shotgun_projectile.tscn" id="3_w04gf"]
 
 [node name="Spell4" type="Node" unique_id=1518170349]
 script = ExtResource("1_jtvf0")
-max_stock = 8
-dmg = 6
-cast_cooldown = 1.1
-recharge_cooldown = 2.0
 icon = ExtResource("2_lt7vu")
+projectile = ExtResource("3_w04gf")

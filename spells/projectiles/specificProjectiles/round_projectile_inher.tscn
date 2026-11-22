@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://mqm6y7m6qn50"]
+
+[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="1_411ib"]
+[ext_resource type="Texture2D" uid="uid://c5f6goqiwr660" path="res://assets/CircleAttackProj.png" id="2_6uex5"]
+
+[node name="Projectile" unique_id=154329058 instance=ExtResource("1_411ib")]
+texture = ExtResource("2_6uex5")

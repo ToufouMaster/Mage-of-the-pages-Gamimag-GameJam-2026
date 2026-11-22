@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
 [ext_resource type="AnimationLibrary" uid="uid://yc8yvdl4wvil" path="res://pageanimation.res" id="9_vef74"]
 [ext_resource type="Texture2D" uid="uid://b3an1nsxkpoim" path="res://assets/pageCarnet.png" id="10_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="10_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://8e86m8hdcafn" path="res://spell_page.tscn" id="11_215e1"]
 [ext_resource type="PackedScene" uid="uid://cf5q6af6nfyo3" path="res://spells/heal_spell.tscn" id="11_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://57g5x7676wd3" path="res://spells/speed_boost_spell.tscn" id="12_x5p1p"]
@@ -434,7 +433,6 @@ debug_stickers = Dictionary[int, int]({
 })
 
 [node name="Spell4" parent="SpellBook/Spells" unique_id=1518170349 instance=ExtResource("8_e36ub")]
-projectile = ExtResource("10_x5p1p")
 
 [node name="Spell5" parent="SpellBook/Spells" unique_id=1199599144 instance=ExtResource("11_hb5m1")]
 
