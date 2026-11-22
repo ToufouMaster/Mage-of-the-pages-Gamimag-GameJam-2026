@@ -15,6 +15,7 @@ class_name Shop
 @export var stickers: Array[Texture2D]
 @export var bookmarks: Array[Texture2D]
 @export var sticker_prices: Dictionary[Spell.Sticker, Vector2]
+@export var sticker_descriptions: Dictionary[Spell.Sticker, String]
 const SHOP_ITEM_SCENE = preload("res://shop/ShopItem.tscn")
 const SHOP_SPELL_SCRIPT = preload("res://shop/shop_item_spell.gd")
 const SHOP_STICKER_SCRIPT = preload("res://shop/shop_item_sticker.gd")
@@ -64,7 +65,7 @@ func reroll_items():
 		i.item_id = randi() % stickers.size()
 		var instance = sticker_prices.get(i.item_id) if sticker_prices.size() > i.item_id else Vector2.ONE
 		if sticker_prices.size() <= i.item_id: push_warning(Spell.Sticker.keys().get(i.item_id)+" sticker shop price statistics are missing")
-		i.price = (instance.x+randi()%max(1, instance.y)) * price_multiplier*5
+		i.price = (instance.x+randi()%int(max(1, instance.y))) * price_multiplier*5
 	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
 
 func _on_reroll_dice_mouse_entered() -> void:

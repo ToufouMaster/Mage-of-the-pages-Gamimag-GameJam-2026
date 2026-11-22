@@ -51,6 +51,8 @@ func set_popup_info(spell_id, is_sticker):
 		$Stats/Speed/Value.text = ": " + str(speed).pad_decimals(1)
 	else:
 		$SpellStatus/Sticker.show()
+		$Title.text = Spell.Sticker.keys().get(spell_id).replace_chars("_", " ".unicode_at(0))
+		$Description.text = MainSingleton.shop.sticker_descriptions.get(spell_id)
 	
 	print($"../VisibleOnScreenNotifier2D".is_on_screen())
 	if !$"../VisibleOnScreenNotifier2D".is_on_screen():

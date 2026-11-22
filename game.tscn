@@ -20,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://cjx7us1nvemoc" path="res://spells/shock_wave_spell.tscn" id="13_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dsolf6nc3s51" path="res://spells/magnet_spell.tscn" id="14_7knny"]
 [ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
+[ext_resource type="PackedScene" uid="uid://c5ud6ded6myw6" path="res://spells/lightning_spell.tscn" id="15_dhpj7"]
+[ext_resource type="PackedScene" uid="uid://ca7tvckec23ti" path="res://spells/saw_spell.tscn" id="16_7knny"]
 [ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
+[ext_resource type="PackedScene" uid="uid://cqh52wb1mumf4" path="res://spells/rocket_launcher_spell.tscn" id="17_cfc7e"]
 [ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
 [ext_resource type="AnimationLibrary" uid="uid://qt0xloqvg6dv" path="res://health_bar_animations.res" id="18_x5p1p"]
 [ext_resource type="Script" uid="uid://elj15cqh8gl3" path="res://hourglass.gd" id="19_i2p71"]
@@ -790,9 +793,31 @@ volume_db = -10.0
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
 visible = false
 script = ExtResource("36_mljfx")
-spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2")])
+spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2"), ExtResource("16_7knny"), ExtResource("17_cfc7e"), ExtResource("15_dhpj7")])
 stickers = Array[Texture2D]([ExtResource("37_qpefm"), ExtResource("38_tb2lt"), ExtResource("39_cfc7e"), ExtResource("40_gh0px"), ExtResource("41_v33yl"), ExtResource("42_2tki7"), ExtResource("43_ib7ph"), ExtResource("44_vuohh"), ExtResource("48_ra4rb")])
 bookmarks = Array[Texture2D]([ExtResource("48_ra4rb"), ExtResource("49_avmo2"), ExtResource("50_vyqle"), ExtResource("51_xoeau"), ExtResource("52_6qn5j")])
+sticker_prices = Dictionary[int, Vector2]({
+0: Vector2(50, 30),
+1: Vector2(60, 35),
+2: Vector2(40, 25),
+3: Vector2(65, 40),
+4: Vector2(80, 50),
+5: Vector2(70, 30),
+6: Vector2(60, 40),
+7: Vector2(65, 35),
+8: Vector2(35, 25)
+})
+sticker_descriptions = Dictionary[int, String]({
+0: "Increase spell damage",
+1: "Reduce spell cooldown",
+2: "Increase spell max ammo",
+3: "Increase spell projectile speed, duration and piercing",
+4: "Cast the spell a second time",
+5: "Cast a spell passively with a 4x slower cooldown (add more to reduce)",
+6: "Multiply spell damage on Consonant letters",
+7: "Multiply spell damage on Vowel letters",
+8: "Mark a spell to a keybind (the one written on the bookmark)"
+})
 
 [node name="Markers" type="Node2D" parent="Shop" unique_id=1848673149]
 

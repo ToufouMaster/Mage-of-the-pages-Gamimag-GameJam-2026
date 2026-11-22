@@ -3,8 +3,8 @@ extends Spell
 var regen_timer : Timer
 
 func _init() -> void:
-	self.base_price = 100
-	self.price_modulation = 50
+	self.base_price = 50
+	self.price_modulation = 30
 
 func get_title():
 	return "Rod of Asclepius"

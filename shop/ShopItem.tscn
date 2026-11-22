@@ -54,7 +54,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_uvynu"]
 font = ExtResource("12_2wflq")
 font_size = 32
-outline_size = 2
+outline_size = 15
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v54wv"]
