@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="1_o6r6r"]
 [ext_resource type="Texture2D" uid="uid://cvgy5mbdxgh7k" path="res://assets/ShotGunSpellProj.png" id="2_evkyx"]
-[ext_resource type="AudioStream" uid="uid://dykk6tg5saum5" path="res://audio/spells/universfield-shotgun-blast-352038.mp3" id="3_evkyx"]
+[ext_resource type="AudioStream" uid="uid://85pva3a7pgup" path="res://audio/spells/universfield-cartoon-explosion-567193.mp3" id="3_evkyx"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y1lcl"]
 random_pitch = 1.3348398

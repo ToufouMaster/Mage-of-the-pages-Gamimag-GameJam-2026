@@ -4,7 +4,7 @@ func get_spawn_position():
 	return MainSingleton.player.position
 
 
-var bomb : PackedScene = preload("res://spells/projectiles/shock_wave.tscn")
+var bomb : PackedScene = preload("res://spells/projectiles/explosion.tscn")
 
 func end_life_handling():
 	var new_bomb : Projectile = bomb.instantiate()

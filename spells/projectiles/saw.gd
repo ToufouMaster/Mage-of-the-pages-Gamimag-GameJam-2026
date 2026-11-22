@@ -1,5 +1,7 @@
 extends Projectile
 
+func _ready() -> void:
+	MainSingleton.play_audioplayer_at_pos($ProjectileHitPlayer, global_position)
 
 func get_spawn_position():
 	return MainSingleton.player.position
