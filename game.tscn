@@ -59,7 +59,12 @@
 [ext_resource type="Texture2D" uid="uid://mdyww4xx1pf" path="res://assets/shop/next_round_sign.png" id="46_cfc7e"]
 [ext_resource type="AnimationLibrary" uid="uid://dml1xwpd3f4gb" path="res://sign_animations.res" id="47_ib7ph"]
 [ext_resource type="Texture2D" uid="uid://ddns6svy2ylrt" path="res://assets/shop/bookworm.png" id="47_qpefm"]
+[ext_resource type="Texture2D" uid="uid://cmp1v5kyqr1nr" path="res://assets/bookmarquepage1.png" id="48_ra4rb"]
+[ext_resource type="Texture2D" uid="uid://ngghdhg5cfqg" path="res://assets/bookmarquepage2.png" id="49_avmo2"]
 [ext_resource type="AnimationLibrary" uid="uid://dvrm07duui5t4" path="res://market_animation.res" id="50_vuohh"]
+[ext_resource type="Texture2D" uid="uid://1338auuv1aav" path="res://assets/bookmarquepage3.png" id="50_vyqle"]
+[ext_resource type="Texture2D" uid="uid://dtodl0vhkhbe0" path="res://assets/bookmarquepage4.png" id="51_xoeau"]
+[ext_resource type="Texture2D" uid="uid://c6slcka8l3xxv" path="res://assets/bookmarquepage5.png" id="52_6qn5j"]
 [ext_resource type="AnimationLibrary" uid="uid://cslwwo7ptn2kw" path="res://reroll_stool_animation.res" id="54_3gvs5"]
 [ext_resource type="Texture2D" uid="uid://cyhwladh2k38m" path="res://assets/pentacle.png" id="61_bqa6y"]
 
@@ -823,7 +828,8 @@ volume_db = -10.0
 visible = false
 script = ExtResource("36_mljfx")
 spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2")])
-stickers = Array[Texture2D]([ExtResource("37_qpefm"), ExtResource("38_tb2lt"), ExtResource("39_cfc7e"), ExtResource("40_gh0px"), ExtResource("41_v33yl"), ExtResource("42_2tki7"), ExtResource("43_ib7ph"), ExtResource("44_vuohh")])
+stickers = Array[Texture2D]([ExtResource("37_qpefm"), ExtResource("38_tb2lt"), ExtResource("39_cfc7e"), ExtResource("40_gh0px"), ExtResource("41_v33yl"), ExtResource("42_2tki7"), ExtResource("43_ib7ph"), ExtResource("44_vuohh"), ExtResource("48_ra4rb")])
+bookmarks = Array[Texture2D]([ExtResource("48_ra4rb"), ExtResource("49_avmo2"), ExtResource("50_vyqle"), ExtResource("51_xoeau"), ExtResource("52_6qn5j")])
 
 [node name="Markers" type="Node2D" parent="Shop" unique_id=1848673149]
 

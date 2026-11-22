@@ -193,7 +193,7 @@ func can_get_new_sticker() -> bool:
 	return sticker_amount < MAX_STICKER
 
 func add_sticker(sticker_type : Sticker):
-	self.sticked_stickers[sticker_type] += 1
+	self.sticked_stickers[sticker_type] += 1 if sticker_type < 8 else 8 + MainSingleton.spell_book.next_bookmark
 	self.sticker_positions.append(Vector3(sticker_type,randi()%250 +50,randi()%300 + 50))
 	self.sticker_amount += 1
 	match sticker_type:
