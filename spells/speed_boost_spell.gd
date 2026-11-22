@@ -13,5 +13,8 @@ func get_description():
 
 func cast_spell(_angle_offset : float = 0):
 	MainSingleton.player.speed += self.dmg
+	MainSingleton.player.sprite.self_modulate = Color.YELLOW
 	await get_tree().create_timer(self.duration).timeout
 	MainSingleton.player.speed -= self.dmg
+	MainSingleton.player.sprite.self_modulate = Color.WHITE
+	

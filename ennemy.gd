@@ -49,7 +49,7 @@ func die():
 	if !is_dying:
 		is_dying = true
 		var new_drop : PickableLetter = coin_drop.instantiate() as PickableLetter
-		new_drop.value = (self.letter + 1) 
+		new_drop.value = (self.letter + 1)*2 
 		new_drop.position = self.position
 		new_drop.scale = new_drop.scale + Vector2.ONE * float(self.letter/26)
 		self.get_parent().add_child(new_drop)
