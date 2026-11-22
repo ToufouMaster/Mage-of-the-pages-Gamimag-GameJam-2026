@@ -592,8 +592,6 @@ visible = false
 [node name="Fireball" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
 dmg = 3
 
-[node name="SawSpell" parent="SpellBook/Spells" unique_id=1276658585 instance=ExtResource("16_7knny")]
-
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 
 [node name="LightOccluders" type="Node2D" parent="SpellBook/NotePad" unique_id=1246663437]

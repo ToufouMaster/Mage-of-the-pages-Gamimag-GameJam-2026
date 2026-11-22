@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2qgfcho7628k"]
+
+[ext_resource type="Script" uid="uid://bxxu2l7dr1ra" path="res://spells/retrograder_spell.gd" id="1_r0e8u"]
+[ext_resource type="Texture2D" uid="uid://bxvxwaaccx4ka" path="res://assets/SpellDebuffLettersLogo.png" id="2_61c05"]
+[ext_resource type="PackedScene" uid="uid://chy6wutbji0j2" path="res://spells/projectiles/retrograder.tscn" id="3_vva5f"]
+
+[node name="RetrograderSpell" type="Node" unique_id=421141106]
+script = ExtResource("1_r0e8u")
+max_stock = 3
+dmg = 1
+duration = 6.0
+target_amount = 10000
+recharge_cooldown = 8.0
+icon = ExtResource("2_61c05")
+projectile = ExtResource("3_vva5f")
+pentacle_color = Color(1, 1, 1, 1)
