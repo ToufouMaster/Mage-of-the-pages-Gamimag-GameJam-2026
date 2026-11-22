@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c5ud6ded6myw6"]
 
 [ext_resource type="Script" uid="uid://b6848go1ly15s" path="res://spells/lightning_spell.gd" id="1_dgr48"]
-[ext_resource type="Texture2D" uid="uid://cyg4u78vqnlxq" path="res://assets/stickers/stickerATKSpeed.png" id="2_pctke"]
+[ext_resource type="Texture2D" uid="uid://rtjqo3af7qxh" path="res://assets/LightningSpell.png" id="2_dgr48"]
 
 [node name="LightningSpell" type="Node" unique_id=1704353616]
 script = ExtResource("1_dgr48")
 dmg = 8
 cast_cooldown = 1.0
 recharge_cooldown = 30.0
-icon = ExtResource("2_pctke")
+icon = ExtResource("2_dgr48")
 pentacle_color = Color(0.8784314, 0, 0.8117647, 1)

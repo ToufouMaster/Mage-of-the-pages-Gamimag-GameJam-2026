@@ -49,7 +49,7 @@ func generate_items():
 		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(2))
 
 func reroll_items():
-	var price_multiplier = 1+FuncSingleton.get_letter_scale_float((1+float(MainSingleton.round))/5.0)
+	var price_multiplier = 1+FuncSingleton.get_pascal_triangle_float((1+float(MainSingleton.round))/5.0)
 	print("price_multiplier: "+ str(price_multiplier))
 	for i : ShopItem in spell_items.get_children():
 		if i.bought: continue

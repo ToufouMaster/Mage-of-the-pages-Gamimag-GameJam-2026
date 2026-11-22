@@ -81,14 +81,16 @@ func _ready() -> void:
 			self.add_sticker(entry)
 	update_everything()
 	current_stock = actual_max_stock
-	
+	switch_timer.timeout.connect(_on_switch_timer_timeout)
 
 func start_match():
 	update_everything()
+	is_selected = false
 	spell_ready = true
 	recharge_timer.start()
 	recharge_timer.paused = true
 	cast_timer.start()
+	cast_timer.paused = true
 	current_stock = actual_max_stock
 
 func end_match():
@@ -105,7 +107,6 @@ func _on_cooldown_end():
 		if (self.current_stock > 0):
 			current_stock -= 1
 			recharge_timer.paused = false
-			cast_timer.paused = false
 			cast_spell_sticker_wrapper()
 			spell_ready = false
 			if (self.current_stock == 0):
@@ -117,29 +118,28 @@ func _on_cooldown_end():
 		cast_timer.paused = true
 		spell_ready = true
 
+
 func _on_passif_launch():
 	if (!is_selected):
 		cast_spell_sticker_wrapper()
 
+
 func switch_on():
 	is_selected = true
-	#wait 1 sec before resuming spell
-	switch_timer.start()
-	await switch_timer.timeout
-	#If is_selected has been switched off in the mean time,
-	#will simply not cast spell and keep spell_ready true
-	if spell_ready and self.current_stock > 0:
-		_on_cooldown_end()
-	#if is still selected after the one second, we resume the timer
-	if is_selected:
-		cast_timer.paused = false
-	
+	switch_timer.start(1)
 
 func switch_off():
-	switch_timer.stop()
+	cast_timer.paused = true
 	is_selected = false
+	switch_timer.stop()
+
+func _on_switch_timer_timeout():
+	if is_selected:
+		cast_timer.paused = false
+		
 
 func cast_spell_sticker_wrapper():
+	print(is_selected)
 	MainSingleton.player.add_pentacle(self.pentacle_duration,  self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1, self.pentacle_color)
 	for i in range(0, self.sticked_stickers.get(Sticker.DOUBLE_SPELL) + 1):
 		cast_spell(i*PI/16*(1 if randi_range(0,1) == 0 else -1))
@@ -191,7 +191,7 @@ func update_speed():
 func update_target_amount():
 	self.actual_target_amount = self.target_amount + FuncSingleton.get_letter_scale(sticked_stickers[Sticker.SWIFT_SPELL_UP])
 
-func add_weak_letters(letter_list : Array[int], coef : float):
+func add_weak_letters(letter_list : Array, coef : float):
 	for letter : int in letter_list:
 		if weak_letter.has(letter):
 			weak_letter[letter] * coef
