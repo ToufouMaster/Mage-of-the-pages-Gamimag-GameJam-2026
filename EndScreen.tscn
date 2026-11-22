@@ -38,8 +38,8 @@ offset_left = 365.0
 offset_top = 341.0
 offset_right = 1521.0
 offset_bottom = 660.0
-text = "They did not live
- happy ever after"
+text = "And all words
+left the world"
 label_settings = SubResource("LabelSettings_mgsw5")
 horizontal_alignment = 1
 vertical_alignment = 1
