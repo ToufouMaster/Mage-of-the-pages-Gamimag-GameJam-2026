@@ -1,0 +1,265 @@
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://73ac7yoi1ube"]
+
+[ext_resource type="AudioStream" uid="uid://cmihp13yktdu" path="res://audio/sfx/letters/A.ogg" id="1_y6fno"]
+[ext_resource type="AudioStream" uid="uid://bump4ebkqf7as" path="res://audio/sfx/letters/B.ogg" id="2_d100o"]
+[ext_resource type="AudioStream" uid="uid://u0oaeu0n7dju" path="res://audio/sfx/letters/K.ogg" id="3_tstla"]
+[ext_resource type="AudioStream" uid="uid://b373iea666414" path="res://audio/sfx/letters/L.ogg" id="4_w65l3"]
+[ext_resource type="AudioStream" uid="uid://bah825g61gjrc" path="res://audio/sfx/letters/M.ogg" id="5_ib4dj"]
+[ext_resource type="AudioStream" uid="uid://bm70i0xl5g8r1" path="res://audio/sfx/letters/N.ogg" id="6_lv844"]
+[ext_resource type="AudioStream" uid="uid://dqn4671ngilpk" path="res://audio/sfx/letters/O.ogg" id="7_fpurs"]
+[ext_resource type="AudioStream" uid="uid://bqahnfevw6r66" path="res://audio/sfx/letters/P.ogg" id="8_3x57s"]
+[ext_resource type="AudioStream" uid="uid://poumicsa54xw" path="res://audio/sfx/letters/Q.ogg" id="9_6wwj6"]
+[ext_resource type="AudioStream" uid="uid://dc2vayvh5k2kk" path="res://audio/sfx/letters/R.ogg" id="10_7rvb4"]
+[ext_resource type="AudioStream" uid="uid://bid4ggupwq8l3" path="res://audio/sfx/letters/S.ogg" id="11_1848s"]
+[ext_resource type="AudioStream" uid="uid://cpnp66a18mkq0" path="res://audio/sfx/letters/T.ogg" id="12_8lj7w"]
+[ext_resource type="AudioStream" uid="uid://btm53mivpe7br" path="res://audio/sfx/letters/C.ogg" id="13_l8cgn"]
+[ext_resource type="AudioStream" uid="uid://bprtt64cx857y" path="res://audio/sfx/letters/U.ogg" id="14_8kv2h"]
+[ext_resource type="AudioStream" uid="uid://cn0gcysxk2vne" path="res://audio/sfx/letters/V.ogg" id="15_h4x54"]
+[ext_resource type="AudioStream" uid="uid://b3lfkt0p537my" path="res://audio/sfx/letters/W.ogg" id="16_hh0m3"]
+[ext_resource type="AudioStream" uid="uid://b1r35tkqo4n0b" path="res://audio/sfx/letters/X.ogg" id="17_2xq4q"]
+[ext_resource type="AudioStream" uid="uid://l78tpwqmepjj" path="res://audio/sfx/letters/Y.ogg" id="18_u2by0"]
+[ext_resource type="AudioStream" uid="uid://deyvrboahggec" path="res://audio/sfx/letters/Z.ogg" id="19_iaxir"]
+[ext_resource type="AudioStream" uid="uid://b4akc7v3y3ibm" path="res://audio/sfx/letters/D.ogg" id="20_siavm"]
+[ext_resource type="AudioStream" uid="uid://k3tqlq0vnusa" path="res://audio/sfx/letters/E.ogg" id="21_e62u3"]
+[ext_resource type="AudioStream" uid="uid://3k4wt4dnclfd" path="res://audio/sfx/letters/F.ogg" id="22_cayp8"]
+[ext_resource type="AudioStream" uid="uid://bl0eiairkiy1v" path="res://audio/sfx/letters/G.ogg" id="23_neccr"]
+[ext_resource type="AudioStream" uid="uid://vjlkd5c3xitg" path="res://audio/sfx/letters/H.ogg" id="24_xpu4h"]
+[ext_resource type="AudioStream" uid="uid://ch5f8ilvaul6a" path="res://audio/sfx/letters/I.ogg" id="25_gxtyt"]
+[ext_resource type="AudioStream" uid="uid://c7gqcw3w5gpgp" path="res://audio/sfx/letters/J.ogg" id="26_sqiqc"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v54wv"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("1_y6fno")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pafjg"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("2_d100o")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wple6"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("3_tstla")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_76x2x"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("4_w65l3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_57mjg"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("5_ib4dj")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o3okn"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("6_lv844")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kmi7r"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("7_fpurs")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_akg8f"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("8_3x57s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sjmx5"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("9_6wwj6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t6kv8"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("10_7rvb4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hmtqg"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("11_1848s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n5q2y"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("12_8lj7w")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3coj6"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("13_l8cgn")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2wwf5"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("14_8kv2h")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_irpux"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("15_h4x54")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3ed0t"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("16_hh0m3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lldmh"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("17_2xq4q")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hx1le"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("18_u2by0")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rr3b2"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("19_iaxir")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m0kve"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("20_siavm")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o2avo"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("21_e62u3")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sb7c1"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("22_cayp8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wmawk"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("23_neccr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_658is"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("24_xpu4h")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s0rfp"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("25_gxtyt")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ww8ij"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("26_sqiqc")
+
+[resource]
+clip_count = 26
+clip_0/name = &"A"
+clip_0/stream = SubResource("AudioStreamRandomizer_v54wv")
+clip_0/auto_advance = 0
+clip_1/name = &"B"
+clip_1/stream = SubResource("AudioStreamRandomizer_pafjg")
+clip_1/auto_advance = 0
+clip_2/name = &"C"
+clip_2/stream = SubResource("AudioStreamRandomizer_3coj6")
+clip_2/auto_advance = 0
+clip_3/name = &"D"
+clip_3/stream = SubResource("AudioStreamRandomizer_m0kve")
+clip_3/auto_advance = 0
+clip_4/name = &"E"
+clip_4/stream = SubResource("AudioStreamRandomizer_o2avo")
+clip_4/auto_advance = 0
+clip_5/name = &"F"
+clip_5/stream = SubResource("AudioStreamRandomizer_sb7c1")
+clip_5/auto_advance = 0
+clip_6/name = &""
+clip_6/stream = SubResource("AudioStreamRandomizer_wmawk")
+clip_6/auto_advance = 0
+clip_7/name = &""
+clip_7/stream = SubResource("AudioStreamRandomizer_658is")
+clip_7/auto_advance = 0
+clip_8/name = &""
+clip_8/stream = SubResource("AudioStreamRandomizer_s0rfp")
+clip_8/auto_advance = 0
+clip_9/name = &""
+clip_9/stream = SubResource("AudioStreamRandomizer_ww8ij")
+clip_9/auto_advance = 0
+clip_10/name = &""
+clip_10/stream = SubResource("AudioStreamRandomizer_wple6")
+clip_10/auto_advance = 0
+clip_11/name = &""
+clip_11/stream = SubResource("AudioStreamRandomizer_76x2x")
+clip_11/auto_advance = 0
+clip_12/name = &""
+clip_12/stream = SubResource("AudioStreamRandomizer_57mjg")
+clip_12/auto_advance = 0
+clip_13/name = &""
+clip_13/stream = SubResource("AudioStreamRandomizer_o3okn")
+clip_13/auto_advance = 0
+clip_14/name = &""
+clip_14/stream = SubResource("AudioStreamRandomizer_kmi7r")
+clip_14/auto_advance = 0
+clip_15/name = &""
+clip_15/stream = SubResource("AudioStreamRandomizer_akg8f")
+clip_15/auto_advance = 0
+clip_16/name = &""
+clip_16/stream = SubResource("AudioStreamRandomizer_sjmx5")
+clip_16/auto_advance = 0
+clip_17/name = &""
+clip_17/stream = SubResource("AudioStreamRandomizer_t6kv8")
+clip_17/auto_advance = 0
+clip_18/name = &""
+clip_18/stream = SubResource("AudioStreamRandomizer_hmtqg")
+clip_18/auto_advance = 0
+clip_19/name = &""
+clip_19/stream = SubResource("AudioStreamRandomizer_n5q2y")
+clip_19/auto_advance = 0
+clip_20/name = &""
+clip_20/stream = SubResource("AudioStreamRandomizer_2wwf5")
+clip_20/auto_advance = 0
+clip_21/name = &""
+clip_21/stream = SubResource("AudioStreamRandomizer_irpux")
+clip_21/auto_advance = 0
+clip_22/name = &""
+clip_22/stream = SubResource("AudioStreamRandomizer_3ed0t")
+clip_22/auto_advance = 0
+clip_23/name = &""
+clip_23/stream = SubResource("AudioStreamRandomizer_lldmh")
+clip_23/auto_advance = 0
+clip_24/name = &""
+clip_24/stream = SubResource("AudioStreamRandomizer_hx1le")
+clip_24/auto_advance = 0
+clip_25/name = &""
+clip_25/stream = SubResource("AudioStreamRandomizer_rr3b2")
+clip_25/auto_advance = 0
