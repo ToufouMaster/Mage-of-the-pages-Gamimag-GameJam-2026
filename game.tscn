@@ -805,6 +805,7 @@ volume_db = -10.0
 
 [node name="TickingAudio" type="AudioStreamPlayer2D" parent="SpellBook/Hourglass" unique_id=242670288]
 stream = ExtResource("26_vyqle")
+volume_db = 10.0
 parameters/looping = true
 
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
@@ -1102,8 +1103,9 @@ script = ExtResource("66_56gn1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1523291576]
 stream = ExtResource("67_avmo2")
-volume_db = 3.0
+volume_db = -15.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
 [connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]
