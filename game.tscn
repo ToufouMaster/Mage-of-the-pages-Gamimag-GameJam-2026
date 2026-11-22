@@ -534,6 +534,11 @@ font = ExtResource("45_3gvs5")
 font_size = 250
 font_color = Color(0.6644984, 0.07714733, 0.45341194, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_jbmwm"]
+font = ExtResource("45_3gvs5")
+font_size = 40
+font_color = Color(0.36610207, 0.16688532, 0.022210922, 1)
+
 [node name="Node2D" type="Node2D" unique_id=1987371302]
 script = ExtResource("1_du4n2")
 
@@ -1049,6 +1054,28 @@ offset_top = 743.0
 offset_right = 1615.0
 offset_bottom = 958.0
 flat = true
+
+[node name="Label" type="Label" parent="." unique_id=1372647849]
+offset_left = 19.0
+offset_top = 121.0
+offset_right = 1673.0
+offset_bottom = 343.0
+text = "Z/Q/S/D : move the
+ character.
+
+Arrow up / down : turn 
+the pages of your spell 
+notebook.
+
+In the shop : click to 
+buy item or reroll, 
+mouse over for 
+information. 
+Turn the pages 
+as above.
+
+"
+label_settings = SubResource("LabelSettings_jbmwm")
 
 [connection signal="pressed" from="Shop/Sign/SignButton" to="SpellBook" method="_on_sign_button_pressed"]
 [connection signal="animation_finished" from="GameAnimationPlayer" to="SpellBook" method="_on_game_animation_player_animation_finished"]
