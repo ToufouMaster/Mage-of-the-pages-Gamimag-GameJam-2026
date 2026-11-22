@@ -16,7 +16,7 @@ var round = 1
 
 func _ready() -> void:
 	player = get_tree().root.get_node("Node2D/WorldViewport/World/Player")
-	money_displayer = get_tree().root.get_node("Node2D/MoneyDisplay")
+	money_displayer = get_tree().root.get_node("Node2D/Shop/Money Display")
 	projectile_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/ProjectileSpawner")
 	spell_book = get_tree().root.get_node("Node2D/SpellBook")
 	ennemy_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/EnnemySpawner")

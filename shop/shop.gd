@@ -63,10 +63,6 @@ func reroll_items():
 		i.price = (instance.x+randi()%max(1, instance.y)) * price_multiplier
 	dice.money_display.money = (50*((1+dice.rolls)**1.5))*price_multiplier if dice.rolls > 0 else 50*price_multiplier
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	money_display.money = MainSingleton.coinLetter
-
 func _on_reroll_dice_mouse_entered() -> void:
 	dice.modulate = Color(1.825, 1.825, 1.825)
 	
