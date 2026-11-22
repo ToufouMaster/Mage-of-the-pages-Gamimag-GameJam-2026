@@ -33,10 +33,15 @@ func set_up_letter(letter_nb : int, letter_sprite : Texture, no_reset : bool = f
 func _ready() -> void:
 	$AnimationPlayer.play("waving")
 
+const DAMAGE_TAKING_COOLDOWN : float = 0.1
+var current_damage_cooldown : float = 0
+
 func take_damage(amount : int):
-	self.pv -= amount
-	if (self.pv < 1 and not is_dying):
-		die()
+	if current_damage_cooldown < 0:
+		current_damage_cooldown = DAMAGE_TAKING_COOLDOWN
+		self.pv -= amount
+		if (self.pv < 1 and not is_dying):
+			die()
 
 var is_dying : bool = false
 
@@ -74,6 +79,7 @@ func _physics_process(delta: float) -> void:
 				push_error("multiples entity in layer player")
 		else:
 			attack_cooldown -= delta
+	current_damage_cooldown -= delta
 	move_and_slide()
 
 func follow_player():
