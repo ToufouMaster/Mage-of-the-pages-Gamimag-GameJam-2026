@@ -9,6 +9,9 @@
 font = ExtResource("1_8dv01")
 font_size = 150
 font_color = Color(0.09411765, 0.043137256, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
 
 [sub_resource type="Gradient" id="Gradient_082n1"]
 offsets = PackedFloat32Array(0, 0.61214954)
