@@ -36,7 +36,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="SpellPage" type="Node2D" unique_id=1119320805]
 script = ExtResource("1_kh30g")
-Stickers = Array[Texture2D]([ExtResource("2_ejq43"), ExtResource("3_7eyx0"), ExtResource("4_vgnlu"), ExtResource("5_p064v"), ExtResource("6_g8pw2"), ExtResource("7_hdjgj"), ExtResource("8_2v5jc"), ExtResource("9_7eyx0"), ExtResource("9_7eyx0")])
+Stickers = Array[Texture2D]([ExtResource("3_7eyx0"), ExtResource("2_ejq43"), ExtResource("7_hdjgj"), ExtResource("6_g8pw2"), ExtResource("4_vgnlu"), ExtResource("5_p064v"), ExtResource("9_7eyx0"), ExtResource("8_2v5jc"), ExtResource("1_m3v6u")])
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1385985796]
 material = SubResource("ShaderMaterial_uvynu")

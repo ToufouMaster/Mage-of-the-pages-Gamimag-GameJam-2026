@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cpnwkivp5tx7k" path="res://assets/stickers/StickerStorage.png" id="15_q5yfe"]
 [ext_resource type="Texture2D" uid="uid://c7limludn5ku2" path="res://assets/stickers/StickerVoyelleBuff.png" id="16_auoiy"]
 [ext_resource type="Texture2D" uid="uid://dfme5luy660lj" path="res://assets/stickers/ConsonnentBuff.png" id="16_sigkv"]
+[ext_resource type="Texture2D" uid="uid://cruq7pgrs3g7i" path="res://icon.svg" id="18_wobyc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mgsw5"]
 font = ExtResource("6_gmb2m")
@@ -41,7 +42,7 @@ font_color = Color(0.13945708, 0.030145472, 6.016344e-09, 1)
 [node name="Shop" type="Node2D" unique_id=1435067064]
 script = ExtResource("1_e7rdd")
 spells = Array[PackedScene]([ExtResource("2_yrv44"), ExtResource("3_pafut"), ExtResource("3_p5a0g"), ExtResource("5_hv745"), ExtResource("6_c8ks2"), ExtResource("2_myf4l"), ExtResource("8_k6x22"), ExtResource("4_xqmyw")])
-stickers = Array[Texture2D]([ExtResource("11_sigkv"), ExtResource("10_mtsdc"), ExtResource("15_q5yfe"), ExtResource("14_mlbjk"), ExtResource("12_wobyc"), ExtResource("13_7bvr6"), ExtResource("16_sigkv"), ExtResource("16_auoiy")])
+stickers = Array[Texture2D]([ExtResource("11_sigkv"), ExtResource("10_mtsdc"), ExtResource("15_q5yfe"), ExtResource("14_mlbjk"), ExtResource("12_wobyc"), ExtResource("13_7bvr6"), ExtResource("16_sigkv"), ExtResource("16_auoiy"), ExtResource("18_wobyc")])
 
 [node name="TMP" type="Sprite2D" parent="." unique_id=325278727]
 visible = false
