@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chsoj5ua3prvj" path="res://spells/targeted_spell.gd" id="1_fefvb"]
 [ext_resource type="Texture2D" uid="uid://dp1jkpvt6cb42" path="res://assets/I didn't ask how big the room is I said I cast FIREBALL.png" id="2_ao3pv"]
-[ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="3_wwhfi"]
+[ext_resource type="PackedScene" uid="uid://bfwnbgbxnlkm1" path="res://spells/projectiles/specificProjectiles/fireball_projectile.tscn" id="3_ao3pv"]
 
 [node name="Spell3" type="Node" unique_id=421141106]
 script = ExtResource("1_fefvb")
@@ -12,4 +12,4 @@ duration = 10.0
 speed = 300.0
 recharge_cooldown = 0.7
 icon = ExtResource("2_ao3pv")
-projectile = ExtResource("3_wwhfi")
+projectile = ExtResource("3_ao3pv")
