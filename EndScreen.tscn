@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bk04yydg68reg"]
+
+[ext_resource type="Script" uid="uid://d05eo3b0o2qlx" path="res://end_screen.gd" id="1_3w1jx"]
+[ext_resource type="FontFile" uid="uid://bfd4a857n8w83" path="res://assets/Banana-Outline-Regular.ttf" id="1_8dv01"]
+[ext_resource type="Texture2D" uid="uid://w6rwf2ju4f50" path="res://assets/pagelivre.png" id="2_lmk8k"]
+[ext_resource type="Texture2D" uid="uid://bewpsyln8jd3p" path="res://assets/cartonIG.png" id="3_lmk8k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgsw5"]
+font = ExtResource("1_8dv01")
+font_size = 150
+font_color = Color(0.09411765, 0.043137256, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+
+[sub_resource type="Gradient" id="Gradient_082n1"]
+offsets = PackedFloat32Array(0, 0.61214954)
+colors = PackedColorArray(0.54427516, 0.31785312, 0.045689207, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xex6t"]
+gradient = SubResource("Gradient_082n1")
+width = 1024
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_syckt"]
+font = ExtResource("1_8dv01")
+font_size = 100
+font_color = Color(0.09411765, 0.043137256, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1638278445]
+script = ExtResource("1_3w1jx")
+
+[node name="Label" type="Label" parent="." unique_id=1560104470]
+offset_left = 365.0
+offset_top = 341.0
+offset_right = 1521.0
+offset_bottom = 660.0
+text = "They did not live
+ happy ever after"
+label_settings = SubResource("LabelSettings_mgsw5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=958779051]
+z_index = -4
+position = Vector2(962.0001, 538.5)
+scale = Vector2(0.69002503, 0.55657965)
+texture = ExtResource("2_lmk8k")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1704130305]
+color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2082612799]
+position = Vector2(961, 517)
+scale = Vector2(1.6186997, 3.0859375)
+color = Color(0.74964654, 0.58850926, 0.47191525, 1)
+texture = SubResource("GradientTexture2D_xex6t")
+
+[node name="Button" type="Button" parent="." unique_id=1608370247]
+offset_left = 560.00006
+offset_top = 742.0
+offset_right = 568.00006
+offset_bottom = 750.0
+scale = Vector2(95.77701, 29.424484)
+flat = true
+
+[node name="Label2" type="Label" parent="." unique_id=1293335003]
+offset_left = 687.0
+offset_top = 814.0
+offset_right = 1209.0
+offset_bottom = 919.0
+text = "Try again ?"
+label_settings = SubResource("LabelSettings_syckt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=980696099]
+position = Vector2(940.99994, 900)
+scale = Vector2(1.184344, 3.0311434)
+color = Color(0.884831, 0.68019116, 0.60264844, 1)
+texture = SubResource("GradientTexture2D_xex6t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=484177062]
+z_index = -1
+position = Vector2(855, 888)
+scale = Vector2(1, 0.671875)
+texture = ExtResource("3_lmk8k")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

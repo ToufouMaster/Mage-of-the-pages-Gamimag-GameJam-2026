@@ -46,10 +46,17 @@ func level_up():
 
 enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, SWIFT_SPELL_UP, DOUBLE_SPELL, PASSIF_SPELL, CONSONNE_CRIT, VOYELLE_CRIT, BOOKMARK} 
 
+
+var weak_letter : Dictionary[int, float]
+
 @export var debug_stickers : Dictionary[Sticker, int]
 var sticked_stickers : Dictionary[Sticker, int]
+var sticker_positions : Array[Vector3]
 
 func _ready() -> void:
+	FuncSingleton.start_match.connect(start_match)
+	FuncSingleton.end_match.connect(end_match)
+	
 	cast_timer = Timer.new()
 	recharge_timer = Timer.new()
 	passif_timer = Timer.new()
@@ -178,6 +185,14 @@ func update_speed():
 func update_target_amount():
 	self.actual_target_amount = self.target_amount + FuncSingleton.get_pascal_triangle(sticked_stickers[Sticker.SWIFT_SPELL_UP])
 
+func add_weak_letters(letter_list : Array[int], coef : float):
+	for letter : int in letter_list:
+		if weak_letter.has(letter):
+			weak_letter[letter] * coef
+		else:
+			weak_letter.set(letter, coef)
+
+
 var sticker_amount : int = 0
 const MAX_STICKER : int = 5
 
@@ -186,6 +201,7 @@ func can_get_new_sticker() -> bool:
 
 func add_sticker(sticker_type : Sticker):
 	self.sticked_stickers[sticker_type] += 1
+	self.sticker_positions.append(Vector3(sticker_type,randi()%250 +50,randi()%300 + 50))
 	self.sticker_amount += 1
 	match sticker_type:
 		Sticker.DMG_UP:
@@ -200,6 +216,12 @@ func add_sticker(sticker_type : Sticker):
 			update_duration()
 			update_speed()
 			update_target_amount()
+		Sticker.VOYELLE_CRIT:
+			add_weak_letters(FuncSingleton.voyelles_array, 1.9)
+		Sticker.CONSONNE_CRIT:
+			add_weak_letters(range(0,26).filter(FuncSingleton.is_consomn), 1.5)
+		Sticker.BOOKMARK:
+			MainSingleton.spell_book.add_bookmark(self.get_index())
 
 func get_title():
 	push_warning(get_name() + " spell name is not implemented")

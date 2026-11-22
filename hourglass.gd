@@ -32,7 +32,7 @@ func set_progress(value: float):
 		alarm_tick = 0
 		red_halo.self_modulate.a = 0
 
-func start_round_timer(cooldown: float = 5):
+func start_round_timer(cooldown: float = 50):
 	timer.start(cooldown)
 
 func _process(_delta: float) -> void:

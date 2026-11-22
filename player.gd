@@ -6,6 +6,21 @@ var speed = 100.0
 @export var ennemy_detect_area : Area2D
 @onready var coin_picker_area : Area2D = $CoinPicker
 
+func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	FuncSingleton.start_match.connect(start_match)
+	FuncSingleton.end_match.connect(end_match)
+
+func start_match():
+	self.show()
+	self.health = self.max_health
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	self.show()
+
+func end_match():
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	self.hide()
+
 func get_closer_ennemy_direction():
 	var current_closer_ennemy : Ennemy = null
 	var current_closest_distance : float = 1000
@@ -50,11 +65,18 @@ func heal_damage(amount : int):
 
 
 func die():
-	pass
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	$GameOver.show()
+	self.hide()
 
 func _physics_process(_delta: float) -> void:
 	var horizontal_movement := Input.get_axis("walk left", "walk right")
 	var vertical_movement := Input.get_axis("walk up", "walk down")
+	if (horizontal_movement > 0):
+		$Sprite2D.flip_h = false
+	else :
+		$Sprite2D.flip_h = true
+		
 	var movement = Vector2(horizontal_movement, vertical_movement).normalized()
 	if movement:
 		velocity = movement * speed
