@@ -2,6 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://2m6w2tc61c15" path="res://spells/projectiles/base_projectile.tscn" id="1_o6r6r"]
 [ext_resource type="Texture2D" uid="uid://cvgy5mbdxgh7k" path="res://assets/ShotGunSpellProj.png" id="2_evkyx"]
+[ext_resource type="AudioStream" uid="uid://dykk6tg5saum5" path="res://audio/spells/universfield-shotgun-blast-352038.mp3" id="3_evkyx"]
 
-[node name="Projectile" unique_id=154329058 instance=ExtResource("1_o6r6r")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y1lcl"]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("3_evkyx")
+
+[node name="Projectile2" unique_id=154329058 instance=ExtResource("1_o6r6r")]
 texture = ExtResource("2_evkyx")
+hit_sfx = SubResource("AudioStreamRandomizer_y1lcl")
+
+[node name="ProjectileHitPlayer" parent="." index="2" unique_id=1229037080]
+volume_db = -10.0
