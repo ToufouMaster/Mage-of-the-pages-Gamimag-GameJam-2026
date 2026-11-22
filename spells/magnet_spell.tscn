@@ -5,6 +5,7 @@
 
 [node name="Spell8" type="Node" unique_id=1108468634]
 script = ExtResource("1_pdkgf")
+duration = 4.0
 recharge_cooldown = 20.0
 icon = ExtResource("2_kph0k")
 pentacle_color = Color(0, 0, 0.4392157, 1)

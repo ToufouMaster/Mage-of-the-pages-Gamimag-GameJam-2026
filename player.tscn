@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdrvignd88gw1" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://cw3tuhb45duix" path="res://pentacle_flat.gd" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://cyhwladh2k38m" path="res://assets/pentacle.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bljcmni5p4e33" path="res://assets/white_pentacle.png" id="4_sweqy"]
 [ext_resource type="Texture2D" uid="uid://riqt0hrl735l" path="res://assets/ratanim.png" id="5_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://bk04yydg68reg" path="res://EndScreen.tscn" id="5_sweqy"]
 
@@ -111,7 +111,7 @@ script = ExtResource("3_sweqy")
 [node name="Pentacle" type="Sprite2D" parent="PentacleFlat" unique_id=210571774]
 rotation = -6.2831855
 scale = Vector2(0.06263065, 0.06263065)
-texture = ExtResource("4_2hs0m")
+texture = ExtResource("4_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1409602573]
 scale = Vector2(0.05, 0.05)

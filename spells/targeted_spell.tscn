@@ -6,7 +6,7 @@
 
 [node name="Spell3" type="Node" unique_id=421141106]
 script = ExtResource("1_fefvb")
-max_stock = 25
+max_stock = 12
 dmg = 2
 duration = 10.0
 speed = 300.0

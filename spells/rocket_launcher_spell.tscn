@@ -6,13 +6,13 @@
 
 [node name="RocketLauncherSpell" type="Node" unique_id=512849794]
 script = ExtResource("1_oqv7u")
-max_stock = 3
-dmg = 2
+max_stock = 4
+dmg = 4
 duration = 6.0
 speed = 400.0
 target_amount = 2
-cast_cooldown = 2.0
-recharge_cooldown = 4.0
+cast_cooldown = 1.0
+recharge_cooldown = 5.0
 icon = ExtResource("2_oqv7u")
 projectile = ExtResource("3_wgjtd")
 pentacle_color = Color(0.94509804, 0, 0, 1)
