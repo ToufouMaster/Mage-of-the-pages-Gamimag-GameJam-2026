@@ -529,6 +529,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_syckt"]
+font = ExtResource("45_3gvs5")
+font_size = 250
+font_color = Color(0.6644984, 0.07714733, 0.45341194, 1)
+
 [node name="Node2D" type="Node2D" unique_id=1987371302]
 script = ExtResource("1_du4n2")
 
@@ -1023,11 +1028,19 @@ offset_right = 1700.0
 offset_bottom = 1000.0
 theme_override_fonts/font = ExtResource("45_3gvs5")
 theme_override_font_sizes/font_size = 300
-text = "Start
-"
 icon = ExtResource("61_bqa6y")
+flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Label" type="Label" parent="StartButton" unique_id=16734646]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 325.0
+offset_right = 803.0
+offset_bottom = 588.0
+text = "Start"
+label_settings = SubResource("LabelSettings_syckt")
 
 [node name="RetryButton" type="Button" parent="." unique_id=566505694]
 visible = false
