@@ -40,7 +40,19 @@ func end_match():
 func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
 	$Spells.add_child(new_spell)
-	self.spell_list.insert(spell_position, new_spell)
+	var found = false
+	for i in range(self.spell_list.size()):
+		var spell : Spell = self.spell_list.get(i)
+		print(spell.get_title()+", "+new_spell.get_title())
+		if spell.get_title() != new_spell.get_title(): continue
+		found = true
+		spell.item_amount += 1
+		print(spell.item_amount)
+		print(spell.level)
+		break
+	
+	if !found:
+		self.spell_list.insert(spell_position, new_spell)
 	go_to_page(spell_position)
 
 func add_spell_current_index(spell_scene : PackedScene):

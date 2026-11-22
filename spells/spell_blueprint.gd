@@ -35,9 +35,10 @@ var is_selected : bool = false
 var spell_ready : bool = false
 
 var level = 0
-var item_amount : int = 1 : 
+var item_amount : int = 0 : 
 	set(val):
-		if (val >= level+1):
+		item_amount = val
+		if (item_amount >= level+2):
 			level_up()
 
 func level_up():

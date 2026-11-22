@@ -1,14 +1,14 @@
 extends Control
 
 func set_popup_info(spell_id, is_sticker):
-	var spell_instance : Spell = MainSingleton.shop.spells.get(spell_id).instantiate()
-	var found_spell : Spell = null
-	for i in MainSingleton.spell_book.spell_list:
-		if spell_instance.get_title() != i.get_title(): continue
-		found_spell = i
-	
 	$Stats.hide()
 	if !is_sticker:
+		var spell_instance : Spell = MainSingleton.shop.spells.get(spell_id).instantiate()
+		var found_spell : Spell = null
+		for i in MainSingleton.spell_book.spell_list:
+			if spell_instance.get_title() != i.get_title(): continue
+			found_spell = i
+			break
 		$Stats.show()
 		var damage
 		var reload_cd
@@ -23,7 +23,7 @@ func set_popup_info(spell_id, is_sticker):
 			$SpellStatus/LevelUp.show()
 			$SpellStatus/LevelUp/ProgressBar.value = found_spell.item_amount
 			$SpellStatus/LevelUp/ProgressBar.max_value = found_spell.level+1
-			$SpellStatus/LevelUp/ProgressBar/Label.text = "Level: "+str(found_spell.level) + " | " + str(found_spell.item_amount) + " / " + str(found_spell.level+1)
+			$SpellStatus/LevelUp/ProgressBar/Label.text = "Level: "+str(found_spell.level+1) + " | " + str(found_spell.item_amount) + " / " + str(found_spell.level+2)
 			damage = found_spell.actual_dmg
 			reload_cd = found_spell.get_actual_reload_cooldown()
 			cast_cd = found_spell.get_actual_cast_cooldown()

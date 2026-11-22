@@ -157,6 +157,7 @@ scale = Vector2(11.932791, 10.931936)
 shape = SubResource("RectangleShape2D_mgsw5")
 
 [node name="SpellInfoPopup" type="Control" parent="." unique_id=699671510]
+visible = false
 modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 light_mask = 2
 z_index = 2
@@ -168,6 +169,7 @@ offset_left = 200.0
 offset_top = -300.0
 offset_right = 1000.0
 offset_bottom = 300.0
+mouse_filter = 2
 script = ExtResource("11_0ka6s")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="SpellInfoPopup" unique_id=1922828037]
