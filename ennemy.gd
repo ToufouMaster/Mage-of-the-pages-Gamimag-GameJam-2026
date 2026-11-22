@@ -52,12 +52,13 @@ func die():
 		new_drop.value = (self.letter + 1)*2 
 		new_drop.position = self.position
 		new_drop.scale = new_drop.scale + Vector2.ONE * float(self.letter/26)
-		if randi()%5 == 0:
-			var clip = ($AudioStreamPlayer2D.stream as AudioStreamInteractive).get_clip_stream(self.letter)
+		if randi()%1 == 0:
+			var clip = ($AudioStreamPlayer2D.stream as AudioStreamInteractive).get_clip_stream(self.letter).duplicate()
+			print(clip)
 			var audio_player = AudioStreamPlayer2D.new()
-			audio_player.volume_db = -5
+			audio_player.volume_db = 0
 			audio_player.set_stream(clip)
-			MainSingleton.play_audioplayer_at_pos(audio_player, global_position)
+			MainSingleton.play_audioplayer_at_pos(audio_player, global_position, 0.5)
 		self.get_parent().add_child(new_drop)
 		self.queue_free()
 

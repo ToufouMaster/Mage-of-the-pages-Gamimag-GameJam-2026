@@ -29,12 +29,15 @@ func update_references():
 	shop = get_tree().root.get_node("Node2D/Shop")
 	game_animation_player = get_tree().root.get_node("Node2D/GameAnimationPlayer")
 
-func play_audioplayer_at_pos(_player: AudioStreamPlayer2D, global_pos: Vector2):
+func play_audioplayer_at_pos(_player: AudioStreamPlayer2D, global_pos: Vector2, max_time = 0):
 	var audio_player = _player.duplicate()
 	game.get_node("Sounds").add_child(audio_player)
 	audio_player.global_position = global_pos
 	audio_player.play()
 	audio_player.finished.connect(audio_player.queue_free)
+	#if max_time != 0:
+	#await get_tree().create_timer(max_time).timeout
+	#audio_player.stop()
 
 func _on_run_start():
 	coinLetter = 0
