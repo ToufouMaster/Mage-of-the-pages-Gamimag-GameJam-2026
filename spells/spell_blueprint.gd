@@ -22,7 +22,7 @@ var actual_target_amount : int = target_amount
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
 
-var current_stock
+var current_stock = 0
 var cast_timer : Timer
 var recharge_timer : Timer
 var switch_timer : Timer
@@ -66,6 +66,9 @@ func _ready() -> void:
 	for entry in debug_stickers.keys():
 		for i in range(0, debug_stickers.get(entry)):
 			self.add_sticker(entry)
+	update_everything()
+	current_stock = actual_max_stock
+	
 
 func start_match():
 	update_everything()

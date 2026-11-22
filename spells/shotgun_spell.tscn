@@ -6,5 +6,6 @@
 
 [node name="Spell4" type="Node" unique_id=1518170349]
 script = ExtResource("1_jtvf0")
+max_stock = 3
 icon = ExtResource("2_lt7vu")
 projectile = ExtResource("3_w04gf")
