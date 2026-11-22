@@ -78,9 +78,16 @@ func _physics_process(_delta: float) -> void:
 	var horizontal_movement := Input.get_axis("walk left", "walk right")
 	var vertical_movement := Input.get_axis("walk up", "walk down")
 	if (horizontal_movement > 0):
-		$Sprite2D.flip_h = false
-	else :
-		$Sprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("run")
+	elif horizontal_movement < 0 :
+		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("run")
+	elif vertical_movement !=0 :
+		$AnimatedSprite2D.play("run")
+	else : 
+		$AnimatedSprite2D.stop()
+		
 		
 	var movement = Vector2(horizontal_movement, vertical_movement).normalized()
 	if movement:
