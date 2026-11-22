@@ -80,17 +80,22 @@ func go_to_page(index : int):
 		$NotePad/Page/SpellPage.remove_stickers()
 		$NotePad/Page/SpellPage.set_stickers(spell_list[current_spell_index])
 		$NotePad/Page/SpellPage.set_spell_page(new_spell)
-		await $NotePad/NotepadAnimationPlayer.animation_finished
-		$NotePad/Background/SpellPage.remove_stickers()
+		
 		
 	else:
 		$NotePad/NotepadAnimationPlayer.play("PageDown", -1, -5.0, true)
 		$NotePad/Background/SpellPage.remove_stickers()
 		$NotePad/Background/SpellPage.set_stickers(spell_list[current_spell_index])
 		$NotePad/Background/SpellPage.set_spell_page(new_spell)
+
+	new_spell.switch_on()
+	if turn_down:
+		await $NotePad/NotepadAnimationPlayer.animation_finished
+		$NotePad/Background/SpellPage.remove_stickers()
+	else :
 		await $NotePad/NotepadAnimationPlayer.animation_finished
 		$NotePad/Page/SpellPage.remove_stickers()
-	new_spell.switch_on()
+	
 
 func turn_page_down():
 	if (self.current_spell_index + 1 < spell_list.size()):
