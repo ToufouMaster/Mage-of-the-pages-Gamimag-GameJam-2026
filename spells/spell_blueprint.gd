@@ -52,6 +52,9 @@ enum Sticker {DMG_UP, COOLDOWN_DOWN, STOCKAGE_UP, SWIFT_SPELL_UP, DOUBLE_SPELL, 
 var sticked_stickers : Dictionary[Sticker, int]
 
 func _ready() -> void:
+	FuncSingleton.start_match.connect(start_match)
+	FuncSingleton.end_match.connect(end_match)
+	
 	cast_timer = Timer.new()
 	recharge_timer = Timer.new()
 	passif_timer = Timer.new()
