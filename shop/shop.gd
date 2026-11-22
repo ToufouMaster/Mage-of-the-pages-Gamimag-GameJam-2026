@@ -7,8 +7,8 @@ class_name Shop
 @onready var marker_spell_right : Marker2D = $Markers/SpellRight
 @onready var marker_sticker_left : Marker2D = $Markers/StickerLeft
 @onready var marker_sticker_right : Marker2D = $Markers/StickerRight
-@onready var spell_items : Node2D = $Items/Spells
-@onready var sticker_items : Node2D = $Items/Stickers
+@onready var spell_items : Node2D = $Market/Items/Spells
+@onready var sticker_items : Node2D = $Market/Items/Stickers
 @onready var money_display : Node2D = $"Money Display"
 
 @export var spells: Array[PackedScene]

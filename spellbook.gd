@@ -69,3 +69,12 @@ func turn_page_up():
 		go_to_page(self.current_spell_index - 1)
 		return true
 	return false
+
+
+func _on_sign_button_pressed() -> void:
+	$"../GameAnimationPlayer".play("TurnPageToWorld")
+
+func _on_game_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "TurnPageToWorld":
+		MainSingleton.round += 1
+		start_match()
