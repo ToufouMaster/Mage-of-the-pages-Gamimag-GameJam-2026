@@ -961,6 +961,8 @@ position = Vector2(397, 209)
 root_node = NodePath("../..")
 libraries/ = ExtResource("54_3gvs5")
 
+[node name="Sounds" type="Node2D" parent="." unique_id=576326318]
+
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
 libraries/ = ExtResource("19_qhcbd")
 

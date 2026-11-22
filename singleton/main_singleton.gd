@@ -1,7 +1,7 @@
 extends Node2D
 
 
-
+var game : Node2D
 var player : Player
 var money_displayer : Node 
 var projectile_spawner : ProjectileSpawner
@@ -20,6 +20,7 @@ func _ready() -> void:
 	FuncSingleton.start_run.connect(_on_run_start)
 
 func update_references():
+	game = get_tree().root.get_node("Node2D")
 	player = get_tree().root.get_node("Node2D/WorldViewport/World/Player")
 	money_displayer = get_tree().root.get_node("Node2D/Shop/Money Display")
 	projectile_spawner = get_tree().root.get_node("Node2D/WorldViewport/World/ProjectileSpawner")
@@ -28,6 +29,12 @@ func update_references():
 	shop = get_tree().root.get_node("Node2D/Shop")
 	game_animation_player = get_tree().root.get_node("Node2D/GameAnimationPlayer")
 
+func play_audioplayer_at_pos(_player: AudioStreamPlayer2D, global_pos: Vector2):
+	var audio_player = _player.duplicate()
+	game.get_node("Sounds").add_child(audio_player)
+	audio_player.global_position = global_pos
+	audio_player.play()
+	audio_player.finished.connect(audio_player.queue_free)
 
 func _on_run_start():
 	coinLetter = 0
