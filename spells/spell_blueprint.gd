@@ -81,20 +81,22 @@ func end_match():
 
 func _on_recharge():
 	current_stock = clamp(current_stock + 1, 0, self.actual_max_stock)
-	if is_selected:
-		self.cast_timer.paused = false
+	if (cast_timer.paused):
+		_on_cooldown_end()
 
 func _on_cooldown_end():
 	if is_selected:
 		if (self.current_stock > 0):
 			current_stock -= 1
 			recharge_timer.paused = false
+			cast_timer.paused = false
 			cast_spell_sticker_wrapper()
 			spell_ready = false
 			if (self.current_stock == 0):
 				cast_timer.paused = true
 		else:
 			cast_timer.paused = true
+			spell_ready = true
 	else:
 		cast_timer.paused = true
 		spell_ready = true
@@ -110,7 +112,7 @@ func switch_on():
 	await switch_timer.timeout
 	#If is_selected has been switched off in the mean time,
 	#will simply not cast spell and keep spell_ready true
-	if spell_ready:
+	if spell_ready and self.current_stock > 0:
 		_on_cooldown_end()
 	#if is still selected after the one second, we resume the timer
 	if is_selected:

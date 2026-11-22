@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cjx7us1nvemoc" path="res://spells/shock_wave_spell.tscn" id="13_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dsolf6nc3s51" path="res://spells/magnet_spell.tscn" id="14_7knny"]
 [ext_resource type="Texture2D" uid="uid://uj47f7tqwrux" path="res://assets/HealthBarFeet.png" id="15_boyg6"]
+[ext_resource type="PackedScene" uid="uid://c5ud6ded6myw6" path="res://spells/lightning_spell.tscn" id="15_dhpj7"]
 [ext_resource type="Texture2D" uid="uid://b5a4sw3skwcsl" path="res://assets/HealthbarTube.png" id="16_e36ub"]
 [ext_resource type="Texture2D" uid="uid://du00bvkmadqk3" path="res://assets/HealthbarFullTube.png" id="17_hb5m1"]
 [ext_resource type="AnimationLibrary" uid="uid://qt0xloqvg6dv" path="res://health_bar_animations.res" id="18_x5p1p"]
@@ -132,6 +133,8 @@ projectile = ExtResource("10_x5p1p")
 [node name="Spell8" parent="SpellBook/Spells" unique_id=1108468634 instance=ExtResource("14_7knny")]
 duration = 3.0
 icon = ExtResource("20_i2p71")
+
+[node name="LightningSpell" parent="SpellBook/Spells" unique_id=1704353616 instance=ExtResource("15_dhpj7")]
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

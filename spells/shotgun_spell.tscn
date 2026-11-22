@@ -6,7 +6,7 @@
 [node name="Spell4" type="Node" unique_id=1518170349]
 script = ExtResource("1_jtvf0")
 max_stock = 8
-dmg = 5
-cast_cooldown = 1.0
-recharge_cooldown = 1.3
+dmg = 6
+cast_cooldown = 1.1
+recharge_cooldown = 2.0
 icon = ExtResource("2_lt7vu")
