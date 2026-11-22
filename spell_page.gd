@@ -10,11 +10,11 @@ var stickersNodes : Array[Node]
 
 func remove_stickers():
 	for elt in stickersNodes:
-		remove_child(elt)
+		elt.queue_free()
+	stickersNodes.clear()
 
 func set_stickers(spell :Spell):
-	for elt in stickersNodes:
-		remove_child(elt)
+	remove_stickers()
 	for key in spell.sticked_stickers.keys():
 		for sticker in spell.sticker_positions:
 			var tmp = Sprite2D.new()
