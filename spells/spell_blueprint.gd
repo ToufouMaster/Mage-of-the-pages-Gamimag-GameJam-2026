@@ -22,6 +22,9 @@ var actual_target_amount : int = target_amount
 @export var icon : CompressedTexture2D
 @export var projectile : PackedScene
 
+var base_price = 0
+var price_modulation = 0
+
 var current_stock = 0
 var cast_timer : Timer
 var recharge_timer : Timer
@@ -190,3 +193,7 @@ func add_sticker(sticker_type : Sticker):
 			update_duration()
 			update_speed()
 			update_target_amount()
+
+func get_title():
+	push_warning(get_name() + " spell name is not implemented")
+	return "EMPTY TITLE"

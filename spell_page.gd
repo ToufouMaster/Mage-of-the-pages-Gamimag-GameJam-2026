@@ -23,7 +23,7 @@ func set_spell_page(spell: Spell):
 	icon.texture = spell.icon
 	cur_spell = spell
 	stock_label.text = str(spell.actual_max_stock) + " / " + str(spell.actual_max_stock)
-	add_sticker(1)
+	#add_sticker(1)
 		
 
 func _process(_delta: float) -> void:
