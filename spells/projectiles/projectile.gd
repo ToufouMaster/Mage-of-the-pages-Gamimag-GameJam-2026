@@ -14,6 +14,9 @@ func _ready() -> void:
 	$Sprite2D.texture = texture
 
 
+var weak_letter : Dictionary
+
+
 func _physics_process(delta: float) -> void:
 	duration -= delta
 	if (duration <= 0):
@@ -24,7 +27,10 @@ func _physics_process(delta: float) -> void:
 	var overlapping_areas : Array[Area2D] = self.get_overlapping_areas()
 	if (!overlapping_areas.is_empty()):
 		for ennemy_hitbox in overlapping_areas:
+			if (ennemy_hitbox.get_parent().current_damage_cooldown > 0):
+				continue
 			var ennemy : Ennemy = ennemy_hitbox.get_parent() as Ennemy
+			var actual_dmg = dmg if not weak_letter.has(ennemy.letter) else dmg * weak_letter.get(ennemy.letter)
 			ennemy.take_damage(dmg)
 			effect_on_ennemy(ennemy)
 		amount_of_target -= overlapping_areas.size()

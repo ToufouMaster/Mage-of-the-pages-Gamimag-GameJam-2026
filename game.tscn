@@ -577,6 +577,7 @@ visible = false
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
 [node name="Fireball" parent="SpellBook/Spells" unique_id=421141106 instance=ExtResource("7_mfdv2")]
+dmg = 3
 
 [node name="NotePad" type="Node2D" parent="SpellBook" unique_id=963089818]
 

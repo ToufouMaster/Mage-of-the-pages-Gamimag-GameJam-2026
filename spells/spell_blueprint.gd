@@ -152,6 +152,7 @@ func projectile_setup() -> Projectile:
 	new_projectile.duration = self.actual_duration
 	new_projectile.speed = self.actual_speed
 	new_projectile.amount_of_target = self.actual_target_amount
+	new_projectile.weak_letter = self.weak_letter
 	return new_projectile
 
 func update_everything():

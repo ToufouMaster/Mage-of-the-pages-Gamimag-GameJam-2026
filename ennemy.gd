@@ -24,7 +24,7 @@ var speed : float = 50
 func set_up_letter(letter_nb : int, letter_sprite : Texture, no_reset : bool = false):
 	self.letter = letter_nb
 	self.ennemy_sprite.texture = letter_sprite
-	self.max_pv = FuncSingleton.get_letter_scale(letter + 2)
+	self.max_pv = FuncSingleton.get_letter_scale(letter)
 	if !no_reset:
 		self.pv = max_pv
 	else:
@@ -49,7 +49,7 @@ func die():
 	if !is_dying:
 		is_dying = true
 		var new_drop : PickableLetter = coin_drop.instantiate() as PickableLetter
-		new_drop.value = self.letter
+		new_drop.value = (self.letter + 1) 
 		new_drop.position = self.position
 		new_drop.scale = new_drop.scale + Vector2.ONE * float(self.letter/26)
 		self.get_parent().add_child(new_drop)
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		if (!hitbox.get_overlapping_bodies().is_empty() and attack_cooldown <= 0):
 			var player = hitbox.get_overlapping_bodies()[0]
 			if (player is Player):
-				player.take_damage(3)
+				player.take_damage(5)
 				attack_cooldown = max_attack_cooldown
 			else:
 				push_error("multiples entity in layer player")

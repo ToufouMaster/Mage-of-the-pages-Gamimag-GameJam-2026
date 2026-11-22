@@ -26,7 +26,7 @@ func end_match():
 	for child in self.get_children():
 		child.queue_free()
 
-const SPAWN_OFFSET = 150
+const SPAWN_OFFSET = 200
 
 func spawn_batch_of_ennemies():
 	var letter_choices : Array[int] = self.choose_every_letter()
@@ -38,9 +38,9 @@ func spawn_batch_of_ennemies():
 		var movement = Vector2(horizontal_movement, vertical_movement).normalized()
 		var random_spawn = Vector2(randf_range(-SPAWN_OFFSET,SPAWN_OFFSET), randf_range(-SPAWN_OFFSET, SPAWN_OFFSET))
 		#horriblement opti
-		while (abs(random_spawn.y - MainSingleton.player.global_position.y)) < 20:
+		while (abs(random_spawn.y - MainSingleton.player.global_position.y)) < 10:
 			random_spawn.y += randf_range(-SPAWN_OFFSET, SPAWN_OFFSET)
-		while(abs(random_spawn.x - MainSingleton.player.global_position.x)) < 20:
+		while(abs(random_spawn.x - MainSingleton.player.global_position.x)) < 10:
 			random_spawn.x += randf_range(-SPAWN_OFFSET, SPAWN_OFFSET)
 		new_ennemy.global_position = random_spawn
 		self.add_child(new_ennemy)
