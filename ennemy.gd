@@ -24,7 +24,7 @@ var speed : float = 50
 func set_up_letter(letter_nb : int, letter_sprite : Texture, no_reset : bool = false):
 	self.letter = letter_nb
 	self.ennemy_sprite.texture = letter_sprite
-	self.max_pv = FuncSingleton.get_letter_scale(letter)
+	self.max_pv = FuncSingleton.get_letter_scale(letter+1)
 	if !no_reset:
 		self.pv = max_pv
 	else:

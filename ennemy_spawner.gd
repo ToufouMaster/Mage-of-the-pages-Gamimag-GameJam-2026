@@ -14,7 +14,7 @@ func _ready() -> void:
 	FuncSingleton.end_match.connect(end_match)
 
 func start_match():
-	budget = MainSingleton.round * 45
+	budget = MainSingleton.round * 50
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_cooldown
 	self.add_child(spawn_timer)
