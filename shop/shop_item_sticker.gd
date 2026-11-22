@@ -6,6 +6,7 @@ func set_item_id(value):
 	$Background.visible = false
 	$itemAppearance.texture = MainSingleton.shop.stickers[item_id]
 	bought_sticker.get_parent().scale = Vector2.ONE*0.6
+	$itemAppearance.scale = Vector2.ONE*0.8
 
 func buy():
 	super()

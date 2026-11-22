@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://d0jnjuq6t1708" path="res://spell_book.tscn" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bgqlxhnwkg6xh" path="res://spells/spam_spell.tscn" id="5_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bdjqs4qflv38i" path="res://spells/round_spell.tscn" id="6_hve3p"]
-[ext_resource type="Texture2D" uid="uid://dp1jkpvt6cb42" path="res://assets/I didn't ask how big the room is I said I cast FIREBALL.png" id="7_eu6ph"]
 [ext_resource type="PackedScene" uid="uid://crbyp2sgjotig" path="res://spells/targeted_spell.tscn" id="7_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cse8qt8rd0d1s" path="res://spells/shotgun_spell.tscn" id="8_e36ub"]
 [ext_resource type="Texture2D" uid="uid://ktqk3q77fptd" path="res://assets/carnet.png" id="9_iotsf"]
@@ -343,21 +342,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0j531"]
-frequency = 0.0071
-
-[sub_resource type="Gradient" id="Gradient_dhpj7"]
-offsets = PackedFloat32Array(0, 0.7056075)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uvynu"]
-gradient = SubResource("Gradient_dhpj7")
-width = 512
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
-
 [sub_resource type="LabelSettings" id="LabelSettings_mgsw5"]
 font = ExtResource("45_3gvs5")
 font_size = 120
@@ -376,6 +360,21 @@ polygon = PackedVector2Array(271, 565, 271, 530, 318, 526, 322, 569)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yu65q"]
 polygon = PackedVector2Array(367, 568, 359, 530, 411, 521, 418, 568)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0j531"]
+frequency = 0.0071
+
+[sub_resource type="Gradient" id="Gradient_dhpj7"]
+offsets = PackedFloat32Array(0, 0.7056075)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uvynu"]
+gradient = SubResource("Gradient_dhpj7")
+width = 512
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
 
 [node name="Node2D" type="Node2D" unique_id=1987371302]
 
@@ -403,6 +402,7 @@ offset = Vector2(-2797, 55)
 flip_h = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Book" unique_id=1326705178]
+visible = false
 texture = ExtResource("3_xex6t")
 texture_offset = Vector2(-470, -54)
 texture_scale = Vector2(2, 2)
@@ -425,8 +425,6 @@ libraries/ = SubResource("AnimationLibrary_4v2jo")
 [node name="Spells" type="Node" parent="SpellBook" unique_id=1352504095]
 
 [node name="Spell1" parent="SpellBook/Spells" unique_id=139428719 instance=ExtResource("5_mfdv2")]
-projectile_sprite = ExtResource("7_eu6ph")
-projectile_sprite_scale = Vector2(0.02, 0.02)
 
 [node name="Spell2" parent="SpellBook/Spells" unique_id=27304891 instance=ExtResource("6_hve3p")]
 
@@ -664,68 +662,6 @@ volume_db = -10.0
 [node name="GameAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416780101]
 libraries/ = ExtResource("19_qhcbd")
 
-[node name="LightManager" type="Node2D" parent="." unique_id=1975593698]
-script = ExtResource("33_7knny")
-noise = SubResource("FastNoiseLite_0j531")
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="LightManager" unique_id=305526657]
-position = Vector2(1588, -141)
-color = Color(0.20784314, 0.09019608, 0, 1)
-energy = 4.0
-range_z_max = 1
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_uvynu")
-texture_scale = 7.0
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D2" type="PointLight2D" parent="LightManager/PointLight2D" unique_id=1113659123]
-light_mask = 2
-visibility_layer = 2
-color = Color(0.20703125, 0.082812496, 0, 1)
-energy = 2.0
-range_z_max = 1
-range_item_cull_mask = 2
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_uvynu")
-texture_scale = 7.0
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D2" type="PointLight2D" parent="LightManager" unique_id=865214837]
-position = Vector2(408, 1535)
-color = Color(0.20784314, 0.09019608, 0, 1)
-energy = 4.0
-range_z_max = 1
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_uvynu")
-texture_scale = 10.0
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D2" type="PointLight2D" parent="LightManager/PointLight2D2" unique_id=1583025429]
-light_mask = 2
-visibility_layer = 2
-color = Color(0.20703125, 0.082812496, 0, 1)
-energy = 2.0
-range_z_max = 1
-range_item_cull_mask = 2
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 2
-shadow_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_uvynu")
-texture_scale = 10.0
-metadata/_edit_lock_ = true
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1173383351]
-color = Color(0.2265625, 0.2265625, 0.2265625, 1)
-
 [node name="Shop" type="Node2D" parent="." unique_id=1435067064]
 script = ExtResource("36_mljfx")
 spells = Array[PackedScene]([ExtResource("11_hb5m1"), ExtResource("14_7knny"), ExtResource("6_hve3p"), ExtResource("13_qhcbd"), ExtResource("8_e36ub"), ExtResource("5_mfdv2"), ExtResource("12_x5p1p"), ExtResource("7_mfdv2")])
@@ -822,3 +758,65 @@ z_index = 1
 [node name="Spells" type="Node2D" parent="Shop/Items" unique_id=1823396970]
 
 [node name="Stickers" type="Node2D" parent="Shop/Items" unique_id=1661722633]
+
+[node name="LightManager" type="Node2D" parent="." unique_id=1975593698]
+script = ExtResource("33_7knny")
+noise = SubResource("FastNoiseLite_0j531")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="LightManager" unique_id=305526657]
+position = Vector2(1588, -141)
+color = Color(0.20784314, 0.09019608, 0, 1)
+energy = 4.0
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 7.0
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="LightManager/PointLight2D" unique_id=1113659123]
+light_mask = 2
+visibility_layer = 2
+color = Color(0.20703125, 0.082812496, 0, 1)
+energy = 2.0
+range_z_max = 1
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 7.0
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="LightManager" unique_id=865214837]
+position = Vector2(408, 1535)
+color = Color(0.20784314, 0.09019608, 0, 1)
+energy = 4.0
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 10.0
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="LightManager/PointLight2D2" unique_id=1583025429]
+light_mask = 2
+visibility_layer = 2
+color = Color(0.20703125, 0.082812496, 0, 1)
+energy = 2.0
+range_z_max = 1
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_uvynu")
+texture_scale = 10.0
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1173383351]
+color = Color(0.2265625, 0.2265625, 0.2265625, 1)

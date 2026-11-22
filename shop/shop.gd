@@ -20,31 +20,36 @@ func _ready() -> void:
 	dice.button.mouse_entered.connect(_on_reroll_dice_mouse_entered)
 	dice.button.mouse_exited.connect(_on_reroll_dice_mouse_exited)
 	dice.button.pressed.connect(_on_reroll_dice_pressed)
-	
-	var chosenSpells = []
-	while chosenSpells.size() < 4:
-		var r = randi() % spells.size()
-		if not chosenSpells.has(r) :
-			chosenSpells.append(r)
+	generate_items()
+	reroll_items()
+
+func clear_items():
+	for i in spell_items.get_children():
+		i.queue_free()
+	for i in sticker_items.get_children():
+		i.queue_free()
+
+func generate_items():
+	clear_items()
 	for i in range(4):
 		var tmp := SHOP_ITEM_SCENE.instantiate() as ShopItem
 		tmp.set_script(SHOP_SPELL_SCRIPT)
 		spell_items.add_child(tmp)
-		tmp.item_id = chosenSpells[i]
-		tmp.position = marker_spell_left.position + (marker_spell_right.position - marker_spell_left.position) * ((i + 0.0)/(chosenSpells.size()-1))
+		tmp.position = marker_spell_left.position + (marker_spell_right.position - marker_spell_left.position) * ((i + 0.0)/(3))
 		
-	var chosenStickers = []
-	while chosenStickers.size() < 3:
-		var r = randi() % stickers.size()
-		if not chosenStickers.has(r) :
-			chosenStickers.append(r)
 	for i in range(3):
 		var tmp := SHOP_ITEM_SCENE.instantiate() as ShopItem
 		tmp.set_script(SHOP_STICKER_SCRIPT)
 		sticker_items.add_child(tmp)
-		tmp.item_id = chosenStickers[i]
-		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(chosenStickers.size()-1))
+		tmp.position = marker_sticker_left.position + (marker_sticker_right.position - marker_sticker_left.position) * ((i + 0.0)/(2))
 
+func reroll_items():
+	for i : ShopItem in spell_items.get_children():
+		if i.bought: continue
+		i.item_id = randi() % spells.size()
+	for i : ShopItem in sticker_items.get_children():
+		if i.bought: continue
+		i.item_id = randi() % stickers.size()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -59,3 +64,4 @@ func _on_reroll_dice_mouse_exited() -> void:
 	
 func _on_reroll_dice_pressed() -> void:
 	dice.animate_roll()
+	reroll_items()
