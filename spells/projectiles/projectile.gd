@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			var actual_dmg = dmg if not weak_letter.has(ennemy.letter) else dmg * weak_letter.get(ennemy.letter)
 			ennemy.take_damage(dmg)
 			if hit_sfx:
+				$ProjectileHitPlayer.set_stream(hit_sfx)
 				MainSingleton.play_audioplayer_at_pos($ProjectileHitPlayer, global_position)
 			effect_on_ennemy(ennemy)
 			amount_of_target -= 1

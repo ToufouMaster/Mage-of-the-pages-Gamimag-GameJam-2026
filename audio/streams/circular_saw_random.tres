@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cmu8qsisa1f2h"]
+
+[ext_resource type="AudioStream" uid="uid://p2dmpod7lgu5" path="res://audio/spells/freesound_community-circular-saw-1-25584.ogg" id="1_tj2dv"]
+
+[resource]
+random_pitch = 1.3348398
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("1_tj2dv")

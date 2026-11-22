@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0j531"]
 radius = 98.0816
 
-[node name="Projectile" type="Area2D" unique_id=154329058 node_paths=PackedStringArray("sprite")]
+[node name="Projectile3" type="Area2D" unique_id=154329058 node_paths=PackedStringArray("sprite")]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_jl353")
