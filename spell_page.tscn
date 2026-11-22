@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cpnwkivp5tx7k" path="res://assets/stickers/StickerStorage.png" id="7_hdjgj"]
 [ext_resource type="Texture2D" uid="uid://c7limludn5ku2" path="res://assets/stickers/StickerVoyelleBuff.png" id="8_2v5jc"]
 [ext_resource type="Texture2D" uid="uid://dfme5luy660lj" path="res://assets/stickers/ConsonnentBuff.png" id="9_7eyx0"]
+[ext_resource type="Texture2D" uid="uid://cmp1v5kyqr1nr" path="res://assets/bookmarquepage1.png" id="10_2v5jc"]
+[ext_resource type="Texture2D" uid="uid://ngghdhg5cfqg" path="res://assets/bookmarquepage2.png" id="11_nimo0"]
+[ext_resource type="Texture2D" uid="uid://1338auuv1aav" path="res://assets/bookmarquepage3.png" id="12_7g87k"]
+[ext_resource type="Texture2D" uid="uid://dtodl0vhkhbe0" path="res://assets/bookmarquepage4.png" id="13_pas5i"]
+[ext_resource type="Texture2D" uid="uid://c6slcka8l3xxv" path="res://assets/bookmarquepage5.png" id="14_cwlmg"]
 
 [sub_resource type="Shader" id="Shader_v54wv"]
 code = "shader_type canvas_item;
@@ -36,7 +41,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="SpellPage" type="Node2D" unique_id=1119320805]
 script = ExtResource("1_kh30g")
-Stickers = Array[Texture2D]([ExtResource("3_7eyx0"), ExtResource("2_ejq43"), ExtResource("7_hdjgj"), ExtResource("6_g8pw2"), ExtResource("4_vgnlu"), ExtResource("5_p064v"), ExtResource("9_7eyx0"), ExtResource("8_2v5jc"), ExtResource("1_m3v6u")])
+Stickers = Array[Texture2D]([ExtResource("3_7eyx0"), ExtResource("2_ejq43"), ExtResource("7_hdjgj"), ExtResource("6_g8pw2"), ExtResource("4_vgnlu"), ExtResource("5_p064v"), ExtResource("9_7eyx0"), ExtResource("8_2v5jc"), ExtResource("10_2v5jc"), ExtResource("11_nimo0"), ExtResource("12_7g87k"), ExtResource("13_pas5i"), ExtResource("14_cwlmg")])
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1385985796]
 material = SubResource("ShaderMaterial_uvynu")

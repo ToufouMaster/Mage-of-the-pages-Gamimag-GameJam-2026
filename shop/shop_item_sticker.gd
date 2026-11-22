@@ -4,7 +4,7 @@ class_name ShopItemSticker
 func set_item_id(value):
 	super(value)
 	$Background.visible = false
-	$itemAppearance.texture = MainSingleton.shop.stickers[item_id]
+	$itemAppearance.texture = MainSingleton.shop.stickers[item_id] if item_id < 8 else MainSingleton.shop.bookmarks[MainSingleton.spell_book.next_bookmark -1]
 	bought_sticker.get_parent().scale = Vector2.ONE*0.6
 	$itemAppearance.scale = Vector2.ONE*0.8
 

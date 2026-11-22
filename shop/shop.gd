@@ -13,6 +13,7 @@ class_name Shop
 
 @export var spells: Array[PackedScene]
 @export var stickers: Array[Texture2D]
+@export var bookmarks: Array[Texture2D]
 @export var sticker_prices: Dictionary[Spell.Sticker, Vector2]
 const SHOP_ITEM_SCENE = preload("res://shop/ShopItem.tscn")
 const SHOP_SPELL_SCRIPT = preload("res://shop/shop_item_spell.gd")
