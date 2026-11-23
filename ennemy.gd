@@ -3,6 +3,36 @@ class_name Ennemy
 
 var coin_drop : PackedScene = preload("res://pickable_letter.tscn")
 
+var letter_sounds = [
+	preload("res://audio/sfx/letters/A.ogg"),
+	preload("res://audio/sfx/letters/B.ogg"),
+	preload("res://audio/sfx/letters/C.ogg"),
+	preload("res://audio/sfx/letters/D.ogg"),
+	preload("res://audio/sfx/letters/E.ogg"),
+	preload("res://audio/sfx/letters/F.ogg"),
+	preload("res://audio/sfx/letters/G.ogg"),
+	preload("res://audio/sfx/letters/H.ogg"),
+	preload("res://audio/sfx/letters/I.ogg"),
+	preload("res://audio/sfx/letters/J.ogg"),
+	preload("res://audio/sfx/letters/K.ogg"),
+	preload("res://audio/sfx/letters/L.ogg"),
+	preload("res://audio/sfx/letters/M.ogg"),
+	preload("res://audio/sfx/letters/N.ogg"),
+	preload("res://audio/sfx/letters/O.ogg"),
+	preload("res://audio/sfx/letters/P.ogg"),
+	preload("res://audio/sfx/letters/Q.ogg"),
+	preload("res://audio/sfx/letters/R.ogg"),
+	preload("res://audio/sfx/letters/S.ogg"),
+	preload("res://audio/sfx/letters/T.ogg"),
+	preload("res://audio/sfx/letters/U.ogg"),
+	preload("res://audio/sfx/letters/V.ogg"),
+	preload("res://audio/sfx/letters/W.ogg"),
+	preload("res://audio/sfx/letters/X.ogg"),
+	preload("res://audio/sfx/letters/Y.ogg"),
+	preload("res://audio/sfx/letters/Z.ogg")
+	
+]
+
 @export var hitbox : Area2D
 @export var ennemy_sprite : Sprite2D 
 
@@ -52,6 +82,10 @@ func die():
 		new_drop.value = (self.letter + 1)*2 
 		new_drop.position = self.position
 		new_drop.scale = new_drop.scale + Vector2.ONE * float(self.letter/26)
+		if randi()%5 == 0:
+			$AudioStreamPlayer2D.stream.add_stream(0, letter_sounds[self.letter])
+			MainSingleton.play_audioplayer_at_pos($AudioStreamPlayer2D, global_position)
+			$AudioStreamPlayer2D.stream.remove_stream(0)
 		self.get_parent().add_child(new_drop)
 		self.queue_free()
 
