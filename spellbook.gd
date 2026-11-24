@@ -39,9 +39,12 @@ func end_match():
 	FuncSingleton.end_match.emit()
 	MainSingleton.shop.generate_items()
 
+func add_spell_to_spell_list(spell_scene, spell_position):
+	$Spells.add_child(new_spell)
+	self.spell_list.insert(spell_position, new_spell)
+
 func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
-	$Spells.add_child(new_spell)
 	var found = false
 	for i in range(self.spell_list.size()):
 		var spell : Spell = self.spell_list.get(i)
@@ -54,7 +57,7 @@ func add_spell(spell_scene : PackedScene, spell_position : int):
 		break
 	
 	if !found:
-		self.spell_list.insert(spell_position, new_spell)
+		add_spell_to_spell_list(spell_scene, spell_position)
 	go_to_page(spell_position)
 
 func add_spell_current_index(spell_scene : PackedScene):
@@ -73,6 +76,7 @@ func go_to_page(index : int):
 	var turn_down = index > current_spell_index
 	var old_spell = spell_list[current_spell_index]
 	var new_spell = spell_list[index]
+	if current_spell_index == index: return
 	old_spell.switch_off()
 	self.current_spell_index = index
 	if turn_down:
@@ -80,8 +84,6 @@ func go_to_page(index : int):
 		$NotePad/Page/SpellPage.remove_stickers()
 		$NotePad/Page/SpellPage.set_stickers(spell_list[current_spell_index])
 		$NotePad/Page/SpellPage.set_spell_page(new_spell)
-		
-		
 	else:
 		$NotePad/NotepadAnimationPlayer.play("PageDown", -1, -5.0, true)
 		$NotePad/Background/SpellPage.remove_stickers()
@@ -95,7 +97,6 @@ func go_to_page(index : int):
 	else :
 		await $NotePad/NotepadAnimationPlayer.animation_finished
 		$NotePad/Page/SpellPage.remove_stickers()
-	
 
 func turn_page_down():
 	if (self.current_spell_index + 1 < spell_list.size()):
