@@ -25,8 +25,11 @@ func _input(event: InputEvent) -> void:
 		self.turn_page_down()
 	for i in range(1, 6):
 		if (event.is_action_pressed(str(i))):
-			if bookmark_dico.has(str(i)):
-				go_to_page(bookmark_dico.get(str(i)))
+			if bookmark_dico.has(i):
+				go_to_page(get_bookmark_page(i))
+
+func get_bookmark_page(bookmark_id : int):
+	return bookmark_dico.get(bookmark_id).get_index()
 
 func start_match():
 	FuncSingleton.start_match.emit()
@@ -39,9 +42,10 @@ func end_match():
 	FuncSingleton.end_match.emit()
 	MainSingleton.shop.generate_items()
 
-func add_spell_to_spell_list(spell_scene : Spell, spell_position : int):
-	$Spells.add_child(spell_scene)
-	self.spell_list.insert(spell_position, spell_scene)
+func add_spell_to_spell_list(spell : Spell, spell_position : int):
+	$Spells.add_child(spell)
+	$Spells.move_child(spell, spell_position)
+	self.spell_list.insert(spell_position, spell)
 
 func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
@@ -76,7 +80,7 @@ func go_to_page(index : int):
 	var turn_down = index > current_spell_index
 	var old_spell = spell_list[current_spell_index]
 	var new_spell = spell_list[index]
-	if current_spell_index == index: return
+	#if current_spell_index == index: return
 	old_spell.switch_off()
 	self.current_spell_index = index
 	if turn_down:
@@ -120,12 +124,12 @@ func _on_game_animation_player_animation_finished(anim_name: StringName) -> void
 		MainSingleton.round += 1
 
 var next_bookmark : int = 1
-var bookmark_dico : Dictionary[String, int]
+var bookmark_dico : Dictionary[int, Spell]
 var bookmark_available : bool = true
 
 func add_bookmark(related_spell_index : int):
 	if bookmark_available:
-		bookmark_dico.set(str(next_bookmark), related_spell_index) 
+		bookmark_dico.set(next_bookmark, spell_list.get(related_spell_index)) 
 		next_bookmark += 1
 		bookmark_available = next_bookmark < 5
 	else:

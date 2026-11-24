@@ -72,11 +72,12 @@ func _ready() -> void:
 	self.passif_timer.timeout.connect(_on_passif_launch)
 	for entry in Sticker.values():
 		sticked_stickers.set(entry, 0)
-	for entry in debug_stickers.keys():
-		for i in range(0, debug_stickers.get(entry)):
-			self.add_sticker(entry)
 
 func start_match():
+	if MainSingleton.round == 0:
+		for entry in debug_stickers.keys():
+			for i in range(0, debug_stickers.get(entry)):
+				self.add_sticker(entry)
 	update_everything()
 	current_stock = actual_max_stock
 	is_selected = false
