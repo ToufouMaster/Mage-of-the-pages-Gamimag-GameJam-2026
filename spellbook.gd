@@ -39,9 +39,9 @@ func end_match():
 	FuncSingleton.end_match.emit()
 	MainSingleton.shop.generate_items()
 
-func add_spell_to_spell_list(spell_scene, spell_position):
-	$Spells.add_child(new_spell)
-	self.spell_list.insert(spell_position, new_spell)
+func add_spell_to_spell_list(spell_scene : Spell, spell_position : int):
+	$Spells.add_child(spell_scene)
+	self.spell_list.insert(spell_position, spell_scene)
 
 func add_spell(spell_scene : PackedScene, spell_position : int):
 	var new_spell : Spell = spell_scene.instantiate() as Spell
@@ -57,7 +57,7 @@ func add_spell(spell_scene : PackedScene, spell_position : int):
 		break
 	
 	if !found:
-		add_spell_to_spell_list(spell_scene, spell_position)
+		add_spell_to_spell_list(new_spell, spell_position)
 	go_to_page(spell_position)
 
 func add_spell_current_index(spell_scene : PackedScene):
