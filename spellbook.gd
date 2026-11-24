@@ -33,7 +33,7 @@ func get_bookmark_page(bookmark_id : int):
 
 func start_match():
 	FuncSingleton.start_match.emit()
-	self.go_to_page(0)
+	self.go_to_page(0, true)
 	hourglass.start_round_timer()
 	hourglass.timer.timeout.connect(end_match)
 
@@ -76,11 +76,11 @@ func update_stickers():
 	$NotePad/Background/SpellPage.set_stickers(spell_list[current_spell_index])
 	
 
-func go_to_page(index : int):
+func go_to_page(index : int, force_switch : bool = false):
 	var turn_down = index > current_spell_index
 	var old_spell = spell_list[current_spell_index]
 	var new_spell = spell_list[index]
-	#if current_spell_index == index: return
+	if current_spell_index == index && !force_switch: return
 	old_spell.switch_off()
 	self.current_spell_index = index
 	if turn_down:
