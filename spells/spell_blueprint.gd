@@ -80,6 +80,7 @@ func start_match():
 	update_everything()
 	current_stock = actual_max_stock
 	is_selected = false
+	spell_ready = false
 	await get_tree().create_timer(2).timeout
 	recharge_timer.start()
 	cast_timer.start()
@@ -155,15 +156,15 @@ func update_everything():
 
 func get_actual_cast_cooldown():
 	if !sticked_stickers.has(Sticker.COOLDOWN_DOWN): return cast_cooldown
-	return cast_cooldown * (0.75 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
+	return cast_cooldown * (0.80 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
 	
 func get_actual_reload_cooldown():
 	if !sticked_stickers.has(Sticker.COOLDOWN_DOWN): return recharge_cooldown
-	return recharge_cooldown * (0.80 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
+	return recharge_cooldown * (0.90 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
 	
 func get_actual_passive_cooldown():
 	if !sticked_stickers.has(Sticker.PASSIF_SPELL): return self.recharge_timer.wait_time
-	return self.recharge_timer.wait_time * (5 * (0.8 **sticked_stickers[Sticker.PASSIF_SPELL]))
+	return self.recharge_timer.wait_time * (4 * (0.85 **sticked_stickers[Sticker.PASSIF_SPELL]))
 
 func update_cooldowns():
 	self.cast_timer.wait_time = get_actual_cast_cooldown()
@@ -174,7 +175,7 @@ func update_dmg():
 	self.actual_dmg = self.dmg * (1.4 ** (sticked_stickers[Sticker.DMG_UP] + float(level)/2))
 
 func update_stock():
-	self.actual_max_stock = self.max_stock * (sticked_stickers[Sticker.STOCKAGE_UP]+1 + float(level)/2)
+	self.actual_max_stock = roundi(self.max_stock * (sticked_stickers[Sticker.STOCKAGE_UP]+1 + float(level)/2))
 
 func update_duration():
 	self.actual_duration = self.duration * 1.5 ** ((float(sticked_stickers[Sticker.SWIFT_SPELL_UP]) + float(level))/3)

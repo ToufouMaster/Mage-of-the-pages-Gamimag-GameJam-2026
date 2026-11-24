@@ -5,7 +5,7 @@ var budget : int = 40
 var ennemy_scene : PackedScene = preload("res://ennemy.tscn")
 
 @export var letter_sprites : Array[Texture]
-@export var spawn_cooldown : float = randf_range(2.5,3.5)
+@export var spawn_cooldown : float = randf_range(3,3.8)
 
 var spawn_timer : Timer
 
@@ -36,7 +36,7 @@ func spawn_batch_of_ennemies():
 		var horizontal_movement := Input.get_axis("walk left", "walk right")
 		var vertical_movement := Input.get_axis("walk up", "walk down")
 		var movement = Vector2(horizontal_movement, vertical_movement).normalized()
-		var spawn_position : Vector2 = MainSingleton.player.global_position + movement * 20 + Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()*randf_range(120,200)
+		var spawn_position : Vector2 = MainSingleton.player.global_position + movement * 20 + Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()*randf_range(175,300)
 		new_ennemy.global_position = spawn_position
 		self.add_child(new_ennemy)
 

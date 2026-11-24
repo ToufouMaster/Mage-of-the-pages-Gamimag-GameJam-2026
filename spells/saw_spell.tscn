@@ -6,7 +6,7 @@
 
 [node name="SawSpell" type="Node" unique_id=1276658585]
 script = ExtResource("1_v4b6t")
-dmg = 1
+dmg = 2
 duration = 3.5
 speed = 0.0
 target_amount = 100000000000

@@ -8,7 +8,7 @@ func get_title():
 	return "Shockwave"
 
 func get_description():
-	return "Send a shockwave around the player in a large range that deal no damage but repel the enemies far away ("+ str(self.get_actual_cast_cooldown()).pad_decimals(1) +")."
+	return "Send a shockwave around the player in a large range that deals"+ str(self.dmg)+ " damages and repels the enemies far away ("+ str(self.get_actual_cast_cooldown()).pad_decimals(1) +")."
 
 
 func cast_spell(_angle_offset : float = 0):
@@ -16,6 +16,4 @@ func cast_spell(_angle_offset : float = 0):
 	new_projectile.angle = 0
 	#Use dmg to determine the strength of the knockback
 	new_projectile.shock_wave_strength = new_projectile.dmg
-	#reset dmg
-	new_projectile.dmg = 0
 	MainSingleton.projectile_spawner.spawn_projectile(new_projectile.get_spawn_position(), new_projectile)

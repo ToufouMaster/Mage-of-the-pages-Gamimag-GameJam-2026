@@ -18,7 +18,7 @@ random_volume_offset_db = 3.0
 
 [node name="Ennemy" type="CharacterBody2D" unique_id=1476115989 node_paths=PackedStringArray("hitbox", "ennemy_sprite")]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 4
 script = ExtResource("1_8dqw5")
 hitbox = NodePath("Hitbox")
 ennemy_sprite = NodePath("Sprite2D")

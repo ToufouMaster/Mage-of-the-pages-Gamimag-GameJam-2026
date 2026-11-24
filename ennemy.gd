@@ -107,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		if (!hitbox.get_overlapping_bodies().is_empty() and attack_cooldown <= 0):
 			var player = hitbox.get_overlapping_bodies()[0]
 			if (player is Player):
-				player.take_damage(5)
+				player.take_damage(4)
 				attack_cooldown = max_attack_cooldown
 			else:
 				push_error("multiples entity in layer player")
