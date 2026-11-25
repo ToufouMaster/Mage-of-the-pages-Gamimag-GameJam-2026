@@ -2,8 +2,11 @@ extends Node2D
 
 @onready var button : TextureButton = $TextureButton
 @onready var sprite : Sprite2D = $Sprite2D
-@onready var audio_stream : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var money_display : Node2D = $"../Money Display"
+
+var audio_stream = preload("res://audio/streams/dice_roll_random.tres")
+
 var rolls = 0
 
 func animate_roll():
@@ -17,4 +20,5 @@ func animate_roll():
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(sprite, "rotation", PI*(2+randf()*3) if right else -PI*(2+randf()*3), 0.8)
 	tween2.tween_callback(button.set_disabled.bind(false))
-	audio_stream.play()
+	audio_player.stream = audio_stream
+	audio_player.play()
