@@ -62,6 +62,8 @@ func set_up_letter(letter_nb : int, letter_sprite : Texture, no_reset : bool = f
 
 func _ready() -> void:
 	$AnimationPlayer.play("waving")
+	$VisibleOnScreenEnabler2D.screen_exited.connect($PhysicCollision.set_disabled.bind(true))
+	$VisibleOnScreenEnabler2D.screen_entered.connect($PhysicCollision.set_disabled.bind(false))
 
 const DAMAGE_TAKING_COOLDOWN : float = 0.1
 var current_damage_cooldown : float = 0
@@ -114,6 +116,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			attack_cooldown -= delta
 	current_damage_cooldown -= delta
+	if MainSingleton.player.position.distance_to(position) < 50:
+		move_and_slide()
 	move_and_collide(velocity*delta) # Potential x3 performance gain
 
 func follow_player():
