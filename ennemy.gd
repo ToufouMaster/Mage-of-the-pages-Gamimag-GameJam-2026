@@ -114,7 +114,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			attack_cooldown -= delta
 	current_damage_cooldown -= delta
-	move_and_slide()
+	move_and_collide(velocity*delta) # Potential x3 performance gain
 
 func follow_player():
 	var direction = (MainSingleton.player.position - position + Vector2(randf_range(-50,50), randf_range(-50,50))).normalized()
