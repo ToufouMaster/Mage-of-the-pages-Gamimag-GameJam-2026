@@ -8,7 +8,7 @@ func get_title():
 	return "Saw blade"
 
 func get_description():
-	return "Deal a small amount of damage (" + str(self.actual_dmg).pad_decimals(1) + ") very fast around the player in a short range."
+	return "Deal a small amount of damage (" + str(self.get_actual_damage()).pad_decimals(1) + ") very fast around the player in a short range."
 
 var first_saw : Projectile
 

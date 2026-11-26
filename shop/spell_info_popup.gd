@@ -21,6 +21,7 @@ func set_popup_info(spell_id, is_sticker):
 		$SpellStatus/LevelUp.hide()
 		if found_spell:
 			$SpellStatus/LevelUp.show()
+			$Description.text = found_spell.get_description()
 			$SpellStatus/LevelUp/ProgressBar.value = found_spell.item_amount
 			$SpellStatus/LevelUp/ProgressBar.max_value = found_spell.level+1
 			$SpellStatus/LevelUp/ProgressBar/Label.text = "Level: "+str(found_spell.level+1) + " | " + str(found_spell.item_amount) + " / " + str(found_spell.level+2)
@@ -31,6 +32,7 @@ func set_popup_info(spell_id, is_sticker):
 			speed = found_spell.actual_speed
 		else:
 			$SpellStatus/NewSpell.show()
+			$Description.text = spell_instance.get_description()
 			damage = spell_instance.dmg
 			reload_cd = spell_instance.recharge_cooldown
 			cast_cd = spell_instance.cast_cooldown
@@ -38,7 +40,6 @@ func set_popup_info(spell_id, is_sticker):
 			speed = spell_instance.speed
 		
 		$Title.text = spell_instance.get_title()
-		$Description.text = spell_instance.get_description()
 		$Stats/Damage.visible = damage != 0
 		$Stats/Damage/Value.text = ": " + str(damage).pad_decimals(1)
 		$Stats/ReloadCD.visible = reload_cd != 0

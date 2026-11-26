@@ -39,7 +39,7 @@ func set_progress(value: float):
 		red_halo.self_modulate.a = 0
 		$TickingAudio.stop()
 
-func start_round_timer(cooldown: float = 50):
+func start_round_timer(cooldown: float = 5):
 	timer.start(cooldown)
 
 func on_game_over():

@@ -7,11 +7,11 @@
 [node name="Spell1" type="Node" unique_id=139428719]
 script = ExtResource("1_7d005")
 max_stock = 20
-dmg = 4
+dmg = 2
 duration = 2.0
 speed = 150.0
 cast_cooldown = 0.1
-recharge_cooldown = 0.5
+recharge_cooldown = 0.4
 icon = ExtResource("2_pmpoc")
 projectile = ExtResource("3_pmpoc")
 pentacle_color = Color(0, 0, 0.70980394, 1)

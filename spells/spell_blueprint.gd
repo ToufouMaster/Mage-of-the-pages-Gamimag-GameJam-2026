@@ -155,17 +155,25 @@ func update_everything():
 	update_speed()
 	update_target_amount()
 
-func get_actual_cast_cooldown():
-	if !sticked_stickers.has(Sticker.COOLDOWN_DOWN): return cast_cooldown
-	return cast_cooldown * (0.80 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
+func get_actual_cast_cooldown() -> float:
+	var sticker_count : float = sticked_stickers[Sticker.COOLDOWN_DOWN] if sticked_stickers.has(Sticker.COOLDOWN_DOWN) else 0
+	return cast_cooldown * (0.80 ** sticker_count)
 	
-func get_actual_reload_cooldown():
-	if !sticked_stickers.has(Sticker.COOLDOWN_DOWN): return recharge_cooldown
-	return recharge_cooldown * (0.90 ** (sticked_stickers[Sticker.COOLDOWN_DOWN]))
+func get_actual_reload_cooldown() -> float:
+	var sticker_count : float = sticked_stickers[Sticker.COOLDOWN_DOWN] if sticked_stickers.has(Sticker.COOLDOWN_DOWN) else 0
+	return recharge_cooldown * (0.90 ** sticker_count)
 	
-func get_actual_passive_cooldown():
-	if !sticked_stickers.has(Sticker.PASSIF_SPELL): return self.recharge_timer.wait_time
-	return self.recharge_timer.wait_time * (4 * (0.85 **sticked_stickers[Sticker.PASSIF_SPELL]))
+func get_actual_passive_cooldown() -> float:
+	var sticker_count : float = sticked_stickers[Sticker.PASSIF_SPELL] if sticked_stickers.has(Sticker.PASSIF_SPELL) else 0
+	return self.recharge_timer.wait_time * (4 * (0.85 ** sticker_count))
+
+func get_actual_damage() -> float:
+	var sticker_count : float = sticked_stickers[Sticker.DMG_UP] if sticked_stickers.has(Sticker.DMG_UP) else 0
+	print("damage: " + str(self.dmg))
+	print("level: " + str(float(level)))
+	print("multiplier: " + str(1.4 ** (sticker_count + float(level)/2.0)))
+	print("actual damage: " + str(self.dmg * (1.4 ** (sticker_count + float(level)/2.0))))
+	return self.dmg * (1.4 ** (sticker_count + float(level)/2.0))
 
 func update_cooldowns():
 	self.cast_timer.wait_time = get_actual_cast_cooldown()
@@ -173,7 +181,7 @@ func update_cooldowns():
 	self.passif_timer.wait_time = get_actual_passive_cooldown()
 
 func update_dmg():
-	self.actual_dmg = self.dmg * (1.4 ** (sticked_stickers[Sticker.DMG_UP] + float(level)/2))
+	self.actual_dmg = get_actual_damage()
 
 func update_stock():
 	self.actual_max_stock = roundi(self.max_stock * (sticked_stickers[Sticker.STOCKAGE_UP]+1 + float(level)/2))

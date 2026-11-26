@@ -8,7 +8,7 @@ func get_title():
 	return "Rocket Launcher"
 
 func get_description():
-	return "Shoot in the direction of the nearest enemy, deal " + str(self.get_actual_cast_cooldown()).pad_decimals(1) + " damage and repel nearby enemies on impact."
+	return "Shoot in the direction of the nearest enemy, deal " + str(self.get_actual_damage()).pad_decimals(1) + " damage and repel nearby enemies on impact."
 
 func cast_spell(angle_offset : float = 0):
 	var new_projectile : Projectile = self.projectile_setup()

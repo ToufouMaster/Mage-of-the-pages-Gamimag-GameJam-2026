@@ -8,7 +8,7 @@ func get_title():
 	return "Shockwave"
 
 func get_description():
-	return "Send a shockwave around the player in a large range that deals"+ str(self.dmg)+ " damages and repels the enemies far away ("+ str(self.get_actual_cast_cooldown()).pad_decimals(1) +")."
+	return "Send a shockwave around the player in a large range that deals"+ str(self.get_actual_damage()).pad_decimals(1) + " damages and repels the enemies far away ("+ str(self.get_actual_cast_cooldown()).pad_decimals(1) +")."
 
 
 func cast_spell(_angle_offset : float = 0):

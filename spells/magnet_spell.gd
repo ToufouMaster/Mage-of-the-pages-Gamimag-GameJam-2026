@@ -8,7 +8,7 @@ func get_title():
 	return "Magnet"
 
 func get_description():
-	return "Picks up all the coins around the player "+get_range()+"x bigger the original scale during " +str(self.actual_duration).pad_decimals(1)+ " seconds."
+	return "Picks up all the coins around the player "+str(get_range())+"x the original scale during " +str(self.actual_duration).pad_decimals(1)+ " seconds."
 
 func get_range():
 	return 3 + self.level
