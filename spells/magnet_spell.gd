@@ -8,10 +8,13 @@ func get_title():
 	return "Magnet"
 
 func get_description():
-	return "Picks up all the coins around the player 4x bigger the original scale during " +str(self.actual_duration).pad_decimals(1)+ " seconds."
+	return "Picks up all the coins around the player "+get_range()+"x bigger the original scale during " +str(self.actual_duration).pad_decimals(1)+ " seconds."
+
+func get_range():
+	return 3 + self.level
 
 func cast_spell(_angle_offset : float = 0):
-	MainSingleton.player.coin_picker_area.scale = Vector2(4,4)
+	MainSingleton.player.coin_picker_area.scale = Vector2.ONE * get_range()
 	MainSingleton.player.sprite.self_modulate = Color.BLUE
 	await get_tree().create_timer(self.duration).timeout
 	MainSingleton.player.sprite.self_modulate = Color.WHITE
